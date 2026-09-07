@@ -61,7 +61,7 @@ export const Default: Story = {
     },
     template: `
       <div style="padding: 24px;">
-        <NvBadge v-bind="args">Krok 1</NvBadge>
+        <NvBadge v-bind="args">Step 1</NvBadge>
       </div>
     `,
   }),
@@ -73,7 +73,7 @@ export const AuthEyebrow: Story = {
     template: `
       <div style="padding: 24px; display: flex; gap: 16px; align-items: center;">
         <NvBadge size="lg" shadow="lg" variant="default">NETUVIO IDENTITY</NvBadge>
-        <NvBadge size="md" shadow="sm" variant="accent">KROK 1: OVĚŘENÍ</NvBadge>
+        <NvBadge size="md" shadow="sm" variant="accent">STEP 1: VERIFICATION</NvBadge>
       </div>
     `,
   }),
@@ -89,9 +89,9 @@ export const Variants: Story = {
         <NvBadge variant="subtle">Subtle</NvBadge>
         <NvBadge variant="muted">Muted</NvBadge>
         <NvBadge variant="dark">Dark</NvBadge>
-        <NvBadge variant="success" dot>Aktivní</NvBadge>
-        <NvBadge variant="warning" dot>Čeká na úhradu</NvBadge>
-        <NvBadge variant="danger" dot>Expirováno</NvBadge>
+        <NvBadge variant="success" dot>Active</NvBadge>
+        <NvBadge variant="warning" dot>Pending Payment</NvBadge>
+        <NvBadge variant="danger" dot>Expired</NvBadge>
         <NvBadge variant="outline">Outline</NvBadge>
       </div>
     `,
@@ -103,9 +103,9 @@ export const WithIcons: Story = {
     components: { NvBadge },
     template: `
       <div style="padding: 24px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center;">
-        <NvBadge icon="shield" variant="accent">Zabezpečeno</NvBadge>
-        <NvBadge icon="check" variant="success">Ověřeno</NvBadge>
-        <NvBadge iconRight="arrow-right" variant="default" interactive>Přejít do administrace</NvBadge>
+        <NvBadge icon="shield" variant="accent">Secured</NvBadge>
+        <NvBadge icon="check" variant="success">Verified</NvBadge>
+        <NvBadge iconRight="arrow-right" variant="default" interactive>Go to administration</NvBadge>
         <NvBadge icon="user" variant="subtle">contact@skudrna.com</NvBadge>
       </div>
     `,
@@ -117,10 +117,10 @@ export const InteractiveFilters: Story = {
     components: { NvBadge },
     template: `
       <div style="padding: 24px; display: flex; gap: 12px;">
-        <NvBadge interactive variant="accent" shadow="md">Všechny služby</NvBadge>
+        <NvBadge interactive variant="accent" shadow="md">All Services</NvBadge>
         <NvBadge interactive variant="default" shadow="sm">Webhosting</NvBadge>
-        <NvBadge interactive variant="default" shadow="sm">Domény</NvBadge>
-        <NvBadge interactive variant="default" shadow="sm">Faktury</NvBadge>
+        <NvBadge interactive variant="default" shadow="sm">Domains</NvBadge>
+        <NvBadge interactive variant="default" shadow="sm">Invoices</NvBadge>
       </div>
     `,
   }),

@@ -35,7 +35,7 @@ const meta: Meta<typeof NvCheckbox> = {
     },
   },
   args: {
-    label: 'Pamatovat si mě',
+    label: 'Remember me',
     size: 'md',
     mark: 'square',
     disabled: false,
@@ -71,7 +71,7 @@ export const CheckedByDefault: Story = {
     },
     template: `
       <div style="padding: 24px;">
-        <NvCheckbox v-bind="args" v-model="checked" label="Souhlasím s obchodními podmínkami" />
+        <NvCheckbox v-bind="args" v-model="checked" label="I agree to the Terms of Service" />
       </div>
     `,
   }),
@@ -104,8 +104,8 @@ export const WithDescription: Story = {
       <div style="padding: 24px;">
         <NvCheckbox
           v-model="checked"
-          label="Dvoufázové ověření (2FA)"
-          description="Vyžadovat kód z autentizátoru při každém přihlášení do Netuvio Identity."
+          label="Two-factor authentication (2FA)"
+          description="Require an authenticator code on every sign in to Netuvio Identity."
         />
       </div>
     `,
@@ -141,10 +141,10 @@ export const IndeterminateAndDisabled: Story = {
     },
     template: `
       <div style="padding: 24px; display: flex; flex-direction: column; gap: 18px;">
-        <NvCheckbox v-model="c1" indeterminate label="Indeterminate (částečně vybráno)" />
+        <NvCheckbox v-model="c1" indeterminate label="Indeterminate (partially selected)" />
         <NvCheckbox v-model="c2" disabled label="Disabled Checked" />
         <NvCheckbox v-model="c1" disabled label="Disabled Unchecked" />
-        <NvCheckbox v-model="c1" error="Toto pole je povinné" label="With Error Message" />
+        <NvCheckbox v-model="c1" error="This field is required" label="With Error Message" />
       </div>
     `,
   }),

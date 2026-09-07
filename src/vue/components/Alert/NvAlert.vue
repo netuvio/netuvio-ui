@@ -69,7 +69,7 @@ function handleDismiss() {
         v-if="dismissible"
         type="button"
         :class="styles.closeButton"
-        aria-label="Zavřít upozornění"
+        aria-label="Dismiss alert"
         @click="handleDismiss"
       >
         <NvIcon name="close" :size="14" />

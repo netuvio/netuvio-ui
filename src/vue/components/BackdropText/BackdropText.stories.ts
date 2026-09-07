@@ -72,7 +72,7 @@ export const Default: Story = {
             rel="noopener noreferrer"
             style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 800; color: #1c1e16; text-decoration: none; background: #ffffff; border: 2px solid #1c1e16; border-radius: 9999px; padding: 8px 18px; box-shadow: 4px 4px 0 #1c1e16;"
           >
-            <span>Webová stránka</span>
+            <span>Website</span>
             <span aria-hidden="true">↗</span>
           </a>
         </header>
@@ -90,24 +90,24 @@ export const Default: Story = {
               as="h1"
               size="lg"
               :lines="[
-                { text: 'Jeden účet.', variant: 'dark' },
-                { text: 'Nekonečno', variant: 'light' },
-                { text: 'možností.', variant: 'dark' }
+                { text: 'One account.', variant: 'dark' },
+                { text: 'Endless', variant: 'light' },
+                { text: 'possibilities.', variant: 'dark' }
               ]"
             />
             <div style="margin-top: 24px; display: inline-block; background: var(--nv-color-accent, #ABED30); border: 2px solid #1c1e16; border-radius: 12px; padding: 12px 18px; font-size: 13.5px; font-weight: 700; line-height: 1.4; box-shadow: 3px 3px 0 #1c1e16; color: #1c1e16;">
-              Vaše projekty, služby a nové nápady. Všechno začíná ve vašem ověřeném Netuviu.
+              Your projects, services and next big ideas. It all starts with your Netuvio account.
             </div>
           </div>
 
           <!-- Right: Account Overview Card (Image 1 & 3) -->
           <div style="max-width: 440px; justify-self: end; width: 100%;">
-            <Card tag="ÚČET NETUVIO" radius="xl" padding="lg" shadow="card">
+            <Card tag="NETUVIO ACCOUNT" radius="xl" padding="lg" shadow="card">
               <h2 style="font-size: 26px; font-weight: 900; margin: 0 0 6px; letter-spacing: -1px; line-height: 1.15; color: #1c1e16;">
-                Váš účet. Váš prostor.
+                Your account. Your space.
               </h2>
               <p style="margin: 0 0 20px; color: #62665a; font-size: 14px; font-weight: 550; line-height: 1.4;">
-                Spravujte své přihlášení do služeb Netuvio.
+                Manage your credentials and access to Netuvio services.
               </p>
 
               <!-- Nested subtle user info pill with NvIcon -->
@@ -121,7 +121,7 @@ export const Default: Story = {
                   <NvIcon name="user" :size="20" color="#1c1e16" />
                 </div>
                 <div style="overflow: hidden;">
-                  <p style="margin: 0; font-size: 12px; color: #62665a; font-weight: 600;">Přihlášen(a) jako</p>
+                  <p style="margin: 0; font-size: 12px; color: #62665a; font-weight: 600;">Signed in as</p>
                   <p style="margin: 2px 0 0; font-size: 13.5px; font-weight: 800; color: #1c1e16; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
                     Stanislav Škudrna (contact@skudrna.com)
                   </p>
@@ -139,7 +139,7 @@ export const Default: Story = {
                 :font-weight="800"
                 icon-right="→"
               >
-                Odhlásit se
+                Sign out
               </Button>
             </Card>
           </div>
@@ -148,7 +148,7 @@ export const Default: Story = {
         <!-- Footer -->
         <footer style="position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; font-size: 12px; font-weight: 600; color: #3c4033;">
           <span>© 2026 Netuvio</span>
-          <span>Jeden účet pro všechny služby Netuvio</span>
+          <span>One account for all Netuvio services</span>
         </footer>
       </div>
     `,
@@ -174,7 +174,7 @@ export const DarkSurface: Story = {
         <header style="position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 20px;">
           <NvLogo width="160px" height="42px" color="#ffffff" />
           <span style="font-size: 13px; font-weight: 800; color: #ffffff; background: #171912; border: 2px solid #2e3323; border-radius: 9999px; padding: 8px 18px; box-shadow: 4px 4px 0 #000000;">
-            Webová stránka ↗
+            Website ↗
           </span>
         </header>
 
@@ -189,20 +189,20 @@ export const DarkSurface: Story = {
               as="h1"
               size="lg"
               :lines="[
-                { text: 'Jeden účet.', variant: 'dark' },
-                { text: 'Nekonečno', variant: 'light' },
-                { text: 'možností.', variant: 'dark' }
+                { text: 'One account.', variant: 'dark' },
+                { text: 'Endless', variant: 'light' },
+                { text: 'possibilities.', variant: 'dark' }
               ]"
             />
           </div>
 
           <div style="max-width: 440px; justify-self: end; width: 100%;">
-            <Card tag="ÚČET NETUVIO" variant="dark" radius="xl" padding="lg" shadow="card">
+            <Card tag="NETUVIO ACCOUNT" variant="dark" radius="xl" padding="lg" shadow="card">
               <h2 style="font-size: 26px; font-weight: 900; margin: 0 0 6px; letter-spacing: -1px; line-height: 1.15; color: #ffffff;">
-                Váš účet. Váš prostor.
+                Your account. Your space.
               </h2>
               <p style="margin: 0 0 20px; color: #9da192; font-size: 14px; font-weight: 550; line-height: 1.4;">
-                Spravujte své přihlášení do služeb Netuvio.
+                Manage your credentials and access to Netuvio services.
               </p>
 
               <Card
@@ -215,7 +215,7 @@ export const DarkSurface: Story = {
                   <NvIcon name="user" :size="20" color="#1c1e16" />
                 </div>
                 <div>
-                  <p style="margin: 0; font-size: 12px; color: #9da192; font-weight: 600;">Přihlášen(a) jako</p>
+                  <p style="margin: 0; font-size: 12px; color: #9da192; font-weight: 600;">Signed in as</p>
                   <p style="margin: 2px 0 0; font-size: 13.5px; font-weight: 800; color: #ffffff;">
                     Stanislav Škudrna (contact@skudrna.com)
                   </p>
@@ -232,7 +232,7 @@ export const DarkSurface: Story = {
                 :font-weight="800"
                 icon-right="→"
               >
-                Odhlásit se
+                Sign out
               </Button>
             </Card>
           </div>

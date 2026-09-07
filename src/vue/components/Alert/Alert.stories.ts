@@ -42,8 +42,8 @@ const meta: Meta<typeof NvAlert> = {
   },
   args: {
     variant: 'info',
-    title: 'Informace k objednávce',
-    description: 'Zadejte kód objednávky, který jste obdrželi v e-mailu po dokončení nákupu služeb Netuvio.',
+    title: 'Order information',
+    description: 'Enter the order code you received in your confirmation email after completing your Netuvio purchase.',
     radius: 'md',
     shadow: 'sm',
     dismissible: false,
@@ -75,28 +75,28 @@ export const Variants: Story = {
       <div style="padding: 24px; display: flex; flex-direction: column; gap: 16px; max-width: 560px;">
         <NvAlert
           variant="info"
-          title="Ověření objednávky"
-          description="Zadejte kód objednávky, který vám přišel na e-mail po dokončení nákupu služeb Netuvio."
+          title="Order verification"
+          description="Please enter the order verification code sent to your email."
         />
         <NvAlert
           variant="success"
-          title="Objednávka byla úspěšně ověřena"
-          description="Kód NTV-4892-BC je platný a připraven k aktivaci účtu."
+          title="Order verified successfully"
+          description="Code NTV-4892-BC is valid and ready for account activation."
         />
         <NvAlert
           variant="warning"
-          title="Blížící se expirace domény"
-          description="Vaše doména netuvio.cz vyprší za 7 dní. Nezapomeňte prodloužit platnost."
+          title="Upcoming domain expiration"
+          description="Your domain netuvio.cz expires in 7 days. Please renew your registration."
         />
         <NvAlert
           variant="error"
-          title="Chyba při přihlášení"
-          description="Neplatné uživatelské jméno nebo heslo. Zkontrolujte prosím zadané údaje."
+          title="Sign in failed"
+          description="Invalid username or password. Please verify your credentials and try again."
         />
         <NvAlert
           variant="accent"
-          title="Nová verze Netuvio Platform"
-          description="Byl přidán nový přehled faktur a správa SSL certifikátů."
+          title="New Netuvio Platform version"
+          description="Added new invoice management and automated SSL certificate provisioning."
         />
       </div>
     `,
@@ -110,11 +110,11 @@ export const WithActions: Story = {
       <div style="padding: 24px; max-width: 600px;">
         <NvAlert
           variant="success"
-          title="Objednávka ověřena"
-          description="Kód NTV-9817-AX je vázán k účtu contact@skudrna.com"
+          title="Order verified"
+          description="Order NTV-9817-AX is linked to contact@skudrna.com"
         >
           <template #action>
-            <NvButton size="sm" variant="secondary" radius="md">Změnit</NvButton>
+            <NvButton size="sm" variant="secondary" radius="md">Change</NvButton>
           </template>
         </NvAlert>
       </div>
@@ -135,11 +135,11 @@ export const Dismissible: Story = {
           v-if="visible"
           variant="info"
           dismissible
-          title="Oznámení"
-          description="Tento alert můžete kliknutím na křížek vpravo zavřít."
+          title="Notice"
+          description="You can dismiss this alert by clicking the close button on the right."
           @dismiss="visible = false"
         />
-        <p v-else style="font-size: 13px; font-weight: 600;">Alert byl zavřen.</p>
+        <p v-else style="font-size: 13px; font-weight: 600;">Alert was dismissed.</p>
       </div>
     `,
   }),

@@ -42,7 +42,7 @@ const tagDotClass = computed(() => {
 
 <template>
   <component :is="props.as" :class="cardClasses">
-    <!-- Tag / Eyebrow header (e.g. ● ÚČET NETUVIO) -->
+    <!-- Tag / Eyebrow header (e.g. ● NETUVIO ACCOUNT) -->
     <div v-if="$slots.tag || props.tag" :class="styles.cardTag">
       <span v-if="props.tagDot" :class="[styles.tagDot, tagDotClass]" aria-hidden="true" />
       <slot name="tag">

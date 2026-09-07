@@ -56,7 +56,7 @@ const meta: Meta<typeof NvProgressBar> = {
     size: 'md',
     radius: 'full',
     shadow: 'sm',
-    label: 'Využití diskového prostoru',
+    label: 'Disk space utilization',
     showValue: true,
   },
 };
@@ -83,8 +83,8 @@ export const Indeterminate: Story = {
     components: { NvProgressBar },
     template: `
       <div style="padding: 24px; max-width: 480px; display: flex; flex-direction: column; gap: 20px;">
-        <NvProgressBar indeterminate label="Probíhá přesměrování..." />
-        <NvProgressBar indeterminate variant="accent" size="lg" label="Nahrávání zálohy" />
+        <NvProgressBar indeterminate label="Redirecting..." />
+        <NvProgressBar indeterminate variant="accent" size="lg" label="Uploading backup archive..." />
       </div>
     `,
   }),
@@ -126,7 +126,7 @@ export const AnimatedProgress: Story = {
           :value="progress"
           size="lg"
           variant="accent"
-          label="Simulace průběhu instalace"
+          label="Provisioning service container..."
           showValue
         />
       </div>

@@ -59,7 +59,7 @@
   user-select: none;
 }
 
-/* Variant: Dark (Černá s bílo-limetkovým gradientním obtažením) */
+/* Variant: Dark (Dark with white-to-lime gradient layered stroke) */
 .lineDark {
   color: var(--nv-color-text-primary, #1c1e16);
 }
@@ -72,7 +72,7 @@
   -webkit-text-stroke: var(--title-stroke, 12px) transparent;
 }
 
-/* Variant: Light (Bílá s černým obtažením) */
+/* Variant: Light (White with dark layered stroke) */
 .lineLight {
   color: var(--nv-color-text-inverse, #ffffff);
 }
@@ -82,7 +82,7 @@
   -webkit-text-stroke: var(--title-stroke, 12px) var(--nv-color-border-strong, #1c1e16);
 }
 
-/* Variant: Accent (Barevná / Limetková s černým obtažením) */
+/* Variant: Accent (Lime accent with dark layered stroke) */
 .lineAccent {
   color: var(--nv-color-accent, #ABED30);
 }
