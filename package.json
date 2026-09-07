@@ -1,10 +1,21 @@
 {
-  "name": "netuvio-ui",
+  "name": "@netuvio/netuvio-ui",
   "version": "0.1.0",
   "description": "UI component library for Netuvio applications",
   "author": "Netuvio",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netuvio/netuvio-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/netuvio/netuvio-ui/issues"
+  },
+  "homepage": "https://github.com/netuvio/netuvio-ui#readme",
+  "publishConfig": {
+    "access": "public"
+  },
   "files": [
     "dist"
   ],
@@ -28,6 +39,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "prepublishOnly": "pnpm build",
     "typecheck": "vue-tsc --noEmit",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
