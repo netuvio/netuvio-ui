@@ -133,54 +133,54 @@
 
 /* Variants */
 .variant-primary .topLayer {
-  background-color: var(--nv-color-accent);
-  color: var(--nv-color-accent-text);
-  border-color: var(--nv-color-border-strong);
+  background-color: var(--nv-color-accent, hsl(75 85% 56%));
+  color: hsl(0 0% 0%);
+  border-color: hsl(0 0% 0%);
 }
 
 .variant-primary .bottomLayer {
-  background-color: var(--nv-color-border-strong);
+  background-color: hsl(0 0% 0%);
 }
 
 .variant-secondary .topLayer {
-  background-color: var(--nv-color-container);
-  color: var(--nv-color-text-primary);
-  border-color: var(--nv-color-border-strong);
+  background-color: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
+  border-color: hsl(0 0% 0%);
 }
 
 .variant-secondary .bottomLayer {
-  background-color: var(--nv-color-border-strong);
+  background-color: hsl(0 0% 0%);
 }
 
 .variant-tertiary .topLayer {
-  background-color: var(--nv-color-border-strong);
-  color: var(--nv-color-text-inverse);
-  border-color: var(--nv-color-container);
+  background-color: hsl(0 0% 0%);
+  color: hsl(0 0% 100%);
+  border-color: hsl(0 0% 100%);
 }
 
 .variant-tertiary .bottomLayer {
-  background-color: var(--nv-color-container);
+  background-color: hsl(0 0% 100%);
 }
 
 .variant-ghost .topLayer {
   background-color: transparent;
-  color: var(--nv-color-text-primary);
+  color: var(--nv-color-ghost-text, var(--nv-color-accent, hsl(75 85% 56%)));
   border: 2px solid transparent;
 }
 
 .variant-ghost:hover:not(:disabled) .topLayer {
-  background-color: var(--nv-color-bg-alt);
-  color: var(--nv-color-accent-dark);
+  background-color: var(--nv-color-ghost-hover-bg, hsl(75 85% 56% / 0.16));
+  color: var(--nv-color-ghost-hover-text, var(--nv-color-accent-hover, hsl(76 94% 67%)));
 }
 
 .variant-danger .topLayer {
-  background-color: var(--nv-color-error-text);
+  background-color: var(--nv-color-danger, hsl(0 72% 51%));
   color: hsl(0 0% 100%);
-  border-color: var(--nv-color-border-strong);
+  border-color: hsl(0 0% 0%);
 }
 
 .variant-danger .bottomLayer {
-  background-color: var(--nv-color-border-strong);
+  background-color: hsl(0 0% 0%);
 }
 
 .spinner {

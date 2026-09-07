@@ -16,7 +16,9 @@
        url('./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
 }
 
-:root {
+:root,
+:root[data-theme="light"],
+html[data-theme="light"] {
   /* Typography */
   --nv-font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-family: var(--nv-font-sans);
@@ -71,6 +73,11 @@
   --nv-color-accent-text: hsl(75 15% 10%);
   --nv-color-logo: hsl(75 15% 10%);
 
+  /* Ghost Button */
+  --nv-color-ghost-text: hsl(75 100% 31%);
+  --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
+  --nv-color-ghost-hover-text: hsl(75 100% 24%);
+
   /* Container / Card */
   --nv-color-container: hsl(0 0% 100%);
   --nv-color-container-border: hsl(75 15% 10%);
@@ -100,6 +107,9 @@
   --nv-color-error-bg: hsl(13 100% 96%);
   --nv-color-error-border: hsl(10 49% 75%);
   --nv-color-error-text: hsl(8 67% 34%);
+
+  --nv-color-danger: hsl(0 72% 51%);
+  --nv-color-danger-hover: hsl(0 72% 45%);
 
   --nv-color-success-bg: hsl(78 73% 93%);
   --nv-color-success-border: hsl(81 48% 76%);
@@ -132,6 +142,11 @@ html[data-theme="dark"] {
   --nv-color-accent-text: hsl(77 21% 6%);
   --nv-color-logo: hsl(0 0% 100%);
 
+  /* Ghost Button */
+  --nv-color-ghost-text: hsl(75 85% 56%);
+  --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
+  --nv-color-ghost-hover-text: hsl(76 94% 67%);
+
   /* Container / Card */
   --nv-color-container: hsl(77 16% 8%);
   --nv-color-container-border: hsl(79 19% 17%);
@@ -162,6 +177,9 @@ html[data-theme="dark"] {
   --nv-color-error-border: hsl(9 51% 28%);
   --nv-color-error-text: hsl(9 100% 74%);
 
+  --nv-color-danger: hsl(0 72% 51%);
+  --nv-color-danger-hover: hsl(0 72% 45%);
+
   --nv-color-success-bg: hsl(90 36% 11%);
   --nv-color-success-border: hsl(87 45% 23%);
   --nv-color-success-text: hsl(76 94% 67%);
@@ -186,14 +204,15 @@ html[data-theme="dark"] {
 /* System Theme (when user prefers dark and no explicit theme is set) */
 @media (prefers-color-scheme: dark) {
   :root[data-theme="system"],
-  html[data-theme="system"],
-  :root:not([data-theme]),
-  html:not([data-theme]) {
+  html[data-theme="system"] {
     --nv-color-accent: hsl(75 85% 56%);
     --nv-color-accent-hover: hsl(76 94% 67%);
     --nv-color-accent-dark: hsl(76 84% 45%);
     --nv-color-accent-text: hsl(77 21% 6%);
     --nv-color-logo: hsl(0 0% 100%);
+    --nv-color-ghost-text: hsl(75 85% 56%);
+    --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
+    --nv-color-ghost-hover-text: hsl(76 94% 67%);
     --nv-color-container: hsl(77 16% 8%);
     --nv-color-container-border: hsl(79 19% 17%);
     --nv-color-container-shadow: hsl(0 0% 0%);
@@ -214,6 +233,8 @@ html[data-theme="dark"] {
     --nv-color-error-bg: hsl(9 43% 12%);
     --nv-color-error-border: hsl(9 51% 28%);
     --nv-color-error-text: hsl(9 100% 74%);
+    --nv-color-danger: hsl(0 72% 51%);
+    --nv-color-danger-hover: hsl(0 72% 45%);
     --nv-color-success-bg: hsl(90 36% 11%);
     --nv-color-success-border: hsl(87 45% 23%);
     --nv-color-success-text: hsl(76 94% 67%);

@@ -27,11 +27,7 @@ const preview: Preview = {
     (story, context) => {
       const isDark = context.globals.backgrounds?.value === 'hsl(80 21% 5%)'
       if (typeof document !== 'undefined') {
-        if (isDark) {
-          document.documentElement.setAttribute('data-theme', 'dark')
-        } else {
-          document.documentElement.removeAttribute('data-theme')
-        }
+        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light')
       }
       return story()
     },

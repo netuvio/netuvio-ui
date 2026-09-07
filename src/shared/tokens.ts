@@ -90,6 +90,9 @@ export const colors = {
     errorBorder: 'var(--nv-color-error-border)',
     errorText: 'var(--nv-color-error-text)',
 
+    danger: 'var(--nv-color-danger)',
+    dangerHover: 'var(--nv-color-danger-hover)',
+
     successBg: 'var(--nv-color-success-bg)',
     successBorder: 'var(--nv-color-success-border)',
     successText: 'var(--nv-color-success-text)',
