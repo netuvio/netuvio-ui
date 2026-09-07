@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/vue3'
-import '../src/tokens/tokens.css'
+import '../src/shared/tokens.css'
 
 const preview: Preview = {
   parameters: {

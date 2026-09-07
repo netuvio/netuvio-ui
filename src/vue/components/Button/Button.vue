@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import type { ButtonProps } from './Button.types'
-import styles from '../../../styles/components/Button.module.scss'
+import styles from '../../../shared/styles/components/Button.module.scss'
 
 defineOptions({
   name: 'NvButton',

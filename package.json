@@ -7,7 +7,7 @@
   "type": "module",
   "files": [
     "dist",
-    "src/tokens/scss"
+    "src/shared/scss"
   ],
   "exports": {
     "./vue": {
@@ -18,9 +18,13 @@
       "types": "./dist/tokens/index.d.ts",
       "import": "./dist/tokens/index.mjs"
     },
+    "./shared": {
+      "types": "./dist/shared/index.d.ts",
+      "import": "./dist/shared/index.mjs"
+    },
     "./tokens.css": "./dist/tokens/tokens.css",
     "./styles.css": "./dist/styles.css",
-    "./scss/*": "./src/tokens/scss/*"
+    "./scss/*": "./src/shared/scss/*"
   },
   "scripts": {
     "dev": "vite",

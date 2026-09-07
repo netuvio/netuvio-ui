@@ -24,7 +24,7 @@ export default defineConfig({
         }
 
         // Copy raw tokens.css to dist/tokens/tokens.css
-        const srcTokensCss = resolve(rootDir, 'src/tokens/tokens.css')
+        const srcTokensCss = resolve(rootDir, 'src/shared/tokens.css')
         const distTokensCss = resolve(distTokensDir, 'tokens.css')
         copyFileSync(srcTokensCss, distTokensCss)
 
@@ -37,7 +37,7 @@ export default defineConfig({
         }
 
         // Copy fonts directory to dist/fonts and dist/tokens/fonts if files exist
-        const srcFontsDir = resolve(rootDir, 'src/tokens/fonts')
+        const srcFontsDir = resolve(rootDir, 'src/shared/fonts')
         const distFontsDir = resolve(distDir, 'fonts')
         const distTokensFontsDir = resolve(distTokensDir, 'fonts')
         if (existsSync(srcFontsDir)) {
@@ -61,7 +61,8 @@ export default defineConfig({
     lib: {
       entry: {
         'vue/index': resolve(rootDir, 'src/vue/index.ts'),
-        'tokens/index': resolve(rootDir, 'src/tokens/index.ts'),
+        'tokens/index': resolve(rootDir, 'src/shared/index.ts'),
+        'shared/index': resolve(rootDir, 'src/shared/index.ts'),
       },
       formats: ['es'],
       fileName: (format, entryName) => `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,

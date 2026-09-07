@@ -107,6 +107,7 @@ import { Button } from 'netuvio-ui/vue'
 - `$desktopBreakpoint`: `1800px`
 
 #### In SCSS:
+You can `@use` the provided SCSS tokens and mixins directly in your app's SCSS files:
 ```scss
 @use 'netuvio-ui/scss' as nv;
 
@@ -118,6 +119,34 @@ import { Button } from 'netuvio-ui/vue'
     padding: 12px;
   }
 }
+```
+
+---
+
+## Directory Architecture
+
+```text
+src/
+├── shared/                  # Framework-agnostic foundation
+│   ├── fonts/               # Local font files (Inter TTF variable fonts)
+│   ├── scss/                # SCSS variables & breakpoint mixins
+│   ├── styles/              # Shared component stylesheets
+│   │   └── components/
+│   │       └── Button.module.scss
+│   ├── tokens.css           # Pure CSS custom properties (:root & themes)
+│   ├── tokens.ts            # TypeScript token constants
+│   └── index.ts             # Shared barrel export
+│
+├── vue/                     # Vue 3 implementations
+│   ├── components/
+│   │   └── Button/
+│   │       ├── Button.vue
+│   │       ├── Button.types.ts
+│   │       ├── Button.stories.ts
+│   │       └── index.ts
+│   └── index.ts
+│
+└── react/ (future)          # React implementations (when ready)
 ```
 
 ---
