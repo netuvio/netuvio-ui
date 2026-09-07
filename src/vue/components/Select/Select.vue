@@ -172,7 +172,7 @@ onUnmounted(() => {
         :class="[styles.chevron, isOpen && !props.native ? styles.chevronUp : null]"
         aria-hidden="true"
       >
-        {{ isOpen && !props.native ? '▲' : '▼' }}
+        ▼
       </span>
     </button>
 

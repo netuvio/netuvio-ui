@@ -9,6 +9,9 @@ export interface IconProps {
   /** Name of the built-in icon */
   name?: IconName | (string & {});
 
+  /** Renders the filled variant of the icon if available */
+  filled?: boolean;
+
   /** Size of the icon in pixels (number) or CSS length (e.g. 20, '24px') */
   size?: number | string;
 

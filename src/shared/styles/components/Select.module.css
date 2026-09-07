@@ -109,10 +109,13 @@
 }
 
 .chevron {
+  display: inline-block;
   font-size: 8px;
+  line-height: 1;
   flex-shrink: 0;
   color: var(--nv-color-text-primary, #1c1e16);
   transition: transform var(--nv-transition-fast, 0.15s ease);
+  transform-origin: center;
 }
 
 .chevronUp {

@@ -22,9 +22,19 @@ const computedSize = computed(() => {
 const resolvedMaskUrl = computed(() => {
   if (props.maskUrl) return props.maskUrl;
   if (props.src) return props.src;
-  if (props.name && (ICONS_MASK_DATA as Record<string, string>)[props.name]) {
-    return (ICONS_MASK_DATA as Record<string, string>)[props.name];
+  if (!props.name) return '';
+
+  const name = props.name as string;
+  const masks = ICONS_MASK_DATA as Record<string, string>;
+
+  // Check filled variants if requested
+  if (props.filled) {
+    if (masks[`${name}-filled`]) return masks[`${name}-filled`];
+    if (masks[`${name}-fill`]) return masks[`${name}-fill`];
   }
+
+  // Standard lookup
+  if (masks[name]) return masks[name];
   return '';
 });
 
