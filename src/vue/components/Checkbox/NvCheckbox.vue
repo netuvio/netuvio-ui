@@ -13,6 +13,7 @@ const props = withDefaults(defineProps<CheckboxProps>(), {
   mark: 'square',
   disabled: false,
   indeterminate: false,
+  threeD: true,
 });
 
 const emit = defineEmits<CheckboxEmits>();
@@ -35,6 +36,7 @@ const containerClasses = computed(() => [
 const boxClasses = computed(() => [
   styles.box,
   styles[`size-${props.size}`],
+  !props.threeD ? styles.noThreeD : null,
 ]);
 
 function handleChange(event: Event) {
@@ -63,7 +65,7 @@ function handleChange(event: Event) {
 </script>
 
 <template>
-  <label :class="containerClasses">
+  <label :class="containerClasses" :theme="props.theme" :data-theme="props.theme">
     <div :class="styles.checkboxWrapper">
       <input
         type="checkbox"

@@ -10,18 +10,17 @@ const meta: Meta<typeof NvAlert> = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['info', 'error', 'success', 'warning', 'accent', 'default'],
+      options: ['info', 'danger', 'success', 'warning', 'accent', 'default'],
       description: 'Visual alert variant',
     },
     radius: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
       description: 'Border radius style',
     },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md'],
-      description: 'Brutalist box shadow',
+    threeD: {
+      control: 'boolean',
+      description: 'Brutalist 3D box-shadow',
     },
     title: {
       control: 'text',
@@ -45,7 +44,7 @@ const meta: Meta<typeof NvAlert> = {
     title: 'Order information',
     description: 'Enter the order code you received in your confirmation email after completing your Netuvio purchase.',
     radius: 'md',
-    shadow: 'sm',
+    threeD: true,
     dismissible: false,
     icon: true,
   },
@@ -89,7 +88,7 @@ export const Variants: Story = {
           description="Your domain netuvio.cz expires in 7 days. Please renew your registration."
         />
         <NvAlert
-          variant="error"
+          variant="danger"
           title="Sign in failed"
           description="Invalid username or password. Please verify your credentials and try again."
         />

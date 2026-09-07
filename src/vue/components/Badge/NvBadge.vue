@@ -12,9 +12,11 @@ const props = withDefaults(defineProps<BadgeProps>(), {
   variant: 'accent',
   size: 'md',
   radius: 'full',
-  shadow: 'sm',
+  threeD: true,
+  movePixels: 1,
   dot: false,
   interactive: false,
+  disabled: false,
   uppercase: true,
   as: 'span',
 });
@@ -24,20 +26,34 @@ const badgeClasses = computed(() => [
   styles[`variant-${props.variant}`],
   styles[`size-${props.size}`],
   styles[`radius-${props.radius}`],
-  styles[`shadow-${props.shadow}`],
+  props.threeD ? styles['shadow-sm'] : styles['shadow-none'],
   props.uppercase ? styles.uppercase : null,
   props.interactive ? styles.interactive : null,
+  props.disabled ? styles.disabled : null,
 ]);
+
+const badgeStyle = computed(() => {
+  const move = props.movePixels;
+  return {
+    '--badge-action-move': typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`),
+  };
+});
 
 const iconSize = computed(() => {
   if (props.size === 'sm') return 12;
   if (props.size === 'lg') return 16;
+  if (props.size === 'xl') return 18;
   return 14;
 });
 </script>
 
 <template>
-  <component :is="as" :class="badgeClasses">
+  <component
+    :is="as"
+    :class="badgeClasses"
+    :style="badgeStyle"
+    :aria-disabled="props.disabled || undefined"
+  >
     <span
       v-if="dot"
       :class="styles.dot"

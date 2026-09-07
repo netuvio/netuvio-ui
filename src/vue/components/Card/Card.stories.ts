@@ -12,9 +12,8 @@ const meta = {
       control: 'select',
       options: ['default', 'accent', 'subtle', 'muted', 'dark'],
     },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg', 'card', 'card-sm'],
+    threeD: {
+      control: 'boolean',
     },
     radius: {
       control: 'select',
@@ -136,7 +135,6 @@ export const AccentHeroCard: Story = {
         <Card
           v-bind="args"
           variant="accent"
-          shadow="card-sm"
           radius="xl"
           padding="md"
         >

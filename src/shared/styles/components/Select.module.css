@@ -36,13 +36,13 @@
 .trigger:hover:not(:disabled),
 .trigger.isOpen {
   background: var(--nv-color-bg-subtle, #fafbf7);
-  transform: translate(-1px, -1px);
-  box-shadow: 4px 4px 0 var(--nv-color-border-strong, #1c1e16);
+  transform: translate(calc(-1 * var(--select-action-move, 1px)), calc(-1 * var(--select-action-move, 1px)));
+  box-shadow: calc(3px + var(--select-action-move, 1px)) calc(3px + var(--select-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .trigger:active:not(:disabled) {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+  transform: translate(var(--select-action-move, 1px), var(--select-action-move, 1px));
+  box-shadow: calc(3px - var(--select-action-move, 1px)) calc(3px - var(--select-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .trigger:focus-visible {
@@ -54,6 +54,19 @@
   opacity: 0.6;
   cursor: not-allowed;
   box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.noThreeD {
+  box-shadow: none;
+}
+
+.noThreeD:hover:not(:disabled),
+.noThreeD.isOpen {
+  box-shadow: none;
+}
+
+.noThreeD:active:not(:disabled) {
+  box-shadow: none;
 }
 
 /* Sizes */
@@ -73,6 +86,12 @@
   height: 42px;
   padding: 0 16px;
   font-size: 14px;
+}
+
+.size-xl .trigger {
+  height: 52px;
+  padding: 0 20px;
+  font-size: 16px;
 }
 
 .block .trigger {
@@ -250,4 +269,23 @@
 .menuHidden {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+/* Error State */
+.hasError .trigger {
+  border-color: var(--nv-color-danger, #ef4444);
+  box-shadow: 2px 2px 0 var(--nv-color-danger, #ef4444);
+}
+
+.hasError .trigger:hover:not(:disabled),
+.hasError .trigger.isOpen {
+  box-shadow: calc(3px + var(--select-action-move, 1px)) calc(3px + var(--select-action-move, 1px)) 0 var(--nv-color-danger, #ef4444);
+}
+
+.errorMessage {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--nv-color-danger, #ef4444);
+  padding: 0 4px;
+  line-height: 1.3;
 }

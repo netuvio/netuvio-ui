@@ -14,7 +14,7 @@ const props = withDefaults(defineProps<ProgressBarProps>(), {
   variant: 'default',
   size: 'md',
   radius: 'full',
-  shadow: 'sm',
+  threeD: true,
   showValue: false,
 });
 
@@ -28,7 +28,7 @@ const trackClasses = computed(() => [
   styles.track,
   styles[`size-${props.size}`],
   styles[`radius-${props.radius}`],
-  styles[`shadow-${props.shadow}`],
+  props.threeD ? styles['shadow-sm'] : styles['shadow-none'],
   styles[`variant-${props.variant}`],
   props.indeterminate ? styles.indeterminate : null,
 ]);

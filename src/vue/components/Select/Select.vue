@@ -19,6 +19,8 @@ const props = withDefaults(defineProps<SelectProps>(), {
   native: false,
   placement: 'bottom',
   align: 'left',
+  threeD: true,
+  movePixels: 1,
 });
 
 const emit = defineEmits<SelectEmits>();
@@ -46,10 +48,12 @@ const radiusMap: Record<string, string> = {
   full: 'var(--nv-radius-full, 9999px)',
 };
 
-const radiusStyle = computed(() => {
+const wrapperStyle = computed(() => {
   const r = radiusMap[props.radius] || props.radius;
+  const move = props.movePixels;
   return {
     '--select-radius': r,
+    '--select-action-move': typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`),
   };
 });
 
@@ -87,6 +91,9 @@ function handleKeydown(event: KeyboardEvent) {
   }
 }
 
+const hasError = computed(() => Boolean(props.error));
+const errorMessage = computed(() => typeof props.error === 'string' ? props.error : '');
+
 onMounted(() => {
   if (typeof window !== 'undefined') {
     window.addEventListener('click', handleClickOutside);
@@ -105,13 +112,16 @@ onUnmounted(() => {
 <template>
   <div
     ref="wrapperRef"
+    :theme="props.theme"
+    :data-theme="props.theme"
     :class="[
       styles.selectWrapper,
       styles[`size-${props.size}`],
       props.block ? styles.block : null,
+      hasError ? styles.hasError : null,
       $attrs.class,
     ]"
-    :style="[radiusStyle, $attrs.style as any]"
+    :style="[wrapperStyle, $attrs.style as any]"
   >
     <!-- Native Select Overlay Mode -->
     <select
@@ -141,6 +151,7 @@ onUnmounted(() => {
       :class="[
         styles.trigger,
         isOpen ? styles.isOpen : null,
+        !props.threeD ? styles.noThreeD : null,
       ]"
       :disabled="props.disabled"
       :aria-expanded="props.native ? undefined : isOpen"
@@ -226,5 +237,12 @@ onUnmounted(() => {
         </button>
       </div>
     </Transition>
+    <div
+      v-if="errorMessage"
+      :class="styles.errorMessage"
+      role="alert"
+    >
+      {{ errorMessage }}
+    </div>
   </div>
 </template>

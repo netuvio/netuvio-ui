@@ -76,7 +76,7 @@
     }
 
     .topLayer {
-      transform: translate(-4px, -4px);
+      transform: translate(calc(-1 * var(--input-action-move, 4px)), calc(-1 * var(--input-action-move, 4px)));
     }
   }
 }
@@ -87,7 +87,7 @@
   }
 
   .topLayer {
-    transform: translate(-2px, -2px);
+    transform: translate(calc(-0.5 * var(--input-action-move, 4px)), calc(-0.5 * var(--input-action-move, 4px)));
   }
 }
 
@@ -295,6 +295,14 @@
 
 .radius-lg {
   --input-radius: var(--nv-radius-lg, 12px);
+}
+
+.radius-none {
+  --input-radius: 0px;
+}
+
+.radius-xl {
+  --input-radius: var(--nv-radius-xl, 22px);
 }
 
 /* Error State */

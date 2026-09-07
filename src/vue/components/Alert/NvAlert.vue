@@ -12,7 +12,7 @@ defineOptions({
 const props = withDefaults(defineProps<AlertProps>(), {
   variant: 'info',
   radius: 'md',
-  shadow: 'sm',
+  threeD: true,
   icon: true,
   dismissible: false,
 });
@@ -23,14 +23,14 @@ const alertClasses = computed(() => [
   styles.alert,
   styles[`variant-${props.variant}`],
   styles[`radius-${props.radius}`],
-  styles[`shadow-${props.shadow}`],
+  props.threeD ? styles['shadow-sm'] : styles['shadow-none'],
 ]);
 
 const resolvedIconName = computed<IconName | (string & {}) | null>(() => {
   if (typeof props.icon === 'string') return props.icon;
   if (!props.icon) return null;
   switch (props.variant) {
-    case 'error':
+    case 'danger':
       return 'alert';
     case 'warning':
       return 'warn';
