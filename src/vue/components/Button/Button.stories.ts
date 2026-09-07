@@ -37,6 +37,14 @@ const meta: Meta<typeof Button> = {
       control: 'boolean',
       description: 'Enables 3D layered hover effect',
     },
+    neutral3d: {
+      control: 'boolean',
+      description: 'Sets if the button is neutrally 3D at rest',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+    },
   },
   args: {
     variant: 'primary',
@@ -45,6 +53,7 @@ const meta: Meta<typeof Button> = {
     disabled: false,
     loading: false,
     block: false,
+    neutral3d: false,
   },
   render: (args: Record<string, any>) => ({
     components: { Button },
@@ -144,7 +153,8 @@ export const States: Story = {
     components: { Button },
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 12px;">
-        <Button variant="primary">Default</Button>
+        <Button variant="primary">Default (Lifts on hover only)</Button>
+        <Button variant="primary" :neutral3d="true">Neutrally 3D (:neutral3d="true")</Button>
         <Button variant="primary" loading>Loading...</Button>
         <Button variant="primary" disabled>Disabled</Button>
         <Button variant="primary" :three-d="false">Flat (No 3D)</Button>

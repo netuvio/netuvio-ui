@@ -23,6 +23,10 @@
     .topLayer {
       transform: none !important;
     }
+
+    .bottomLayer {
+      display: none;
+    }
   }
 }
 
@@ -33,7 +37,6 @@
   background-color: var(--nv-color-border-strong);
   pointer-events: none;
   z-index: 0;
-  transform: scale(0.99);
 }
 
 .topLayer {
@@ -60,7 +63,16 @@
 }
 
 .is3d {
+  .bottomLayer {
+    opacity: 0;
+    transition: opacity 0.15s cubic-bezier(0.2, 0, 0, 1);
+  }
+
   &:hover:not(:disabled) {
+    .bottomLayer {
+      opacity: 1;
+    }
+
     .topLayer {
       transform: translate(-4px, -4px);
     }
@@ -71,6 +83,16 @@
       transform: translate(0, 0);
       transition-duration: 0.06s;
     }
+  }
+}
+
+.neutral3d {
+  .bottomLayer {
+    opacity: 1;
+  }
+
+  .topLayer {
+    transform: translate(-2px, -2px);
   }
 }
 

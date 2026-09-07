@@ -46,6 +46,14 @@ const meta: Meta<typeof Input> = {
       control: 'boolean',
       description: 'Enables 3D layered focus effect',
     },
+    neutral3d: {
+      control: 'boolean',
+      description: 'Sets if the input is neutrally 3D at rest',
+      table: {
+        defaultValue: { summary: 'false' },
+        type: { summary: 'boolean' },
+      },
+    },
     showPasswordToggle: {
       control: 'boolean',
       description: 'Shows eye reveal button for password inputs',
@@ -69,6 +77,7 @@ const meta: Meta<typeof Input> = {
     readonly: false,
     block: false,
     threeD: true,
+    neutral3d: false,
     showPasswordToggle: true,
   },
   render: (args: Record<string, any>) => ({
@@ -132,7 +141,8 @@ export const States: Story = {
     components: { Input },
     template: `
       <div style="display: flex; flex-direction: column; gap: 24px; max-width: 400px; padding: 16px;">
-        <Input label="Default (Focus me for 3D)" placeholder="Click to see 3D focus effect" />
+        <Input label="Default (Lifts on focus/hover only)" placeholder="Flat at rest" />
+        <Input label="Neutrally 3D (:neutral3d='true')" :neutral3d="true" placeholder="3D at rest, lifts more on focus/hover" />
         <Input label="With Hint" placeholder="user@example.com" hint="We will never share your email." />
         <Input label="Error State" model-value="invalid-email" error="Please enter a valid email address." />
         <Input label="Disabled" disabled model-value="Disabled value" />

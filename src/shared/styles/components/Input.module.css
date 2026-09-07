@@ -39,8 +39,6 @@
   background-color: var(--nv-shadow-color, var(--nv-color-border-strong));
   pointer-events: none;
   z-index: 0;
-  opacity: 0;
-  transition: opacity 0.15s cubic-bezier(0.2, 0, 0, 1);
 }
 
 .topLayer {
@@ -66,6 +64,11 @@
 }
 
 .is3d {
+  .bottomLayer {
+    opacity: 0;
+    transition: opacity 0.15s cubic-bezier(0.2, 0, 0, 1);
+  }
+
   &:hover:not(.disabled),
   &:focus-within:not(.disabled) {
     .bottomLayer {
@@ -78,12 +81,26 @@
   }
 }
 
+.neutral3d {
+  .bottomLayer {
+    opacity: 1;
+  }
+
+  .topLayer {
+    transform: translate(-2px, -2px);
+  }
+}
+
 .disabled {
   cursor: not-allowed;
   opacity: 0.65;
 
   .topLayer {
     transform: none !important;
+  }
+
+  .bottomLayer {
+    display: none;
   }
 
   .nativeInput {

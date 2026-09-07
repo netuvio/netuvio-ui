@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   loading: false,
   block: false,
   threeD: true,
+  neutral3d: false,
 })
 
 const emit = defineEmits<{
@@ -27,6 +28,7 @@ const isDisabled = computed<boolean>(() => props.disabled || props.loading);
 
 // 3D layered hover effect (defaults to true for non-ghost variants)
 const is3D = computed<boolean>(() => props.threeD ?? (props.variant !== 'ghost'));
+const isNeutral3D = computed<boolean>(() => is3D.value && (props.neutral3d ?? false));
 
 // Resolved CSS module class list for the button element.
 const classes = computed(() => [
@@ -36,6 +38,7 @@ const classes = computed(() => [
   styles[`radius-${props.radius}`],
   props.block ? styles.block : null,
   is3D.value ? styles.is3d : null,
+  isNeutral3D.value ? styles.neutral3d : null,
   props.loading ? styles.loading : null,
 ]);
 

@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   readonly: false,
   block: false,
   threeD: true,
+  neutral3d: false,
   showPasswordToggle: true,
 });
 
@@ -45,6 +46,8 @@ const describedBy = computed(() => {
   return undefined;
 });
 
+const isNeutral3D = computed<boolean>(() => props.threeD && (props.neutral3d ?? false));
+
 const wrapperClasses = computed(() => [
   styles.inputWrapper,
   styles[`size-${props.size}`],
@@ -53,6 +56,7 @@ const wrapperClasses = computed(() => [
   props.disabled ? styles.disabled : null,
   hasError.value ? styles.hasError : null,
   props.threeD ? styles.is3d : null,
+  isNeutral3D.value ? styles.neutral3d : null,
 ]);
 
 function handleInput(event: Event) {

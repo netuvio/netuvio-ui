@@ -33,6 +33,9 @@ export interface InputProps {
   /** Enables 3D layered focus effect (defaults to true) */
   threeD?: boolean
 
+  /** Sets if the input is neutrally 3D at rest (defaults to false) */
+  neutral3d?: boolean
+
   /** Shows an eye toggle button for password fields when type is 'password' (defaults to true) */
   showPasswordToggle?: boolean
 
