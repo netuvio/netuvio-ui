@@ -45,6 +45,14 @@ const meta: Meta<typeof Button> = {
         type: { summary: 'boolean' },
       },
     },
+    movePixels: {
+      control: 'number',
+      description: 'How many pixels the action/3D interaction moves the button',
+      table: {
+        defaultValue: { summary: '4' },
+        type: { summary: 'number | string' },
+      },
+    },
   },
   args: {
     variant: 'primary',
@@ -54,6 +62,7 @@ const meta: Meta<typeof Button> = {
     loading: false,
     block: false,
     neutral3d: false,
+    movePixels: 4,
   },
   render: (args: Record<string, any>) => ({
     components: { Button },
@@ -230,3 +239,28 @@ export const ThemeComparison: Story = {
     `,
   }),
 }
+
+export const MovePixels: Story = {
+  render: () => ({
+    components: { Button },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 16px;">
+        <h4 style="margin: 0;">Configurable Action Movement (:move-pixels)</h4>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <Button variant="primary" :move-pixels="1">:move-pixels="1"</Button>
+          <Button variant="primary" :move-pixels="2">:move-pixels="2"</Button>
+          <Button variant="primary" :move-pixels="4">:move-pixels="4" (Default)</Button>
+          <Button variant="primary" :move-pixels="6">:move-pixels="6"</Button>
+          <Button variant="primary" :move-pixels="8">:move-pixels="8"</Button>
+        </div>
+        <h4 style="margin: 16px 0 0 0;">Neutrally 3D with Move Pixels</h4>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <Button variant="secondary" :neutral3d="true" :move-pixels="2">:neutral3d="true" :move-pixels="2"</Button>
+          <Button variant="secondary" :neutral3d="true" :move-pixels="4">:neutral3d="true" :move-pixels="4"</Button>
+          <Button variant="secondary" :neutral3d="true" :move-pixels="6">:neutral3d="true" :move-pixels="6"</Button>
+        </div>
+      </div>
+    `,
+  }),
+}
+

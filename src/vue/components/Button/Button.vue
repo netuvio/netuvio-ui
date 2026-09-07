@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   block: false,
   threeD: true,
   neutral3d: false,
+  movePixels: 4,
 })
 
 const emit = defineEmits<{
@@ -42,6 +43,14 @@ const classes = computed(() => [
   props.loading ? styles.loading : null,
 ]);
 
+const buttonStyle = computed(() => {
+  const move = props.movePixels;
+  const pixels = typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`);
+  return {
+    '--button-action-move': pixels,
+  };
+});
+
 function handleClick(event: MouseEvent) {
   if (isDisabled.value) {
     event.preventDefault()
@@ -56,7 +65,8 @@ function handleClick(event: MouseEvent) {
   <button
     v-bind="$attrs"
     :type="props.type"
-    :class="classes"
+    :class="[classes, $attrs.class]"
+    :style="[buttonStyle, $attrs.style]"
     :disabled="isDisabled"
     :aria-disabled="isDisabled || undefined"
     :aria-busy="props.loading || undefined"

@@ -155,22 +155,46 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid var(--nv-color-border-strong);
-  background-color: transparent;
-  color: var(--nv-color-text-primary);
-  border-radius: var(--nv-radius-md, 9px);
-  cursor: pointer;
-  padding: 0;
-  margin-left: 8px;
   flex-shrink: 0;
-  transition: background-color 0.15s ease, transform 0.1s ease;
+  cursor: pointer;
+  padding: 0 !important;
+  margin-left: 8px;
+  vertical-align: middle;
+  aspect-ratio: 1 / 1;
 
-  &:hover {
-    background-color: color-mix(in srgb, var(--nv-color-accent) 20%, transparent);
+  /* Reset Button's inner topLayer constraints so it displays as a proportional icon button */
+  [class*="topLayer"] {
+    min-height: 0 !important;
+    height: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s cubic-bezier(0.2, 0, 0, 1),
+                background-color 0.18s ease,
+                border-color 0.18s ease,
+                color 0.18s ease;
   }
 
-  &:active {
-    transform: scale(0.92);
+  [class*="content"] {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Hover background should be the accent color */
+  &:hover:not(:disabled) {
+    --nv-color-container: var(--nv-color-accent);
+    --nv-color-text-primary: var(--nv-color-accent-text, var(--nv-color-carbon-900));
+
+    [class*="topLayer"] {
+      background-color: var(--nv-color-accent) !important;
+      color: var(--nv-color-accent-text, var(--nv-color-carbon-900)) !important;
+    }
   }
 
   &:focus-visible {
@@ -188,9 +212,14 @@
   }
 
   .passwordToggle {
-    width: 22px;
-    height: 22px;
-    border-radius: var(--nv-radius-sm, 6px);
+    width: 24px;
+    height: 24px;
+    margin-right: -6px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
   }
 }
 
@@ -202,9 +231,14 @@
   }
 
   .passwordToggle {
-    width: 28px;
-    height: 28px;
-    border-radius: var(--nv-radius-md, 9px);
+    width: 30px;
+    height: 30px;
+    margin-right: -10px;
+
+    svg {
+      width: 18px;
+      height: 18px;
+    }
   }
 }
 
@@ -216,9 +250,14 @@
   }
 
   .passwordToggle {
-    width: 34px;
-    height: 34px;
-    border-radius: var(--nv-radius-md, 9px);
+    width: 36px;
+    height: 36px;
+    margin-right: -12px;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
   }
 }
 
@@ -230,9 +269,14 @@
   }
 
   .passwordToggle {
-    width: 38px;
-    height: 38px;
-    border-radius: var(--nv-radius-lg, 12px);
+    width: 42px;
+    height: 42px;
+    margin-right: -14px;
+
+    svg {
+      width: 22px;
+      height: 22px;
+    }
   }
 }
 

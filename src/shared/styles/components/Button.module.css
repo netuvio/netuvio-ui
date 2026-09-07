@@ -74,7 +74,7 @@
     }
 
     .topLayer {
-      transform: translate(-4px, -4px);
+      transform: translate(calc(-1 * var(--button-action-move, 4px)), calc(-1 * var(--button-action-move, 4px)));
     }
   }
 
@@ -92,7 +92,7 @@
   }
 
   .topLayer {
-    transform: translate(-2px, -2px);
+    transform: translate(calc(-0.5 * var(--button-action-move, 4px)), calc(-0.5 * var(--button-action-move, 4px)));
   }
 }
 

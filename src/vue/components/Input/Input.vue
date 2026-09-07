@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, useId } from 'vue';
 import type { InputProps, InputEmits } from './Input.types';
+import Button from '../Button/Button.vue';
 import styles from '../../../shared/styles/components/Input.module.css';
 
 defineOptions({
@@ -156,15 +157,18 @@ defineExpose({
           <slot name="suffix" />
         </span>
 
-        <!-- Built-in Password Visibility Toggle -->
-        <button
+        <!-- Built-in Password Visibility Toggle using Button Secondary -->
+        <Button
           v-if="type === 'password' && showPasswordToggle"
           type="button"
+          variant="secondary"
+          :radius="props.radius"
+          :disabled="disabled"
+          :move-pixels="1"
           :class="styles.passwordToggle"
+          tabindex="-1"
           :aria-label="isPasswordVisible ? 'Hide password' : 'Show password'"
           :aria-pressed="isPasswordVisible"
-          :disabled="disabled"
-          tabindex="-1"
           @click="togglePasswordVisibility"
         >
           <!-- Eye open icon (when hidden) -->
@@ -203,7 +207,7 @@ defineExpose({
             <path d="m9 18 .722-3.25" />
             <line x1="2" y1="2" x2="22" y2="22" />
           </svg>
-        </button>
+        </Button>
       </div>
     </div>
 
