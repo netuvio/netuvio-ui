@@ -1,0 +1,51 @@
+// Breakpoints
+$mobileBreakpoint: 600px;
+$tabletBreakpoint: 960px;
+$laptopBreakpoint: 1264px;
+$desktopBreakpoint: 1800px;
+
+// Typography
+$font-sans: var(--font-sans, ('Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif));
+$font-family: $font-sans;
+
+// Lime Palette Variables
+$color-lime-50: var(--color-lime-50);
+$color-lime-100: var(--color-lime-100);
+$color-lime-200: var(--color-lime-200);
+$color-lime-300: var(--color-lime-300);
+$color-lime-400: var(--color-lime-400);
+$color-lime-500: var(--color-lime-500);
+$color-lime-600: var(--color-lime-600);
+$color-lime-700: var(--color-lime-700);
+$color-lime-800: var(--color-lime-800);
+
+// Carbon Palette Variables
+$color-carbon-50: var(--color-carbon-50);
+$color-carbon-100: var(--color-carbon-100);
+$color-carbon-200: var(--color-carbon-200);
+$color-carbon-300: var(--color-carbon-300);
+$color-carbon-350: var(--color-carbon-350);
+$color-carbon-400: var(--color-carbon-400);
+$color-carbon-500: var(--color-carbon-500);
+$color-carbon-600: var(--color-carbon-600);
+$color-carbon-700: var(--color-carbon-700);
+$color-carbon-800: var(--color-carbon-800);
+$color-carbon-900: var(--color-carbon-900);
+
+// Semantic Colors
+$color-primary: var(--color-primary);
+$color-primary-hover: var(--color-primary-hover);
+$color-primary-active: var(--color-primary-active);
+
+$color-background-primary: var(--color-background-primary);
+$color-background-primary-hover: var(--color-background-primary-hover);
+$color-background-secondary: var(--color-background-secondary);
+$color-background-header: var(--color-background-header);
+
+$color-text-primary: var(--color-text-primary);
+$color-text-secondary: var(--color-text-secondary);
+$color-text-muted: var(--color-text-muted);
+
+$color-border-primary: var(--color-border-primary);
+$color-danger: var(--color-danger);
+$color-danger-hover: var(--color-danger-hover);
