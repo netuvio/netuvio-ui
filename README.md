@@ -84,38 +84,26 @@ import { Button } from 'netuvio-ui/vue'
 
 ### 3. Design Tokens & Palettes
 
-#### Lime Palette (`--color-lime-50` to `--color-lime-800`):
-- `--color-lime-50`: `hsl(0 0% 100%)`
-- `--color-lime-100`: `hsl(82 85% 89%)`
-- `--color-lime-200`: `hsl(81 84% 78%)`
-- `--color-lime-300`: `hsl(81 84% 67%)`
-- `--color-lime-400`: `hsl(81 84% 56%)` (Default `--color-primary`)
-- `--color-lime-500`: `hsl(81 65% 43%)`
-- `--color-lime-600`: `hsl(81 62% 30%)`
-- `--color-lime-700`: `hsl(82 58% 17%)`
-- `--color-lime-800`: `hsl(80 16% 4%)`
+All tokens use the `--nv-` prefix and modern space-separated HSL values.
 
-#### Carbon Palette (`--color-carbon-50` to `--color-carbon-900`):
-- Neutral slate/carbon scale from `hsl(60 1% 86%)` down to `hsl(77 19% 2%)`.
-- `--color-background-primary`: `var(--color-carbon-800)`
-- `--color-background-primary-hover`: `var(--color-carbon-350)`
+#### Semantic Highlights:
+- `--nv-color-accent`: `hsl(75 85% 56%)` (Brand lime)
+- `--nv-color-container`: `hsl(0 0% 100%)` (White light, dark slate in dark theme)
+- `--nv-color-text-primary`: `hsl(75 15% 10%)`
+- `--nv-color-border-strong`: `hsl(75 15% 10%)`
+- Radii: `--nv-radius-sm` (6px), `--nv-radius-md` (9px), `--nv-radius-lg` (12px), `--nv-radius-full` (9999px)
 
-#### Breakpoints:
-- `$mobileBreakpoint`: `600px`
-- `$tabletBreakpoint`: `960px`
-- `$laptopBreakpoint`: `1264px`
-- `$desktopBreakpoint`: `1800px`
-
-#### In SCSS:
-You can `@use` the provided SCSS tokens and mixins directly in your app's SCSS files:
-```scss
-@use 'netuvio-ui/scss' as nv;
-
+#### Usage in CSS:
+```css
 .my-container {
-  background-color: nv.$color-background-primary;
-  color: nv.$color-text-primary;
+  background-color: var(--nv-color-container);
+  color: var(--nv-color-text-primary);
+  border: 2px solid var(--nv-color-border-strong);
+  border-radius: var(--nv-radius-md);
+}
 
-  @include nv.mobile {
+@media (max-width: 600px) {
+  .my-container {
     padding: 12px;
   }
 }
@@ -129,10 +117,9 @@ You can `@use` the provided SCSS tokens and mixins directly in your app's SCSS f
 src/
 ├── shared/                  # Framework-agnostic foundation
 │   ├── fonts/               # Local font files (Inter TTF variable fonts)
-│   ├── scss/                # SCSS variables & breakpoint mixins
 │   ├── styles/              # Shared component stylesheets
 │   │   └── components/
-│   │       └── Button.module.scss
+│   │       └── Button.module.css
 │   ├── tokens.css           # Pure CSS custom properties (:root & themes)
 │   ├── tokens.ts            # TypeScript token constants
 │   └── index.ts             # Shared barrel export

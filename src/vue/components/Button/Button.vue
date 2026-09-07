@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { ButtonProps } from './Button.types'
-import styles from '../../../shared/styles/components/Button.module.scss'
+import { computed } from 'vue';
+import type { ButtonProps } from './Button.types';
+import styles from '../../../shared/styles/components/Button.module.css';
 
 defineOptions({
   name: 'NvButton',
   inheritAttrs: false,
-})
+});
 
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
@@ -16,17 +16,17 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   disabled: false,
   loading: false,
   block: false,
-  threeD: undefined,
+  threeD: true,
 })
 
 const emit = defineEmits<{
   (e: 'click', event: MouseEvent): void
-}>()
+}>();
 
-const isDisabled = computed<boolean>(() => props.disabled || props.loading)
+const isDisabled = computed<boolean>(() => props.disabled || props.loading);
 
 // 3D layered hover effect (defaults to true for non-ghost variants)
-const is3D = computed<boolean>(() => props.threeD ?? (props.variant !== 'ghost'))
+const is3D = computed<boolean>(() => props.threeD ?? (props.variant !== 'ghost'));
 
 // Resolved CSS module class list for the button element.
 const classes = computed(() => [
@@ -37,7 +37,7 @@ const classes = computed(() => [
   props.block ? styles.block : null,
   is3D.value ? styles.is3d : null,
   props.loading ? styles.loading : null,
-])
+]);
 
 function handleClick(event: MouseEvent) {
   if (isDisabled.value) {
@@ -46,7 +46,7 @@ function handleClick(event: MouseEvent) {
     return
   }
   emit('click', event)
-}
+};
 </script>
 
 <template>

@@ -1,7 +1,7 @@
-export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger'
-export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl'
-export type ButtonRadius = 'sm' | 'md' | 'lg' | 'full'
-export type ButtonType = 'button' | 'submit' | 'reset'
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger';
+export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
+export type ButtonRadius = 'sm' | 'md' | 'lg' | 'full';
+export type ButtonType = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps {
   /** Visual style variant for the button */
@@ -27,4 +27,4 @@ export interface ButtonProps {
 
   /** Enables 3D layered hover effect (defaults to true for non-ghost variants) */
   threeD?: boolean
-}
+};
