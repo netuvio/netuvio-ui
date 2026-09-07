@@ -1,0 +1,36 @@
+<script>
+  (function () {
+    try {
+      var url = new URL(window.location.href);
+      var globals = url.searchParams.get('globals');
+      var theme = null;
+      if (globals) {
+        var match = globals.match(/theme:([a-zA-Z0-9_-]+)/);
+        if (match) theme = match[1];
+      }
+      if (!theme) {
+        var stored = localStorage.getItem('@storybook/manager/store');
+        if (stored) {
+          var parsed = JSON.parse(stored);
+          if (parsed && parsed.globals && parsed.globals.theme) {
+            theme = parsed.globals.theme;
+          }
+        }
+      }
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var isDark = theme === 'dark' || (!theme && prefersDark) || (theme === 'system' && prefersDark);
+      if (isDark) {
+        document.documentElement.style.backgroundColor = '#1b1c1d';
+        document.documentElement.style.colorScheme = 'dark';
+      }
+    } catch (e) {}
+  })();
+</script>
+<style>
+  @media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]) {
+      background-color: #1b1c1d !important;
+      color-scheme: dark !important;
+    }
+  }
+</style>

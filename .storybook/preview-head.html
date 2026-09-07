@@ -1,0 +1,99 @@
+<script>
+  (function () {
+    try {
+      var theme = null;
+
+      // 1. Check current iframe URL parameters for theme global
+      var search = window.location.search;
+      var match = search.match(/theme:([a-zA-Z0-9_-]+)/);
+      if (match) {
+        theme = match[1];
+      }
+
+      // 2. Check parent Storybook window URL if running inside iframe
+      if (!theme && window.parent && window.parent !== window) {
+        try {
+          var parentSearch = window.parent.location.search;
+          var parentMatch = parentSearch.match(/theme:([a-zA-Z0-9_-]+)/);
+          if (parentMatch) {
+            theme = parentMatch[1];
+          }
+        } catch (e) {
+          // Cross-origin fallback (ignore)
+        }
+      }
+
+      // 3. Check localStorage for stored Storybook globals
+      if (!theme) {
+        try {
+          var stored = localStorage.getItem('@storybook/manager/store');
+          if (stored) {
+            var parsed = JSON.parse(stored);
+            if (parsed && parsed.globals && parsed.globals.theme) {
+              theme = parsed.globals.theme;
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 4. Resolve system preference
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      var isDark = theme === 'dark' || (!theme && prefersDark) || (theme === 'system' && prefersDark);
+
+      if (isDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        document.documentElement.setAttribute('theme', 'dark');
+        document.documentElement.classList.add('dark');
+        document.documentElement.style.colorScheme = 'dark';
+        document.documentElement.style.backgroundColor = 'hsl(75 18% 4%)';
+      } else if (theme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+        document.documentElement.setAttribute('theme', 'light');
+        document.documentElement.classList.remove('dark');
+        document.documentElement.style.colorScheme = 'light';
+        document.documentElement.style.backgroundColor = 'hsl(0 0% 100%)';
+      }
+    } catch (err) {
+      console.error('[Netuvio UI] Error resolving initial theme in preview-head:', err);
+    }
+  })();
+</script>
+<style>
+  /* Ensure instant background color matching without FOUC */
+  html[data-theme="dark"],
+  html[theme="dark"],
+  html.dark,
+  html[data-theme="dark"] body,
+  html[theme="dark"] body,
+  html.dark body {
+    color-scheme: dark !important;
+    background-color: hsl(75 18% 4%) !important;
+    color: hsl(60 1% 86%) !important;
+  }
+
+  /* Storybook's default loader screens have hardcoded white background; override them */
+  html[data-theme="dark"] .sb-preparing-story,
+  html[data-theme="dark"] .sb-preparing-docs,
+  html[data-theme="dark"] .sb-previewBlock,
+  html[theme="dark"] .sb-preparing-story,
+  html[theme="dark"] .sb-preparing-docs,
+  html[theme="dark"] .sb-previewBlock,
+  html.dark .sb-preparing-story,
+  html.dark .sb-preparing-docs,
+  html.dark .sb-previewBlock {
+    background-color: hsl(75 18% 4%) !important;
+    color: hsl(60 1% 86%) !important;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]):not([theme="light"]),
+    :root:not([data-theme="light"]):not([theme="light"]) body,
+    :root:not([data-theme="light"]):not([theme="light"]) .sb-preparing-story,
+    :root:not([data-theme="light"]):not([theme="light"]) .sb-preparing-docs,
+    :root:not([data-theme="light"]):not([theme="light"]) .sb-previewBlock {
+      color-scheme: dark !important;
+      background-color: hsl(75 18% 4%) !important;
+      color: hsl(60 1% 86%) !important;
+    }
+  }
+</style>

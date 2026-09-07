@@ -7,13 +7,13 @@ const preview: Preview = {
     theme: {
       name: 'Theme',
       description: 'Switch between light and dark theme',
-      defaultValue: 'light',
+      defaultValue: 'system',
       toolbar: {
         icon: 'circlehollow',
         items: [
+          { value: 'system', title: 'System', icon: 'browser' },
           { value: 'light', title: 'Light', icon: 'sun' },
           { value: 'dark', title: 'Dark', icon: 'moon' },
-          { value: 'system', title: 'System', icon: 'browser' },
         ],
         showName: true,
         dynamicTitle: true,
@@ -28,7 +28,6 @@ const preview: Preview = {
       },
     },
     backgrounds: {
-      default: 'light',
       values: [
         {
           name: 'light',
@@ -58,13 +57,11 @@ const preview: Preview = {
         resolvedTheme = storyTheme
       } else if (globalTheme === 'dark') {
         resolvedTheme = 'dark'
-      } else if (globalTheme === 'system') {
+      } else if (globalTheme === 'system' || !globalTheme) {
         resolvedTheme = prefersDark ? 'dark' : 'light'
       } else if (globalTheme === 'light') {
         resolvedTheme = 'light'
       } else if (isDarkBg) {
-        resolvedTheme = 'dark'
-      } else if (prefersDark && !globalTheme) {
         resolvedTheme = 'dark'
       }
 
@@ -73,6 +70,7 @@ const preview: Preview = {
         document.body.setAttribute('data-theme', resolvedTheme)
         document.documentElement.setAttribute('theme', resolvedTheme)
         document.body.setAttribute('theme', resolvedTheme)
+        document.documentElement.style.colorScheme = resolvedTheme
 
         // Ensure canvas body font, background & text match the theme tokens
         document.body.style.fontFamily = 'var(--nv-font-sans)'
@@ -82,7 +80,21 @@ const preview: Preview = {
         document.body.style.margin = '0'
         document.body.style.padding = '16px'
         document.body.style.boxSizing = 'border-box'
-        document.body.style.transition = 'background-color 0.2s ease, color 0.2s ease'
+
+        // Only enable transitions AFTER initial render to avoid flash on reload
+        if (typeof window !== 'undefined') {
+          const w = window as any
+          if (w.__nv_theme_initialized) {
+            document.body.style.transition = 'background-color 0.2s ease, color 0.2s ease'
+          } else {
+            w.__nv_theme_initialized = true
+            requestAnimationFrame(() => {
+              setTimeout(() => {
+                document.body.style.transition = 'background-color 0.2s ease, color 0.2s ease'
+              }, 100)
+            })
+          }
+        }
       }
 
       return story()
