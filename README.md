@@ -65,6 +65,12 @@ import { Button } from 'netuvio-ui/vue'
     <Button size="lg">Large</Button>
     <Button size="xl">Extra Large</Button>
 
+    <!-- Radii: full (default pill), md (9px + expanded padding), sm (6px), lg (14px) -->
+    <Button radius="full">Full / Pill (Default)</Button>
+    <Button radius="md">Rounded 9px (Expanded Padding)</Button>
+    <Button radius="lg">Rounded 14px</Button>
+    <Button radius="sm">Rounded 6px</Button>
+
     <!-- States & Flags -->
     <Button loading>Loading...</Button>
     <Button disabled>Disabled</Button>

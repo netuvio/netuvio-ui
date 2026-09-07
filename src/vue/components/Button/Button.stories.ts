@@ -16,6 +16,11 @@ const meta: Meta<typeof Button> = {
       options: ['sm', 'md', 'lg', 'xl'],
       description: 'Predefined size for the button',
     },
+    radius: {
+      control: 'select',
+      options: ['sm', 'md', 'lg', 'full'],
+      description: 'Border radius corner style (md = 9px)',
+    },
     disabled: {
       control: 'boolean',
       description: 'Disables button interactions',
@@ -36,6 +41,7 @@ const meta: Meta<typeof Button> = {
   args: {
     variant: 'primary',
     size: 'md',
+    radius: 'full',
     disabled: false,
     loading: false,
     block: false,
@@ -82,11 +88,33 @@ export const Danger: Story = {
   },
 }
 
+export const Radii: Story = {
+  render: () => ({
+    components: { Button },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 16px; padding: 12px;">
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <Button radius="full">Full / Pill (Default)</Button>
+          <Button radius="md">Medium (9px)</Button>
+          <Button radius="lg">Large (14px)</Button>
+          <Button radius="sm">Small (6px)</Button>
+        </div>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <Button variant="secondary" radius="full">Secondary Pill</Button>
+          <Button variant="secondary" radius="md">Secondary 9px</Button>
+          <Button variant="tertiary" radius="md">Tertiary 9px</Button>
+          <Button variant="danger" radius="md">Danger 9px</Button>
+        </div>
+      </div>
+    `,
+  }),
+}
+
 export const AllVariants: Story = {
   render: () => ({
     components: { Button },
     template: `
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 24px; background: var(--color-background-primary);">
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 12px;">
         <Button variant="primary">Primary</Button>
         <Button variant="secondary">Secondary</Button>
         <Button variant="tertiary">Tertiary</Button>
@@ -101,7 +129,7 @@ export const Sizes: Story = {
   render: () => ({
     components: { Button },
     template: `
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 24px; background: var(--color-background-primary);">
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 12px;">
         <Button size="sm">Small (sm)</Button>
         <Button size="md">Medium (md)</Button>
         <Button size="lg">Large (lg)</Button>
@@ -115,7 +143,7 @@ export const States: Story = {
   render: () => ({
     components: { Button },
     template: `
-      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 24px; background: var(--color-background-primary);">
+      <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 12px;">
         <Button variant="primary">Default</Button>
         <Button variant="primary" loading>Loading...</Button>
         <Button variant="primary" disabled>Disabled</Button>
@@ -135,7 +163,7 @@ export const Block: Story = {
       return { args }
     },
     template: `
-      <div style="max-width: 400px; padding: 24px; background: var(--color-background-primary);">
+      <div style="max-width: 400px; padding: 12px;">
         <Button v-bind="args">Full Width Action</Button>
       </div>
     `,

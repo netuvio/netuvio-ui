@@ -11,6 +11,7 @@ defineOptions({
 const props = withDefaults(defineProps<ButtonProps>(), {
   variant: 'primary',
   size: 'md',
+  radius: 'full',
   type: 'button',
   disabled: false,
   loading: false,
@@ -32,6 +33,7 @@ const classes = computed(() => [
   styles.button,
   styles[`variant-${props.variant}`],
   styles[`size-${props.size}`],
+  styles[`radius-${props.radius}`],
   props.block ? styles.block : null,
   is3D.value ? styles.is3d : null,
   props.loading ? styles.loading : null,

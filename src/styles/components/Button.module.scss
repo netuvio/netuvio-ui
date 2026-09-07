@@ -5,7 +5,7 @@
   margin: 0;
   border: none;
   background: transparent;
-  border-radius: 10000px;
+  border-radius: var(--button-radius, 10000px);
   font-family: var(--font-sans, 'Inter', sans-serif);
   font-weight: 600;
   line-height: 1;
@@ -29,7 +29,7 @@
 .bottomLayer {
   position: absolute;
   inset: 0;
-  border-radius: 10000px;
+  border-radius: inherit;
   background-color: var(--color-background-primary);
   pointer-events: none;
   z-index: 0;
@@ -44,7 +44,7 @@
   justify-content: center;
   gap: 8px;
   border: 2px solid var(--color-background-secondary);
-  border-radius: 10000px;
+  border-radius: inherit;
   font-weight: 600;
   line-height: 1;
   width: 100%;
@@ -87,6 +87,7 @@
   pointer-events: none;
 }
 
+// Default Base Sizes (Pill padding)
 .size-sm {
   .topLayer {
     min-height: 32px;
@@ -115,12 +116,30 @@
 .size-xl {
   .topLayer {
     min-height: 48px;
-    padding: 16px 48px;
-    font-size: 24px;
+    padding: 16px 32px;
+    font-size: 20px;
     font-weight: 700;
   }
 }
 
+// Radii Variations
+.radius-full {
+  --button-radius: 10000px;
+}
+
+.radius-sm {
+  --button-radius: 6px;
+}
+
+.radius-md {
+  --button-radius: 9px;
+}
+
+.radius-lg {
+  --button-radius: 14px;
+}
+
+// Variants
 .variant-primary {
   .topLayer {
     background-color: var(--color-primary);
@@ -175,8 +194,8 @@
 .variant-danger {
   .topLayer {
     background-color: var(--color-danger, #c62828);
-    color: var(--color-text-primary);
-    border-color: var(--color-background-secondary);
+    color: #fff;
+    border-color: var(--color-background-primary);
   }
 
   .bottomLayer {
