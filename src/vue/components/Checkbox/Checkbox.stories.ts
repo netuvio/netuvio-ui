@@ -9,13 +9,17 @@ const meta: Meta<typeof NvCheckbox> = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'xl'],
       description: 'Predefined size for the checkbox',
     },
     mark: {
       control: 'select',
       options: ['square', 'check'],
       description: 'Style of mark when checked: square (authentic Auth) or check (SVG checkmark)',
+    },
+    threeD: {
+      control: 'boolean',
+      description: 'Enables brutalist 3D box-shadow',
     },
     disabled: {
       control: 'boolean',
@@ -24,6 +28,15 @@ const meta: Meta<typeof NvCheckbox> = {
     indeterminate: {
       control: 'boolean',
       description: 'Indeterminate state with horizontal bar',
+    },
+    error: {
+      control: 'text',
+      description: 'Error message or flag',
+    },
+    theme: {
+      control: 'select',
+      options: ['light', 'dark'],
+      description: 'Force color theme',
     },
     label: {
       control: 'text',
@@ -38,6 +51,7 @@ const meta: Meta<typeof NvCheckbox> = {
     label: 'Remember me',
     size: 'md',
     mark: 'square',
+    threeD: true,
     disabled: false,
     indeterminate: false,
   },

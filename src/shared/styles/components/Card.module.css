@@ -13,13 +13,13 @@
 }
 
 .interactive:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: calc(var(--current-shadow-x, 10px) + 2px) calc(var(--current-shadow-y, 10px) + 2px) 0 var(--nv-color-border-strong, #1c1e16);
+  transform: translate(calc(-1 * var(--card-action-move, 2px)), calc(-1 * var(--card-action-move, 2px)));
+  box-shadow: calc(var(--current-shadow-x, 10px) + var(--card-action-move, 2px)) calc(var(--current-shadow-y, 10px) + var(--card-action-move, 2px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive:active {
-  transform: translate(1px, 1px);
-  box-shadow: calc(var(--current-shadow-x, 10px) - 1px) calc(var(--current-shadow-y, 10px) - 1px) 0 var(--nv-color-border-strong, #1c1e16);
+  transform: translate(calc(0.5 * var(--card-action-move, 2px)), calc(0.5 * var(--card-action-move, 2px)));
+  box-shadow: calc(var(--current-shadow-x, 10px) - calc(0.5 * var(--card-action-move, 2px))) calc(var(--current-shadow-y, 10px) - calc(0.5 * var(--card-action-move, 2px))) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 /* Variants */

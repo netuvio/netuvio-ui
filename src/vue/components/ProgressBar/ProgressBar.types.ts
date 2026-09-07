@@ -1,7 +1,6 @@
 export type ProgressBarVariant = 'default' | 'accent' | 'success' | 'danger';
 export type ProgressBarSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ProgressBarRadius = 'full' | 'md' | 'none';
-export type ProgressBarShadow = 'none' | 'sm' | 'md';
+export type ProgressBarRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 
 export interface ProgressBarProps {
   /** Current progress value (between 0 and max) */
@@ -22,8 +21,8 @@ export interface ProgressBarProps {
   /** Border radius style */
   radius?: ProgressBarRadius
 
-  /** Brutalist box shadow */
-  shadow?: ProgressBarShadow
+  /** Enables brutalist 3D box-shadow (default: true) */
+  threeD?: boolean
 
   /** Optional label displayed above the progress bar */
   label?: string

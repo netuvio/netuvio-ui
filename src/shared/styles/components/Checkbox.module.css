@@ -67,6 +67,11 @@
   height: 24px;
 }
 
+.size-xl {
+  width: 28px;
+  height: 28px;
+}
+
 /* Hover effect */
 .container:hover:not(.disabled) .box {
   transform: translate(-1px, -1px);
@@ -77,6 +82,21 @@
 .container:active:not(.disabled) .box {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+/* No 3D shadow */
+.noThreeD {
+  box-shadow: none;
+}
+
+.container:hover:not(.disabled) .noThreeD {
+  transform: none;
+  box-shadow: none;
+}
+
+.container:active:not(.disabled) .noThreeD {
+  transform: none;
+  box-shadow: none;
 }
 
 /* Focus visible on native input */
@@ -111,6 +131,11 @@
 .size-lg .squareMark {
   width: 12px;
   height: 12px;
+}
+
+.size-xl .squareMark {
+  width: 14px;
+  height: 14px;
 }
 
 .checked .squareMark {
@@ -154,6 +179,10 @@
 
 .size-lg .indeterminateDash {
   width: 14px;
+}
+
+.size-xl .indeterminateDash {
+  width: 16px;
 }
 
 /* Error state */

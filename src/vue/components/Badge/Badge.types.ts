@@ -11,9 +11,8 @@ export type BadgeVariant =
   | 'warning'
   | 'outline';
 
-export type BadgeSize = 'sm' | 'md' | 'lg';
-export type BadgeRadius = 'full' | 'md' | 'sm' | 'none';
-export type BadgeShadow = 'none' | 'sm' | 'md' | 'lg';
+export type BadgeSize = 'sm' | 'md' | 'lg' | 'xl';
+export type BadgeRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 
 export interface BadgeProps {
   /** Visual style variant */
@@ -25,8 +24,11 @@ export interface BadgeProps {
   /** Border radius of the badge */
   radius?: BadgeRadius
 
-  /** Brutalist box shadow depth */
-  shadow?: BadgeShadow
+  /** Enables brutalist 3D box-shadow (default: true) */
+  threeD?: boolean
+
+  /** How many pixels the interactive hover/click moves the badge (defaults to 1) */
+  movePixels?: number | string
 
   /** Displays a small circular status dot */
   dot?: boolean
@@ -42,6 +44,9 @@ export interface BadgeProps {
 
   /** Enables interactive hover and click feedback */
   interactive?: boolean
+
+  /** Disables interactions when badge is interactive */
+  disabled?: boolean
 
   /** Formats text in uppercase with brutalist letter spacing (default: true) */
   uppercase?: boolean

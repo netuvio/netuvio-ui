@@ -38,13 +38,25 @@
   border-radius: var(--nv-radius-lg, 14px);
 }
 
+.radius-none {
+  border-radius: 0;
+}
+
+.radius-xl {
+  border-radius: var(--nv-radius-xl, 22px);
+}
+
+.radius-full {
+  border-radius: var(--nv-radius-full, 9999px);
+}
+
 /* Variants */
 .variant-info {
   background: var(--nv-color-bg-alt, #f2fadf);
   color: var(--nv-color-text-primary, #1c1e16);
 }
 
-.variant-error {
+.variant-danger {
   background: var(--nv-color-error-bg, #fee2e2);
   color: var(--nv-color-error-text, #991b1b);
 }
@@ -83,7 +95,7 @@
   margin-top: -1px;
 }
 
-.variant-error .iconBadge {
+.variant-danger .iconBadge {
   background: #fee2e2;
   color: #991b1b;
 }

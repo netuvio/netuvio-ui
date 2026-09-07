@@ -10,6 +10,8 @@ defineOptions({
 const props = withDefaults(defineProps<CardProps>(), {
   as: 'div',
   variant: 'default',
+  threeD: true,
+  movePixels: 2,
   radius: 'xl',
   padding: 'lg',
   tagDot: true,
@@ -18,7 +20,7 @@ const props = withDefaults(defineProps<CardProps>(), {
 });
 
 const resolvedShadow = computed(() => {
-  if (props.shadow) return props.shadow;
+  if (!props.threeD) return 'none';
   if (props.variant === 'default' || props.variant === 'dark') return 'card';
   if (props.variant === 'accent') return 'card-sm';
   return 'none';
@@ -33,6 +35,13 @@ const cardClasses = computed(() => [
   props.interactive ? styles.interactive : null,
 ]);
 
+const cardStyle = computed(() => {
+  const move = props.movePixels;
+  return {
+    '--card-action-move': typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`),
+  };
+});
+
 const tagDotClass = computed(() => {
   if (props.tagVariant === 'default') return styles.tagDotDefault;
   if (props.tagVariant === 'muted') return styles.tagDotMuted;
@@ -41,7 +50,7 @@ const tagDotClass = computed(() => {
 </script>
 
 <template>
-  <component :is="props.as" :class="cardClasses">
+  <component :is="props.as" :class="cardClasses" :style="cardStyle">
     <!-- Tag / Eyebrow header (e.g. ● NETUVIO ACCOUNT) -->
     <div v-if="$slots.tag || props.tag" :class="styles.cardTag">
       <span v-if="props.tagDot" :class="[styles.tagDot, tagDotClass]" aria-hidden="true" />

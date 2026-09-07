@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   block: false,
   threeD: true,
   neutral3d: false,
+  movePixels: 4,
   showPasswordToggle: true,
 });
 
@@ -49,6 +50,11 @@ const describedBy = computed(() => {
 
 const isNeutral3D = computed<boolean>(() => props.threeD && (props.neutral3d ?? false));
 
+const resolvedMove = computed(() => {
+  const move = props.movePixels;
+  return typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`);
+});
+
 const wrapperClasses = computed(() => [
   styles.inputWrapper,
   styles[`size-${props.size}`],
@@ -59,6 +65,10 @@ const wrapperClasses = computed(() => [
   props.threeD ? styles.is3d : null,
   isNeutral3D.value ? styles.neutral3d : null,
 ]);
+
+const wrapperStyle = computed(() => ({
+  '--input-action-move': resolvedMove.value,
+}));
 
 function handleInput(event: Event) {
   const target = event.target as HTMLInputElement;
@@ -106,6 +116,7 @@ defineExpose({
 <template>
   <div
     :class="wrapperClasses"
+    :style="wrapperStyle"
     :theme="props.theme"
     :data-theme="props.theme"
   >

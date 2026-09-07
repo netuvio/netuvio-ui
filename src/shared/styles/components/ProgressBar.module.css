@@ -69,6 +69,18 @@
   border-radius: 0;
 }
 
+.radius-sm {
+  border-radius: var(--nv-radius-sm, 6px);
+}
+
+.radius-lg {
+  border-radius: var(--nv-radius-lg, 14px);
+}
+
+.radius-xl {
+  border-radius: var(--nv-radius-xl, 22px);
+}
+
 /* Indicator */
 .indicator {
   position: absolute;

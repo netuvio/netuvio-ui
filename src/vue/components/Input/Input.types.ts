@@ -2,7 +2,7 @@ import type { Theme } from '../../../shared/tokens';
 
 export type InputTheme = Theme;
 export type InputSize = 'sm' | 'md' | 'lg' | 'xl';
-export type InputRadius = 'sm' | 'md' | 'lg' | 'full';
+export type InputRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type InputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
 
 export interface InputProps {
@@ -41,6 +41,9 @@ export interface InputProps {
 
   /** Sets if the input is neutrally 3D at rest (defaults to false) */
   neutral3d?: boolean
+
+  /** How many pixels the 3D interaction moves the input (defaults to 4) */
+  movePixels?: number | string
 
   /** Shows an eye toggle button for password fields when type is 'password' (defaults to true) */
   showPasswordToggle?: boolean

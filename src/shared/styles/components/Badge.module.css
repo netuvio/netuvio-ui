@@ -38,6 +38,12 @@
   letter-spacing: 0.12em;
 }
 
+.size-xl {
+  padding: 11px 18px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+}
+
 /* Radii */
 .radius-full {
   border-radius: var(--nv-radius-full, 9999px);
@@ -53,6 +59,14 @@
 
 .radius-none {
   border-radius: 0;
+}
+
+.radius-lg {
+  border-radius: var(--nv-radius-lg, 14px);
+}
+
+.radius-xl {
+  border-radius: var(--nv-radius-xl, 22px);
 }
 
 /* Shadows */
@@ -136,39 +150,46 @@
   flex-shrink: 0;
 }
 
+/* Disabled state */
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 /* Interactive hover */
 .interactive {
   cursor: pointer;
 }
 
 .interactive:hover {
-  transform: translate(-1px, -1px);
+  transform: translate(calc(-1 * var(--badge-action-move, 1px)), calc(-1 * var(--badge-action-move, 1px)));
 }
 
 .interactive.shadow-sm:hover {
-  box-shadow: 3px 3px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(2px + var(--badge-action-move, 1px)) calc(2px + var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive.shadow-md:hover {
-  box-shadow: 5px 5px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(3px + var(--badge-action-move, 1px)) calc(3px + var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive.shadow-lg:hover {
-  box-shadow: 6px 6px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(4px + var(--badge-action-move, 1px)) calc(4px + var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive:active {
-  transform: translate(1px, 1px);
+  transform: translate(var(--badge-action-move, 1px), var(--badge-action-move, 1px));
 }
 
 .interactive.shadow-sm:active {
-  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(2px - var(--badge-action-move, 1px)) calc(2px - var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive.shadow-md:active {
-  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(3px - var(--badge-action-move, 1px)) calc(3px - var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive.shadow-lg:active {
-  box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(4px - var(--badge-action-move, 1px)) calc(4px - var(--badge-action-move, 1px)) 0 var(--nv-color-border-strong, #1c1e16);
 }

@@ -1,8 +1,7 @@
 import type { IconName } from '../Icon/Icon.types';
 
-export type AlertVariant = 'info' | 'error' | 'success' | 'warning' | 'accent' | 'default';
-export type AlertRadius = 'sm' | 'md' | 'lg';
-export type AlertShadow = 'none' | 'sm' | 'md';
+export type AlertVariant = 'info' | 'danger' | 'success' | 'warning' | 'accent' | 'default';
+export type AlertRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 
 export interface AlertProps {
   /** Visual variant */
@@ -23,8 +22,8 @@ export interface AlertProps {
   /** Corner radius */
   radius?: AlertRadius
 
-  /** Brutalist box shadow */
-  shadow?: AlertShadow
+  /** Enables brutalist 3D box-shadow (default: true) */
+  threeD?: boolean
 }
 
 export interface AlertEmits {

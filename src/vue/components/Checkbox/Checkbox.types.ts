@@ -1,7 +1,13 @@
-export type CheckboxSize = 'sm' | 'md' | 'lg';
+import type { Theme } from '../../../shared/tokens';
+
+export type CheckboxTheme = Theme;
+export type CheckboxSize = 'sm' | 'md' | 'lg' | 'xl';
 export type CheckboxMark = 'square' | 'check';
 
 export interface CheckboxProps {
+  /** Force color theme for this checkbox ('light' | 'dark') */
+  theme?: CheckboxTheme;
+
   /** Checked status bound with v-model */
   modelValue?: boolean | any[]
 
@@ -28,6 +34,9 @@ export interface CheckboxProps {
 
   /** Error message or flag for error styling */
   error?: string | boolean
+
+  /** Enables brutalist 3D box-shadow on the checkbox box (default: true) */
+  threeD?: boolean
 
   /** Native input ID */
   id?: string

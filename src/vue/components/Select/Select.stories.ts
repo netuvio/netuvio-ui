@@ -9,7 +9,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'xl'],
     },
     radius: {
       control: 'select',
@@ -23,6 +23,9 @@ const meta = {
       control: 'select',
       options: ['left', 'right'],
     },
+    threeD: {
+      control: 'boolean',
+    },
     disabled: {
       control: 'boolean',
     },
@@ -32,10 +35,18 @@ const meta = {
     native: {
       control: 'boolean',
     },
+    error: {
+      control: 'text',
+    },
+    theme: {
+      control: 'select',
+      options: ['light', 'dark'],
+    },
   },
   args: {
     size: 'md',
     radius: 'full',
+    threeD: true,
     disabled: false,
     block: false,
     native: false,

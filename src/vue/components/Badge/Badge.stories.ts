@@ -13,18 +13,17 @@ const meta: Meta<typeof NvBadge> = {
     },
     size: {
       control: 'select',
-      options: ['sm', 'md', 'lg'],
+      options: ['sm', 'md', 'lg', 'xl'],
       description: 'Size of the badge',
     },
     radius: {
       control: 'select',
-      options: ['full', 'md', 'sm', 'none'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
       description: 'Border radius style',
     },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md', 'lg'],
-      description: 'Brutalist box shadow',
+    threeD: {
+      control: 'boolean',
+      description: 'Brutalist 3D box-shadow',
     },
     dot: {
       control: 'boolean',
@@ -33,6 +32,10 @@ const meta: Meta<typeof NvBadge> = {
     interactive: {
       control: 'boolean',
       description: 'Adds hover/active 3D movement for clickable badges',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables interactions when badge is interactive',
     },
     uppercase: {
       control: 'boolean',
@@ -43,9 +46,10 @@ const meta: Meta<typeof NvBadge> = {
     variant: 'accent',
     size: 'md',
     radius: 'full',
-    shadow: 'sm',
+    threeD: true,
     dot: false,
     interactive: false,
+    disabled: false,
     uppercase: true,
   },
 };
@@ -72,8 +76,8 @@ export const AuthEyebrow: Story = {
     components: { NvBadge },
     template: `
       <div style="padding: 24px; display: flex; gap: 16px; align-items: center;">
-        <NvBadge size="lg" shadow="lg" variant="default">NETUVIO IDENTITY</NvBadge>
-        <NvBadge size="md" shadow="sm" variant="accent">STEP 1: VERIFICATION</NvBadge>
+        <NvBadge size="lg" variant="default">NETUVIO IDENTITY</NvBadge>
+        <NvBadge size="md" variant="accent">STEP 1: VERIFICATION</NvBadge>
       </div>
     `,
   }),
@@ -117,10 +121,10 @@ export const InteractiveFilters: Story = {
     components: { NvBadge },
     template: `
       <div style="padding: 24px; display: flex; gap: 12px;">
-        <NvBadge interactive variant="accent" shadow="md">All Services</NvBadge>
-        <NvBadge interactive variant="default" shadow="sm">Webhosting</NvBadge>
-        <NvBadge interactive variant="default" shadow="sm">Domains</NvBadge>
-        <NvBadge interactive variant="default" shadow="sm">Invoices</NvBadge>
+        <NvBadge interactive variant="accent">All Services</NvBadge>
+        <NvBadge interactive variant="default">Webhosting</NvBadge>
+        <NvBadge interactive variant="default">Domains</NvBadge>
+        <NvBadge interactive variant="default">Invoices</NvBadge>
       </div>
     `,
   }),

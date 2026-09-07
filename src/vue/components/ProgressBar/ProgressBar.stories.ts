@@ -31,13 +31,12 @@ const meta: Meta<typeof NvProgressBar> = {
     },
     radius: {
       control: 'select',
-      options: ['full', 'md', 'none'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
       description: 'Border radius',
     },
-    shadow: {
-      control: 'select',
-      options: ['none', 'sm', 'md'],
-      description: 'Brutalist box shadow',
+    threeD: {
+      control: 'boolean',
+      description: 'Brutalist 3D box-shadow',
     },
     label: {
       control: 'text',
@@ -55,7 +54,7 @@ const meta: Meta<typeof NvProgressBar> = {
     variant: 'default',
     size: 'md',
     radius: 'full',
-    shadow: 'sm',
+    threeD: true,
     label: 'Disk space utilization',
     showValue: true,
   },

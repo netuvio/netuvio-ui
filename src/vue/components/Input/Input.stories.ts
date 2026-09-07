@@ -19,7 +19,7 @@ const meta: Meta<typeof Input> = {
     },
     radius: {
       control: 'select',
-      options: ['sm', 'md', 'lg', 'full'],
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
       description: 'Border radius corner style (defaults to full)',
     },
     label: {
@@ -54,6 +54,10 @@ const meta: Meta<typeof Input> = {
         type: { summary: 'boolean' },
       },
     },
+    movePixels: {
+      control: 'number',
+      description: 'How many pixels the 3D interaction moves the input',
+    },
     showPasswordToggle: {
       control: 'boolean',
       description: 'Shows eye reveal button for password inputs',
@@ -78,6 +82,7 @@ const meta: Meta<typeof Input> = {
     block: false,
     threeD: true,
     neutral3d: false,
+    movePixels: 4,
     showPasswordToggle: true,
   },
   render: (args: Record<string, any>) => ({
