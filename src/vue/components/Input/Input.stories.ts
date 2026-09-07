@@ -283,3 +283,54 @@ export const ForcedTheme: Story = {
   }),
 }
 
+export const Readonly: Story = {
+  render: () => ({
+    components: { Input },
+    setup() {
+      const email = ref('serhii.yavorskyi.611@gmail.com')
+      return { email }
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 20px; max-width: 480px;">
+        <div>
+          <h4 style="margin: 0 0 12px;">Light Theme Readonly</h4>
+          <Input
+            theme="light"
+            label="EMAIL"
+            v-model="email"
+            readonly
+            radius="md"
+            block
+          >
+            <template #suffix>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </template>
+          </Input>
+        </div>
+
+        <div data-theme="dark" style="background-color: var(--nv-color-bg-page); color: var(--nv-color-text-primary); padding: 20px; border-radius: 12px; border: 2px solid var(--nv-color-border-strong);">
+          <h4 style="margin: 0 0 12px;">Dark Theme Readonly</h4>
+          <Input
+            theme="dark"
+            label="EMAIL"
+            v-model="email"
+            readonly
+            radius="md"
+            block
+          >
+            <template #suffix>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect width="18" height="11" x="3" y="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </template>
+          </Input>
+        </div>
+      </div>
+    `,
+  }),
+}
+

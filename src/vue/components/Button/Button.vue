@@ -20,6 +20,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   threeD: true,
   neutral3d: false,
   movePixels: 4,
+  uppercase: false,
 })
 
 const emit = defineEmits<{
@@ -43,6 +44,7 @@ const classes = computed(() => [
   is3D.value ? styles.is3d : null,
   isNeutral3D.value ? styles.neutral3d : null,
   props.loading ? styles.loading : null,
+  props.uppercase ? styles.uppercase : null,
 ]);
 
 const buttonStyle = computed(() => {

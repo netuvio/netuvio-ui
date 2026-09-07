@@ -315,4 +315,45 @@ export const ActionButton: Story = {
   }),
 }
 
+export const GhostDashed: Story = {
+  name: 'Ghost Variant (Dashed Hover)',
+  render: () => ({
+    components: { Button },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 24px; max-width: 440px;">
+        <div>
+          <h4 style="margin: 0 0 12px;">Light Theme</h4>
+          <Button
+            variant="ghost"
+            size="md"
+            radius="md"
+            block
+            uppercase
+            :font-size="11"
+            :font-weight="850"
+          >
+            Zpět k objednávce
+          </Button>
+        </div>
+
+        <div data-theme="dark" style="background-color: var(--nv-color-bg-page); color: var(--nv-color-text-primary); padding: 20px; border-radius: 12px; border: 2px solid var(--nv-color-border-strong);">
+          <h4 style="margin: 0 0 12px;">Dark Theme</h4>
+          <Button
+            variant="ghost"
+            theme="dark"
+            size="md"
+            radius="md"
+            block
+            uppercase
+            :font-size="11"
+            :font-weight="850"
+          >
+            Zpět k objednávce
+          </Button>
+        </div>
+      </div>
+    `,
+  }),
+}
+
 

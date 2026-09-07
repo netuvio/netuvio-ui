@@ -255,15 +255,39 @@
 .variant-ghost {
   .topLayer {
     background-color: transparent;
-    color: var(--nv-color-ghost-text);
-    border: 2px solid transparent;
+    color: var(--nv-color-text-secondary);
+    border: 2px dashed transparent;
+    transform: none !important;
+  }
+
+  .bottomLayer {
+    display: none !important;
   }
 
   &:hover:not(:disabled) {
     .topLayer {
-      background-color: var(--nv-color-ghost-hover-bg);
-      color: var(--nv-color-ghost-hover-text);
+      background-color: var(--nv-color-bg-muted);
+      color: var(--nv-color-text-primary);
+      border-color: light-dark(var(--nv-color-border-strong), var(--nv-color-carbon-200));
+      transform: none !important;
     }
+
+    .bottomLayer {
+      display: none !important;
+    }
+  }
+
+  &:active:not(:disabled) {
+    .topLayer {
+      transform: none !important;
+    }
+  }
+}
+
+.uppercase {
+  .topLayer {
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
   }
 }
 

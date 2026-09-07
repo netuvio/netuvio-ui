@@ -56,4 +56,7 @@ export interface ButtonProps {
 
   /** Custom font weight (e.g. 600, 700, 800) */
   fontWeight?: number | string
+
+  /** Transforms text to uppercase with wide letter spacing */
+  uppercase?: boolean
 };

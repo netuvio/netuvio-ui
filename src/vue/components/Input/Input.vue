@@ -61,6 +61,7 @@ const wrapperClasses = computed(() => [
   styles[`radius-${props.radius}`],
   props.block ? styles.block : null,
   props.disabled ? styles.disabled : null,
+  props.readonly ? styles.readonly : null,
   hasError.value ? styles.hasError : null,
   props.threeD ? styles.is3d : null,
   isNeutral3D.value ? styles.neutral3d : null,

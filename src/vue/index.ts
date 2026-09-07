@@ -1,5 +1,6 @@
 // Netuvio UI - Vue 3 Components Entry Point
 export * from './components/Button';
+export * from './components/ErrorPage';
 export * from './components/Input';
 export * from './components/Select';
 export * from './components/Card';
