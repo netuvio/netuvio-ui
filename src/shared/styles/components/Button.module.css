@@ -20,7 +20,7 @@
     cursor: not-allowed;
     opacity: 0.65;
 
-    & .topLayer {
+    .topLayer {
       transform: none !important;
     }
   }
@@ -53,17 +53,21 @@
               border-color 0.18s ease,
               color 0.18s ease;
   will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none !important;
+  }
 }
 
 .is3d {
   &:hover:not(:disabled) {
-    & .topLayer {
+    .topLayer {
       transform: translate(-4px, -4px);
     }
   }
 
   &:active:not(:disabled) {
-    & .topLayer {
+    .topLayer {
       transform: translate(0, 0);
       transition-duration: 0.06s;
     }
@@ -78,7 +82,7 @@
 .block {
   width: 100%;
 
-  & .topLayer {
+  .topLayer {
     width: 100%;
   }
 }
@@ -87,31 +91,39 @@
   pointer-events: none;
 }
 
-/* Default Base Sizes (Pill padding) */
-.size-sm .topLayer {
-  min-height: 32px;
-  padding: 0 14px;
-  font-size: 13px;
+/* Default Base Sizes */
+.size-sm {
+  .topLayer {
+    min-height: 32px;
+    padding: 0 14px;
+    font-size: 13px;
+  }
 }
 
-.size-md .topLayer {
-  min-height: 40px;
-  padding: 0 18px;
-  font-size: 15px;
+.size-md {
+  .topLayer {
+    min-height: 40px;
+    padding: 0 18px;
+    font-size: 15px;
+  }
 }
 
-.size-lg .topLayer {
-  min-height: 48px;
-  padding: 0 24px;
-  font-size: 18px;
-  font-weight: 700;
+.size-lg {
+  .topLayer {
+    min-height: 48px;
+    padding: 0 24px;
+    font-size: 18px;
+    font-weight: 700;
+  }
 }
 
-.size-xl .topLayer {
-  min-height: 48px;
-  padding: 16px 32px;
-  font-size: 20px;
-  font-weight: 700;
+.size-xl {
+  .topLayer {
+    min-height: 48px;
+    padding: 16px 32px;
+    font-size: 20px;
+    font-weight: 700;
+  }
 }
 
 /* Radii Variations */
@@ -132,55 +144,67 @@
 }
 
 /* Variants */
-.variant-primary .topLayer {
-  background-color: var(--nv-color-accent);
-  color: var(--nv-color-accent-text);
-  border-color: var(--nv-color-carbon-900);
+.variant-primary {
+  .topLayer {
+    background-color: var(--nv-color-accent);
+    color: var(--nv-color-accent-text);
+    border-color: var(--nv-color-carbon-900);
+  }
+
+  .bottomLayer {
+    background-color: var(--nv-color-carbon-900);
+  }
 }
 
-.variant-primary .bottomLayer {
-  background-color: var(--nv-color-carbon-900);
+.variant-secondary {
+  .topLayer {
+    background-color: var(--nv-color-container);
+    color: var(--nv-color-text-primary);
+    border-color: var(--nv-color-container-border);
+  }
+
+  .bottomLayer {
+    background-color: var(--nv-color-container-border);
+  }
 }
 
-.variant-secondary .topLayer {
-  background-color: var(--nv-color-container);
-  color: var(--nv-color-text-primary);
-  border-color: var(--nv-color-container-border);
+.variant-tertiary {
+  .topLayer {
+    background-color: var(--nv-color-carbon-900);
+    color: var(--nv-color-lime-50);
+    border-color: var(--nv-color-lime-50);
+  }
+
+  .bottomLayer {
+    background-color: var(--nv-color-lime-50);
+  }
 }
 
-.variant-secondary .bottomLayer {
-  border-color: var(--nv-color-container-border);
+.variant-ghost {
+  .topLayer {
+    background-color: transparent;
+    color: var(--nv-color-ghost-text);
+    border: 2px solid transparent;
+  }
+
+  &:hover:not(:disabled) {
+    .topLayer {
+      background-color: var(--nv-color-ghost-hover-bg);
+      color: var(--nv-color-ghost-hover-text);
+    }
+  }
 }
 
-.variant-tertiary .topLayer {
-  background-color: var(--nv-color-carbon-900);
-  color: var(--nv-color-lime-50);
-  border-color: var(--nv-color-lime-50);
-}
+.variant-danger {
+  .topLayer {
+    background-color: var(--nv-color-danger);
+    color: var(--nv-color-lime-50);
+    border-color: var(--nv-color-carbon-900);
+  }
 
-.variant-tertiary .bottomLayer {
-  background-color: var(--nv-color-lime-50);
-}
-
-.variant-ghost .topLayer {
-  background-color: transparent;
-  color: var(--nv-color-ghost-text);
-  border: 2px solid transparent;
-}
-
-.variant-ghost:hover:not(:disabled) .topLayer {
-  background-color: var(--nv-color-ghost-hover-bg);
-  color: var(--nv-color-ghost-hover-text);
-}
-
-.variant-danger .topLayer {
-  background-color: var(--nv-color-danger);
-  color: var(--nv-color-lime-50);
-  border-color: var(--nv-color-carbon-900);
-}
-
-.variant-danger .bottomLayer {
-  background-color: var(--nv-color-carbon-900);
+  .bottomLayer {
+    background-color: var(--nv-color-carbon-900);
+  }
 }
 
 .spinner {
@@ -196,11 +220,5 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .topLayer {
-    transition: none !important;
   }
 }
