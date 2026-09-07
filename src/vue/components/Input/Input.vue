@@ -104,7 +104,11 @@ defineExpose({
 </script>
 
 <template>
-  <div :class="wrapperClasses">
+  <div
+    :class="wrapperClasses"
+    :theme="props.theme"
+    :data-theme="props.theme"
+  >
     <!-- Label -->
     <label
       v-if="label || $slots.label"
@@ -162,6 +166,7 @@ defineExpose({
           v-if="type === 'password' && showPasswordToggle"
           type="button"
           variant="secondary"
+          :theme="props.theme"
           :radius="props.radius"
           :disabled="disabled"
           :move-pixels="1"

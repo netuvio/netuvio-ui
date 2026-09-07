@@ -65,6 +65,8 @@ function handleClick(event: MouseEvent) {
   <button
     v-bind="$attrs"
     :type="props.type"
+    :theme="props.theme"
+    :data-theme="props.theme"
     :class="[classes, $attrs.class]"
     :style="[buttonStyle, $attrs.style]"
     :disabled="isDisabled"

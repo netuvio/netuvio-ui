@@ -244,3 +244,37 @@ export const ThemeComparison: Story = {
     `,
   }),
 }
+
+export const ForcedTheme: Story = {
+  render: () => ({
+    components: { Input },
+    setup() {
+      const emailLight = ref('')
+      const passLight = ref('password123')
+      const emailDark = ref('')
+      const passDark = ref('password123')
+      return { emailLight, passLight, emailDark, passDark }
+    },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 16px; max-width: 440px;">
+        <h4 style="margin: 0;">Forced Theme via attribute / prop (theme="light" | theme="dark")</h4>
+        <Input
+          theme="light"
+          label="FORCED LIGHT INPUT"
+          v-model="emailLight"
+          placeholder="Forced light theme"
+          block
+        />
+        <Input
+          theme="dark"
+          label="FORCED DARK INPUT"
+          type="password"
+          v-model="passDark"
+          hint="Even inside a light canvas, this input is dark"
+          block
+        />
+      </div>
+    `,
+  }),
+}
+

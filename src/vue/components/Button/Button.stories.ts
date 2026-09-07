@@ -264,3 +264,25 @@ export const MovePixels: Story = {
   }),
 }
 
+export const ForcedTheme: Story = {
+  render: () => ({
+    components: { Button },
+    template: `
+      <div style="display: flex; flex-direction: column; gap: 24px; padding: 16px;">
+        <h4 style="margin: 0;">Forced Theme via attribute / prop (theme="light" | theme="dark")</h4>
+        <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
+          <Button variant="secondary" theme="light">Forced Light</Button>
+          <Button variant="secondary" theme="dark">Forced Dark</Button>
+          <Button variant="primary" theme="light">Primary Light</Button>
+          <Button variant="primary" theme="dark">Primary Dark</Button>
+          <Button variant="ghost" theme="light">Ghost Light</Button>
+          <Button variant="ghost" theme="dark">Ghost Dark</Button>
+          <Button variant="danger" theme="light">Danger Light</Button>
+          <Button variant="danger" theme="dark">Danger Dark</Button>
+        </div>
+      </div>
+    `,
+  }),
+}
+
+

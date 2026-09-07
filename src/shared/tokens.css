@@ -1,5 +1,6 @@
 :root,
-[data-theme="light"] {
+[data-theme="light"],
+[theme="light"] {
   color-scheme: light;
 
   /* Typography */
@@ -121,7 +122,8 @@
 
 /* Dark Theme Overrides */
 [data-theme="dark"],
-.dark {
+[theme="dark"],
+.dark:not([theme="light"]):not([data-theme="light"]) {
   color-scheme: dark;
 
   /* Brand / Accent */

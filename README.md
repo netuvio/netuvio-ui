@@ -6,7 +6,7 @@ Modern, token-driven UI component library for Netuvio web applications.
 - **Tactile Design System**: Consistent visual language featuring deliberate depth, structured borders, and responsive interaction feedback.
 - **Design Tokens**: Comprehensive token foundation for color palettes, radii, transitions, shadows, breakpoints, and light/dark theming via CSS custom properties.
 - **Exposed Tokens & Typings**: Consume design tokens via CSS custom properties or typed TypeScript constants across consumer applications.
-- **Subpath Package Architecture**: Clean modular package exports (`netuvio-ui/vue`, `netuvio-ui/tokens`, `netuvio-ui/shared`, `netuvio-ui/styles.css`).
+- **Subpath Package Architecture**: Clean modular package exports (`@netuvio/ui/vue`, `@netuvio/ui/tokens`, `@netuvio/ui/shared`, `@netuvio/ui/styles.css`).
 - **Storybook Catalog**: Interactive component documentation, variant inspection, and automated accessibility checks.
 
 ---
@@ -14,9 +14,9 @@ Modern, token-driven UI component library for Netuvio web applications.
 ## Installation
 
 ```bash
-pnpm add @netuvio/netuvio-ui
+pnpm add @netuvio/ui
 # or
-npm install @netuvio/netuvio-ui
+npm install @netuvio/ui
 ```
 
 ---
@@ -32,10 +32,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 
 // Import all tokens & component styles
-import '@netuvio/netuvio-ui/styles.css'
+import '@netuvio/ui/styles.css'
 
 // (Optional) Bundled Inter variable font:
-// import '@netuvio/netuvio-ui/fonts.css'
+// import '@netuvio/ui/fonts.css'
 
 createApp(App).mount('#app')
 ```
@@ -43,7 +43,7 @@ createApp(App).mount('#app')
 If you only need the CSS custom properties without component styles:
 
 ```ts
-import '@netuvio/netuvio-ui/tokens.css'
+import '@netuvio/ui/tokens.css'
 ```
 
 ---
@@ -54,7 +54,7 @@ Components and their associated TypeScript types can be imported directly from t
 
 ```vue
 <script setup lang="ts">
-import { ComponentName } from '@netuvio/netuvio-ui/vue'
+import { ComponentName } from '@netuvio/ui/vue'
 </script>
 
 <template>
@@ -95,21 +95,41 @@ All tokens use the `--nv-` prefix and modern CSS custom properties.
 
 #### Usage in TypeScript:
 ```ts
-import { tokens, colors, breakpoints } from '@netuvio/netuvio-ui/tokens'
+import { tokens, colors, breakpoints } from '@netuvio/ui/tokens'
+import type { Theme } from '@netuvio/ui/tokens'
 ```
 
+#### Forcing Light / Dark Theme:
+Force a specific theme on any HTML element, container, or component using the `theme` attribute (`"light"` or `"dark"`):
+
+```html
+<!-- On any HTML container / element -->
+<div theme="dark">
+  <!-- All child tokens automatically switch to dark theme -->
+  <NvButton variant="primary">Dark themed</NvButton>
+</div>
+
+<!-- On specific components directly -->
+<NvButton theme="light">Forced Light Button</NvButton>
+<NvButton theme="dark">Forced Dark Button</NvButton>
+<NvInput theme="dark" label="Forced Dark Input" />
+```
+
+`data-theme="light"` and `data-theme="dark"` are also supported for full backward compatibility.
+
 ---
+
 
 ## Subpath Package Exports
 
 | Import Path | Description |
 | :--- | :--- |
-| `@netuvio/netuvio-ui/vue` | Vue 3 UI components and component types |
-| `@netuvio/netuvio-ui/tokens` | TypeScript design token constants and types |
-| `@netuvio/netuvio-ui/shared` | Shared foundation utilities and tokens |
-| `@netuvio/netuvio-ui/styles.css` | Bundled design tokens and component styles |
-| `@netuvio/netuvio-ui/tokens.css` | Standalone CSS custom properties (variables only) |
-| `@netuvio/netuvio-ui/fonts.css` | Bundled font definitions |
+| `@netuvio/ui/vue` | Vue 3 UI components and component types |
+| `@netuvio/ui/tokens` | TypeScript design token constants and types |
+| `@netuvio/ui/shared` | Shared foundation utilities and tokens |
+| `@netuvio/ui/styles.css` | Bundled design tokens and component styles |
+| `@netuvio/ui/tokens.css` | Standalone CSS custom properties (variables only) |
+| `@netuvio/ui/fonts.css` | Bundled font definitions |
 
 ---
 

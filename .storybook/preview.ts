@@ -71,6 +71,8 @@ const preview: Preview = {
       if (typeof document !== 'undefined') {
         document.documentElement.setAttribute('data-theme', resolvedTheme)
         document.body.setAttribute('data-theme', resolvedTheme)
+        document.documentElement.setAttribute('theme', resolvedTheme)
+        document.body.setAttribute('theme', resolvedTheme)
 
         // Ensure canvas body font, background & text match the theme tokens
         document.body.style.fontFamily = 'var(--nv-font-sans)'

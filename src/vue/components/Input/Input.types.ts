@@ -1,8 +1,14 @@
+import type { Theme } from '../../../shared/tokens';
+
+export type InputTheme = Theme;
 export type InputSize = 'sm' | 'md' | 'lg' | 'xl';
 export type InputRadius = 'sm' | 'md' | 'lg' | 'full';
 export type InputType = 'text' | 'password' | 'email' | 'number' | 'search' | 'tel' | 'url';
 
 export interface InputProps {
+  /** Force color theme for this input component ('light' | 'dark') */
+  theme?: InputTheme
+
   /** Input value bound with v-model */
   modelValue?: string | number
 

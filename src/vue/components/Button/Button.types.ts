@@ -1,9 +1,15 @@
+import type { Theme } from '../../../shared/tokens';
+
+export type ButtonTheme = Theme;
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
 export type ButtonRadius = 'sm' | 'md' | 'lg' | 'full';
 export type ButtonType = 'button' | 'submit' | 'reset';
 
 export interface ButtonProps {
+  /** Force color theme for this button ('light' | 'dark') */
+  theme?: ButtonTheme
+
   /** Visual style variant for the button */
   variant?: ButtonVariant
 
