@@ -59,6 +59,9 @@ export const colors = {
     accentDark: 'var(--nv-color-accent-dark)',
     accentText: 'var(--nv-color-accent-text)',
     logo: 'var(--nv-color-logo)',
+    ghostText: 'var(--nv-color-ghost-text)',
+    ghostHoverBg: 'var(--nv-color-ghost-hover-bg)',
+    ghostHoverText: 'var(--nv-color-ghost-hover-text)',
 
     // Container / Card
     container: 'var(--nv-color-container)',

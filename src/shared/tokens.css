@@ -67,58 +67,58 @@ html[data-theme="light"] {
 
   /* Light Mode Semantics (Default) */
   /* Brand / Accent */
-  --nv-color-accent: hsl(75 85% 56%);
-  --nv-color-accent-hover: hsl(76 94% 67%);
-  --nv-color-accent-dark: hsl(75 100% 31%);
-  --nv-color-accent-text: hsl(75 15% 10%);
-  --nv-color-logo: hsl(75 15% 10%);
+  --nv-color-accent: var(--nv-color-lime-400);
+  --nv-color-accent-hover: var(--nv-color-lime-300);
+  --nv-color-accent-dark: var(--nv-color-lime-600);
+  --nv-color-accent-text: var(--nv-color-carbon-900);
+  --nv-color-logo: var(--nv-color-carbon-900);
 
   /* Ghost Button */
-  --nv-color-ghost-text: hsl(75 100% 31%);
-  --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
-  --nv-color-ghost-hover-text: hsl(75 100% 24%);
+  --nv-color-ghost-text: var(--nv-color-accent-dark);
+  --nv-color-ghost-hover-bg: color-mix(in srgb, var(--nv-color-accent) 16%, transparent);
+  --nv-color-ghost-hover-text: color-mix(in srgb, var(--nv-color-ghost-text) 85%, var(--nv-color-carbon-900));
 
   /* Container / Card */
-  --nv-color-container: hsl(0 0% 100%);
-  --nv-color-container-border: hsl(75 15% 10%);
-  --nv-color-container-shadow: hsl(75 15% 10%);
+  --nv-color-container: var(--nv-color-lime-50);
+  --nv-color-container-border: var(--nv-color-carbon-900);
+  --nv-color-container-shadow: var(--nv-color-carbon-900);
 
   /* Backgrounds */
-  --nv-color-bg-page: hsl(75 85% 56%);
-  --nv-color-bg-panel: hsl(0 0% 100%);
-  --nv-color-bg-subtle: hsl(75 33% 98%);
-  --nv-color-bg-alt: hsl(78 73% 93%);
-  --nv-color-bg-muted: hsl(73 39% 95%);
-  --nv-color-bg-input: hsl(75 33% 98%);
+  --nv-color-bg-page: var(--nv-color-accent);
+  --nv-color-bg-panel: var(--nv-color-container);
+  --nv-color-bg-subtle: color-mix(in srgb, var(--nv-color-accent) 4%, var(--nv-color-container));
+  --nv-color-bg-alt: color-mix(in srgb, var(--nv-color-accent) 15%, var(--nv-color-container));
+  --nv-color-bg-muted: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
+  --nv-color-bg-input: var(--nv-color-bg-subtle);
 
   /* Typography */
-  --nv-color-text-primary: hsl(75 15% 10%);
-  --nv-color-text-secondary: hsl(80 6% 38%);
-  --nv-color-text-muted: hsl(77 6% 53%);
-  --nv-color-text-inverse: hsl(0 0% 100%);
+  --nv-color-text-primary: var(--nv-color-carbon-900);
+  --nv-color-text-secondary: color-mix(in srgb, var(--nv-color-text-primary) 70%, transparent);
+  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 45%, transparent);
+  --nv-color-text-inverse: var(--nv-color-lime-50);
 
   /* Borders */
-  --nv-color-border-strong: hsl(75 15% 10%);
-  --nv-color-border-subtle: hsl(73 16% 89%);
-  --nv-color-border-input: hsl(75 10% 77%);
-  --nv-color-border-card: hsl(81 48% 76%);
+  --nv-color-border-strong: var(--nv-color-carbon-900);
+  --nv-color-border-subtle: color-mix(in srgb, var(--nv-color-border-strong) 15%, transparent);
+  --nv-color-border-input: color-mix(in srgb, var(--nv-color-border-strong) 30%, transparent);
+  --nv-color-border-card: color-mix(in srgb, var(--nv-color-accent) 35%, var(--nv-color-container));
 
   /* States & Alerts */
-  --nv-color-error-bg: hsl(13 100% 96%);
-  --nv-color-error-border: hsl(10 49% 75%);
-  --nv-color-error-text: hsl(8 67% 34%);
-
   --nv-color-danger: hsl(0 72% 51%);
-  --nv-color-danger-hover: hsl(0 72% 45%);
+  --nv-color-danger-hover: color-mix(in srgb, var(--nv-color-danger) 85%, var(--nv-color-carbon-900));
 
-  --nv-color-success-bg: hsl(78 73% 93%);
-  --nv-color-success-border: hsl(81 48% 76%);
-  --nv-color-success-text: hsl(77 17% 16%);
+  --nv-color-error-text: var(--nv-color-danger);
+  --nv-color-error-bg: color-mix(in srgb, var(--nv-color-danger) 8%, var(--nv-color-container));
+  --nv-color-error-border: color-mix(in srgb, var(--nv-color-danger) 28%, var(--nv-color-container));
 
-  --nv-color-notice-bg: hsl(73 39% 95%);
-  --nv-color-notice-border: hsl(82 22% 85%);
-  --nv-color-notice-accent: hsl(75 100% 31%);
-  --nv-color-notice-text: hsl(80 11% 21%);
+  --nv-color-success-bg: var(--nv-color-bg-alt);
+  --nv-color-success-border: var(--nv-color-border-card);
+  --nv-color-success-text: var(--nv-color-text-primary);
+
+  --nv-color-notice-bg: var(--nv-color-bg-muted);
+  --nv-color-notice-border: color-mix(in srgb, var(--nv-color-border-strong) 18%, var(--nv-color-container));
+  --nv-color-notice-accent: var(--nv-color-accent-dark);
+  --nv-color-notice-text: var(--nv-color-text-primary);
 
   /* Dedicated backdrop tokens */
   --nv-color-backdrop-text: var(--nv-color-container);
@@ -136,118 +136,118 @@ html[data-theme="light"] {
 :root[data-theme="dark"],
 html[data-theme="dark"] {
   /* Brand / Accent */
-  --nv-color-accent: hsl(75 85% 56%);
-  --nv-color-accent-hover: hsl(76 94% 67%);
-  --nv-color-accent-dark: hsl(76 84% 45%);
-  --nv-color-accent-text: hsl(77 21% 6%);
-  --nv-color-logo: hsl(0 0% 100%);
+  --nv-color-accent: var(--nv-color-lime-400);
+  --nv-color-accent-hover: var(--nv-color-lime-300);
+  --nv-color-accent-dark: var(--nv-color-lime-500);
+  --nv-color-accent-text: var(--nv-color-carbon-900);
+  --nv-color-logo: var(--nv-color-lime-50);
 
   /* Ghost Button */
-  --nv-color-ghost-text: hsl(75 85% 56%);
-  --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
-  --nv-color-ghost-hover-text: hsl(76 94% 67%);
+  --nv-color-ghost-text: var(--nv-color-accent);
+  --nv-color-ghost-hover-bg: color-mix(in srgb, var(--nv-color-accent) 16%, transparent);
+  --nv-color-ghost-hover-text: var(--nv-color-accent-hover);
 
   /* Container / Card */
-  --nv-color-container: hsl(77 16% 8%);
-  --nv-color-container-border: hsl(79 19% 17%);
-  --nv-color-container-shadow: hsl(0 0% 0%);
+  --nv-color-container: var(--nv-color-carbon-500);
+  --nv-color-container-border: var(--nv-color-carbon-350);
+  --nv-color-container-shadow: var(--nv-color-carbon-900);
 
   /* Backgrounds */
-  --nv-color-bg-page: hsl(80 21% 5%);
-  --nv-color-bg-panel: hsl(77 16% 8%);
-  --nv-color-bg-subtle: hsl(80 16% 11%);
-  --nv-color-bg-alt: hsl(82 17% 13%);
-  --nv-color-bg-muted: hsl(83 16% 10%);
-  --nv-color-bg-input: hsl(77 21% 6%);
+  --nv-color-bg-page: var(--nv-color-carbon-800);
+  --nv-color-bg-panel: var(--nv-color-container);
+  --nv-color-bg-subtle: color-mix(in srgb, var(--nv-color-accent) 3%, var(--nv-color-container));
+  --nv-color-bg-alt: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
+  --nv-color-bg-muted: color-mix(in srgb, var(--nv-color-accent) 5%, var(--nv-color-container));
+  --nv-color-bg-input: var(--nv-color-carbon-700);
 
   /* Typography */
-  --nv-color-text-primary: hsl(75 27% 94%);
-  --nv-color-text-secondary: hsl(76 7% 60%);
-  --nv-color-text-muted: hsl(80 6% 40%);
-  --nv-color-text-inverse: hsl(80 21% 5%);
+  --nv-color-text-primary: var(--nv-color-carbon-50);
+  --nv-color-text-secondary: color-mix(in srgb, var(--nv-color-text-primary) 70%, transparent);
+  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 45%, transparent);
+  --nv-color-text-inverse: var(--nv-color-carbon-900);
 
   /* Borders */
-  --nv-color-border-strong: hsl(79 19% 17%);
-  --nv-color-border-subtle: hsl(82 16% 13%);
-  --nv-color-border-input: hsl(80 17% 21%);
-  --nv-color-border-card: hsl(83 19% 22%);
+  --nv-color-border-strong: var(--nv-color-carbon-350);
+  --nv-color-border-subtle: color-mix(in srgb, var(--nv-color-border-strong) 40%, transparent);
+  --nv-color-border-input: color-mix(in srgb, var(--nv-color-border-strong) 60%, transparent);
+  --nv-color-border-card: color-mix(in srgb, var(--nv-color-accent) 25%, var(--nv-color-container));
 
   /* States & Alerts */
-  --nv-color-error-bg: hsl(9 43% 12%);
-  --nv-color-error-border: hsl(9 51% 28%);
-  --nv-color-error-text: hsl(9 100% 74%);
-
   --nv-color-danger: hsl(0 72% 51%);
-  --nv-color-danger-hover: hsl(0 72% 45%);
+  --nv-color-danger-hover: color-mix(in srgb, var(--nv-color-danger) 85%, var(--nv-color-lime-50));
 
-  --nv-color-success-bg: hsl(90 36% 11%);
-  --nv-color-success-border: hsl(87 45% 23%);
-  --nv-color-success-text: hsl(76 94% 67%);
+  --nv-color-error-text: color-mix(in srgb, var(--nv-color-danger) 75%, var(--nv-color-lime-50));
+  --nv-color-error-bg: color-mix(in srgb, var(--nv-color-danger) 18%, var(--nv-color-container));
+  --nv-color-error-border: color-mix(in srgb, var(--nv-color-danger) 45%, var(--nv-color-container));
 
-  --nv-color-notice-bg: hsl(82 20% 11%);
-  --nv-color-notice-border: hsl(81 23% 19%);
-  --nv-color-notice-accent: hsl(76 84% 45%);
-  --nv-color-notice-text: hsl(76 25% 83%);
+  --nv-color-success-bg: color-mix(in srgb, var(--nv-color-accent) 15%, var(--nv-color-container));
+  --nv-color-success-border: color-mix(in srgb, var(--nv-color-accent) 35%, var(--nv-color-container));
+  --nv-color-success-text: var(--nv-color-accent-hover);
+
+  --nv-color-notice-bg: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
+  --nv-color-notice-border: color-mix(in srgb, var(--nv-color-accent) 20%, var(--nv-color-container));
+  --nv-color-notice-accent: var(--nv-color-accent);
+  --nv-color-notice-text: var(--nv-color-text-primary);
 
   /* Neo-brutalist shadows in dark mode */
-  --nv-shadow-brutal-sm: 2px 2px 0 hsl(0 0% 0%);
-  --nv-shadow-brutal-md: 3px 3px 0 hsl(0 0% 0%);
-  --nv-shadow-brutal-lg: 4px 4px 0 hsl(0 0% 0%);
-  --nv-shadow-brutal-card: 10px 10px 0 hsl(0 0% 0%);
-  --nv-shadow-brutal-card-sm: 6px 6px 0 hsl(0 0% 0%);
+  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-color-carbon-900);
+  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-color-carbon-900);
+  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-color-carbon-900);
+  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-color-carbon-900);
+  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-color-carbon-900);
 
   /* Dedicated backdrop tokens */
-  --nv-color-backdrop-text: hsl(77 17% 8%);
-  --nv-color-backdrop-stroke: hsl(83 23% 14%);
+  --nv-color-backdrop-text: color-mix(in srgb, var(--nv-color-carbon-900) 80%, var(--nv-color-accent));
+  --nv-color-backdrop-stroke: color-mix(in srgb, var(--nv-color-carbon-700) 70%, var(--nv-color-accent));
 }
 
 /* System Theme (when user prefers dark and no explicit theme is set) */
 @media (prefers-color-scheme: dark) {
   :root[data-theme="system"],
   html[data-theme="system"] {
-    --nv-color-accent: hsl(75 85% 56%);
-    --nv-color-accent-hover: hsl(76 94% 67%);
-    --nv-color-accent-dark: hsl(76 84% 45%);
-    --nv-color-accent-text: hsl(77 21% 6%);
-    --nv-color-logo: hsl(0 0% 100%);
-    --nv-color-ghost-text: hsl(75 85% 56%);
-    --nv-color-ghost-hover-bg: hsl(75 85% 56% / 0.16);
-    --nv-color-ghost-hover-text: hsl(76 94% 67%);
-    --nv-color-container: hsl(77 16% 8%);
-    --nv-color-container-border: hsl(79 19% 17%);
-    --nv-color-container-shadow: hsl(0 0% 0%);
-    --nv-color-bg-page: hsl(80 21% 5%);
-    --nv-color-bg-panel: hsl(77 16% 8%);
-    --nv-color-bg-subtle: hsl(80 16% 11%);
-    --nv-color-bg-alt: hsl(82 17% 13%);
-    --nv-color-bg-muted: hsl(83 16% 10%);
-    --nv-color-bg-input: hsl(77 21% 6%);
-    --nv-color-text-primary: hsl(75 27% 94%);
-    --nv-color-text-secondary: hsl(76 7% 60%);
-    --nv-color-text-muted: hsl(80 6% 40%);
-    --nv-color-text-inverse: hsl(80 21% 5%);
-    --nv-color-border-strong: hsl(79 19% 17%);
-    --nv-color-border-subtle: hsl(82 16% 13%);
-    --nv-color-border-input: hsl(80 17% 21%);
-    --nv-color-border-card: hsl(83 19% 22%);
-    --nv-color-error-bg: hsl(9 43% 12%);
-    --nv-color-error-border: hsl(9 51% 28%);
-    --nv-color-error-text: hsl(9 100% 74%);
+    --nv-color-accent: var(--nv-color-lime-400);
+    --nv-color-accent-hover: var(--nv-color-lime-300);
+    --nv-color-accent-dark: var(--nv-color-lime-500);
+    --nv-color-accent-text: var(--nv-color-carbon-900);
+    --nv-color-logo: var(--nv-color-lime-50);
+    --nv-color-ghost-text: var(--nv-color-accent);
+    --nv-color-ghost-hover-bg: color-mix(in srgb, var(--nv-color-accent) 16%, transparent);
+    --nv-color-ghost-hover-text: var(--nv-color-accent-hover);
+    --nv-color-container: var(--nv-color-carbon-500);
+    --nv-color-container-border: var(--nv-color-carbon-350);
+    --nv-color-container-shadow: var(--nv-color-carbon-900);
+    --nv-color-bg-page: var(--nv-color-carbon-800);
+    --nv-color-bg-panel: var(--nv-color-container);
+    --nv-color-bg-subtle: color-mix(in srgb, var(--nv-color-accent) 3%, var(--nv-color-container));
+    --nv-color-bg-alt: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
+    --nv-color-bg-muted: color-mix(in srgb, var(--nv-color-accent) 5%, var(--nv-color-container));
+    --nv-color-bg-input: var(--nv-color-carbon-700);
+    --nv-color-text-primary: var(--nv-color-carbon-50);
+    --nv-color-text-secondary: color-mix(in srgb, var(--nv-color-text-primary) 70%, transparent);
+    --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 45%, transparent);
+    --nv-color-text-inverse: var(--nv-color-carbon-900);
+    --nv-color-border-strong: var(--nv-color-carbon-350);
+    --nv-color-border-subtle: color-mix(in srgb, var(--nv-color-border-strong) 40%, transparent);
+    --nv-color-border-input: color-mix(in srgb, var(--nv-color-border-strong) 60%, transparent);
+    --nv-color-border-card: color-mix(in srgb, var(--nv-color-accent) 25%, var(--nv-color-container));
     --nv-color-danger: hsl(0 72% 51%);
-    --nv-color-danger-hover: hsl(0 72% 45%);
-    --nv-color-success-bg: hsl(90 36% 11%);
-    --nv-color-success-border: hsl(87 45% 23%);
-    --nv-color-success-text: hsl(76 94% 67%);
-    --nv-color-notice-bg: hsl(82 20% 11%);
-    --nv-color-notice-border: hsl(81 23% 19%);
-    --nv-color-notice-accent: hsl(76 84% 45%);
-    --nv-color-notice-text: hsl(76 25% 83%);
-    --nv-shadow-brutal-sm: 2px 2px 0 hsl(0 0% 0%);
-    --nv-shadow-brutal-md: 3px 3px 0 hsl(0 0% 0%);
-    --nv-shadow-brutal-lg: 4px 4px 0 hsl(0 0% 0%);
-    --nv-shadow-brutal-card: 10px 10px 0 hsl(0 0% 0%);
-    --nv-shadow-brutal-card-sm: 6px 6px 0 hsl(0 0% 0%);
-    --nv-color-backdrop-text: hsl(77 17% 8%);
-    --nv-color-backdrop-stroke: hsl(83 23% 14%);
+    --nv-color-danger-hover: color-mix(in srgb, var(--nv-color-danger) 85%, var(--nv-color-lime-50));
+    --nv-color-error-text: color-mix(in srgb, var(--nv-color-danger) 75%, var(--nv-color-lime-50));
+    --nv-color-error-bg: color-mix(in srgb, var(--nv-color-danger) 18%, var(--nv-color-container));
+    --nv-color-error-border: color-mix(in srgb, var(--nv-color-danger) 45%, var(--nv-color-container));
+    --nv-color-success-bg: color-mix(in srgb, var(--nv-color-accent) 15%, var(--nv-color-container));
+    --nv-color-success-border: color-mix(in srgb, var(--nv-color-accent) 35%, var(--nv-color-container));
+    --nv-color-success-text: var(--nv-color-accent-hover);
+    --nv-color-notice-bg: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
+    --nv-color-notice-border: color-mix(in srgb, var(--nv-color-accent) 20%, var(--nv-color-container));
+    --nv-color-notice-accent: var(--nv-color-accent);
+    --nv-color-notice-text: var(--nv-color-text-primary);
+    --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-color-carbon-900);
+    --nv-shadow-brutal-md: 3px 3px 0 var(--nv-color-carbon-900);
+    --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-color-carbon-900);
+    --nv-shadow-brutal-card: 10px 10px 0 var(--nv-color-carbon-900);
+    --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-color-carbon-900);
+    --nv-color-backdrop-text: color-mix(in srgb, var(--nv-color-carbon-900) 80%, var(--nv-color-accent));
+    --nv-color-backdrop-stroke: color-mix(in srgb, var(--nv-color-carbon-700) 70%, var(--nv-color-accent));
   }
 }
