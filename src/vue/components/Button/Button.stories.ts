@@ -96,7 +96,7 @@ export const Radii: Story = {
         <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
           <Button radius="full">Full / Pill (Default)</Button>
           <Button radius="md">Medium (9px)</Button>
-          <Button radius="lg">Large (14px)</Button>
+          <Button radius="lg">Large (12px)</Button>
           <Button radius="sm">Small (6px)</Button>
         </div>
         <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">

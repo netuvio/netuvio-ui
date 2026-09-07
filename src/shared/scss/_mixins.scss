@@ -38,7 +38,7 @@
 }
 
 // Focus ring helper
-@mixin focus-ring($color: $color-primary) {
+@mixin focus-ring($color: $nv-color-accent) {
   outline: none;
 
   &:focus-visible {

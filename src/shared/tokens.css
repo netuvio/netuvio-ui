@@ -18,60 +18,215 @@
 
 :root {
   /* Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-family: var(--font-sans);
-  font-family: var(--font-sans);
+  --nv-font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--nv-font-sans);
 
   /* Breakpoint References */
-  --breakpoint-mobile: 600px;
-  --breakpoint-tablet: 960px;
-  --breakpoint-laptop: 1264px;
-  --breakpoint-desktop: 1800px;
+  --nv-breakpoint-mobile: 600px;
+  --nv-breakpoint-tablet: 960px;
+  --nv-breakpoint-laptop: 1264px;
+  --nv-breakpoint-desktop: 1800px;
 
-  /* Lime Palette */
-  --color-lime-50: hsl(0 0% 100%);
-  --color-lime-100: hsl(82 85% 89%);
-  --color-lime-200: hsl(81 84% 78%);
-  --color-lime-300: hsl(81 84% 67%);
-  --color-lime-400: hsl(81 84% 56%);
-  --color-lime-500: hsl(81 65% 43%);
-  --color-lime-600: hsl(81 62% 30%);
-  --color-lime-700: hsl(82 58% 17%);
-  --color-lime-800: hsl(80 16% 4%);
+  /* Primitive Palettes - Lime */
+  --nv-color-lime-50: hsl(0 0% 100%);
+  --nv-color-lime-100: hsl(82 85% 89%);
+  --nv-color-lime-200: hsl(81 84% 78%);
+  --nv-color-lime-300: hsl(81 84% 67%);
+  --nv-color-lime-400: hsl(81 84% 56%);
+  --nv-color-lime-500: hsl(81 65% 43%);
+  --nv-color-lime-600: hsl(81 62% 30%);
+  --nv-color-lime-700: hsl(82 58% 17%);
+  --nv-color-lime-800: hsl(80 16% 4%);
 
-  /* Carbon Palette */
-  --color-carbon-50: hsl(60 1% 86%);
-  --color-carbon-100: hsl(60 2% 68%);
-  --color-carbon-200: hsl(75 2% 51%);
-  --color-carbon-300: hsl(77 5% 30%);
-  --color-carbon-350: hsl(75 10% 15%);
-  --color-carbon-400: hsl(75 15% 10%);
-  --color-carbon-500: hsl(69 16% 8%);
-  --color-carbon-600: hsl(70 17% 7%);
-  --color-carbon-700: hsl(72 16% 6%);
-  --color-carbon-800: hsl(75 18% 4%);
-  --color-carbon-900: hsl(77 19% 2%);
+  /* Primitive Palettes - Carbon */
+  --nv-color-carbon-50: hsl(60 1% 86%);
+  --nv-color-carbon-100: hsl(60 2% 68%);
+  --nv-color-carbon-200: hsl(75 2% 51%);
+  --nv-color-carbon-300: hsl(77 5% 30%);
+  --nv-color-carbon-350: hsl(75 10% 15%);
+  --nv-color-carbon-400: hsl(75 15% 10%);
+  --nv-color-carbon-500: hsl(69 16% 8%);
+  --nv-color-carbon-600: hsl(70 17% 7%);
+  --nv-color-carbon-700: hsl(72 16% 6%);
+  --nv-color-carbon-800: hsl(75 18% 4%);
+  --nv-color-carbon-900: hsl(77 19% 2%);
 
-  /* Semantic Brand Colors (Dark Theme Defaults) */
-  --color-primary: var(--color-lime-400);
-  --color-primary-hover: var(--color-lime-300);
-  --color-primary-active: var(--color-lime-500);
+  /* Radii */
+  --nv-radius-sm: 6px;
+  --nv-radius-md: 9px;
+  --nv-radius-lg: 12px;
+  --nv-radius-xl: 22px;
+  --nv-radius-full: 9999px;
+
+  /* Transitions */
+  --nv-transition-fast: 0.15s ease;
+  --nv-transition-normal: 0.25s ease;
+  --nv-transition-smooth: 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Light Mode Semantics (Default) */
+  /* Brand / Accent */
+  --nv-color-accent: hsl(75 85% 56%);
+  --nv-color-accent-hover: hsl(76 94% 67%);
+  --nv-color-accent-dark: hsl(75 100% 31%);
+  --nv-color-accent-text: hsl(75 15% 10%);
+  --nv-color-logo: hsl(75 15% 10%);
+
+  /* Container / Card */
+  --nv-color-container: hsl(0 0% 100%);
+  --nv-color-container-border: hsl(75 15% 10%);
+  --nv-color-container-shadow: hsl(75 15% 10%);
 
   /* Backgrounds */
-  --color-background-primary: var(--color-carbon-800);
-  --color-background-primary-hover: var(--color-carbon-350);
-  --color-background-secondary: #ffffff;
-  --color-background-header: var(--color-carbon-800);
+  --nv-color-bg-page: hsl(75 85% 56%);
+  --nv-color-bg-panel: hsl(0 0% 100%);
+  --nv-color-bg-subtle: hsl(75 33% 98%);
+  --nv-color-bg-alt: hsl(78 73% 93%);
+  --nv-color-bg-muted: hsl(73 39% 95%);
+  --nv-color-bg-input: hsl(75 33% 98%);
 
-  /* Text */
-  --color-text-primary: #ffffff;
-  --color-text-secondary: #000000;
-  --color-text-muted: var(--color-carbon-100);
+  /* Typography */
+  --nv-color-text-primary: hsl(75 15% 10%);
+  --nv-color-text-secondary: hsl(80 6% 38%);
+  --nv-color-text-muted: hsl(77 6% 53%);
+  --nv-color-text-inverse: hsl(0 0% 100%);
 
   /* Borders */
-  --color-border-primary: hsl(81 75% 45%);
+  --nv-color-border-strong: hsl(75 15% 10%);
+  --nv-color-border-subtle: hsl(73 16% 89%);
+  --nv-color-border-input: hsl(75 10% 77%);
+  --nv-color-border-card: hsl(81 48% 76%);
 
-  /* Status Colors */
-  --color-danger: #c62828;
-  --color-danger-hover: #b71c1c;
+  /* States & Alerts */
+  --nv-color-error-bg: hsl(13 100% 96%);
+  --nv-color-error-border: hsl(10 49% 75%);
+  --nv-color-error-text: hsl(8 67% 34%);
+
+  --nv-color-success-bg: hsl(78 73% 93%);
+  --nv-color-success-border: hsl(81 48% 76%);
+  --nv-color-success-text: hsl(77 17% 16%);
+
+  --nv-color-notice-bg: hsl(73 39% 95%);
+  --nv-color-notice-border: hsl(82 22% 85%);
+  --nv-color-notice-accent: hsl(75 100% 31%);
+  --nv-color-notice-text: hsl(80 11% 21%);
+
+  /* Dedicated backdrop tokens */
+  --nv-color-backdrop-text: var(--nv-color-container);
+  --nv-color-backdrop-stroke: var(--nv-color-container);
+
+  /* Neo-brutalist shadows (Light) */
+  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-color-border-strong);
+  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-color-border-strong);
+  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-color-border-strong);
+  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-color-border-strong);
+  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-color-border-strong);
+}
+
+/* Dark Theme Overrides */
+:root[data-theme="dark"],
+html[data-theme="dark"] {
+  /* Brand / Accent */
+  --nv-color-accent: hsl(75 85% 56%);
+  --nv-color-accent-hover: hsl(76 94% 67%);
+  --nv-color-accent-dark: hsl(76 84% 45%);
+  --nv-color-accent-text: hsl(77 21% 6%);
+  --nv-color-logo: hsl(0 0% 100%);
+
+  /* Container / Card */
+  --nv-color-container: hsl(77 16% 8%);
+  --nv-color-container-border: hsl(79 19% 17%);
+  --nv-color-container-shadow: hsl(0 0% 0%);
+
+  /* Backgrounds */
+  --nv-color-bg-page: hsl(80 21% 5%);
+  --nv-color-bg-panel: hsl(77 16% 8%);
+  --nv-color-bg-subtle: hsl(80 16% 11%);
+  --nv-color-bg-alt: hsl(82 17% 13%);
+  --nv-color-bg-muted: hsl(83 16% 10%);
+  --nv-color-bg-input: hsl(77 21% 6%);
+
+  /* Typography */
+  --nv-color-text-primary: hsl(75 27% 94%);
+  --nv-color-text-secondary: hsl(76 7% 60%);
+  --nv-color-text-muted: hsl(80 6% 40%);
+  --nv-color-text-inverse: hsl(80 21% 5%);
+
+  /* Borders */
+  --nv-color-border-strong: hsl(79 19% 17%);
+  --nv-color-border-subtle: hsl(82 16% 13%);
+  --nv-color-border-input: hsl(80 17% 21%);
+  --nv-color-border-card: hsl(83 19% 22%);
+
+  /* States & Alerts */
+  --nv-color-error-bg: hsl(9 43% 12%);
+  --nv-color-error-border: hsl(9 51% 28%);
+  --nv-color-error-text: hsl(9 100% 74%);
+
+  --nv-color-success-bg: hsl(90 36% 11%);
+  --nv-color-success-border: hsl(87 45% 23%);
+  --nv-color-success-text: hsl(76 94% 67%);
+
+  --nv-color-notice-bg: hsl(82 20% 11%);
+  --nv-color-notice-border: hsl(81 23% 19%);
+  --nv-color-notice-accent: hsl(76 84% 45%);
+  --nv-color-notice-text: hsl(76 25% 83%);
+
+  /* Neo-brutalist shadows in dark mode */
+  --nv-shadow-brutal-sm: 2px 2px 0 hsl(0 0% 0%);
+  --nv-shadow-brutal-md: 3px 3px 0 hsl(0 0% 0%);
+  --nv-shadow-brutal-lg: 4px 4px 0 hsl(0 0% 0%);
+  --nv-shadow-brutal-card: 10px 10px 0 hsl(0 0% 0%);
+  --nv-shadow-brutal-card-sm: 6px 6px 0 hsl(0 0% 0%);
+
+  /* Dedicated backdrop tokens */
+  --nv-color-backdrop-text: hsl(77 17% 8%);
+  --nv-color-backdrop-stroke: hsl(83 23% 14%);
+}
+
+/* System Theme (when user prefers dark and no explicit theme is set) */
+@media (prefers-color-scheme: dark) {
+  :root[data-theme="system"],
+  html[data-theme="system"],
+  :root:not([data-theme]),
+  html:not([data-theme]) {
+    --nv-color-accent: hsl(75 85% 56%);
+    --nv-color-accent-hover: hsl(76 94% 67%);
+    --nv-color-accent-dark: hsl(76 84% 45%);
+    --nv-color-accent-text: hsl(77 21% 6%);
+    --nv-color-logo: hsl(0 0% 100%);
+    --nv-color-container: hsl(77 16% 8%);
+    --nv-color-container-border: hsl(79 19% 17%);
+    --nv-color-container-shadow: hsl(0 0% 0%);
+    --nv-color-bg-page: hsl(80 21% 5%);
+    --nv-color-bg-panel: hsl(77 16% 8%);
+    --nv-color-bg-subtle: hsl(80 16% 11%);
+    --nv-color-bg-alt: hsl(82 17% 13%);
+    --nv-color-bg-muted: hsl(83 16% 10%);
+    --nv-color-bg-input: hsl(77 21% 6%);
+    --nv-color-text-primary: hsl(75 27% 94%);
+    --nv-color-text-secondary: hsl(76 7% 60%);
+    --nv-color-text-muted: hsl(80 6% 40%);
+    --nv-color-text-inverse: hsl(80 21% 5%);
+    --nv-color-border-strong: hsl(79 19% 17%);
+    --nv-color-border-subtle: hsl(82 16% 13%);
+    --nv-color-border-input: hsl(80 17% 21%);
+    --nv-color-border-card: hsl(83 19% 22%);
+    --nv-color-error-bg: hsl(9 43% 12%);
+    --nv-color-error-border: hsl(9 51% 28%);
+    --nv-color-error-text: hsl(9 100% 74%);
+    --nv-color-success-bg: hsl(90 36% 11%);
+    --nv-color-success-border: hsl(87 45% 23%);
+    --nv-color-success-text: hsl(76 94% 67%);
+    --nv-color-notice-bg: hsl(82 20% 11%);
+    --nv-color-notice-border: hsl(81 23% 19%);
+    --nv-color-notice-accent: hsl(76 84% 45%);
+    --nv-color-notice-text: hsl(76 25% 83%);
+    --nv-shadow-brutal-sm: 2px 2px 0 hsl(0 0% 0%);
+    --nv-shadow-brutal-md: 3px 3px 0 hsl(0 0% 0%);
+    --nv-shadow-brutal-lg: 4px 4px 0 hsl(0 0% 0%);
+    --nv-shadow-brutal-card: 10px 10px 0 hsl(0 0% 0%);
+    --nv-shadow-brutal-card-sm: 6px 6px 0 hsl(0 0% 0%);
+    --nv-color-backdrop-text: hsl(77 17% 8%);
+    --nv-color-backdrop-stroke: hsl(83 23% 14%);
+  }
 }

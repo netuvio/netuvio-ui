@@ -14,18 +14,18 @@ const preview: Preview = {
       values: [
         {
           name: 'light',
-          value: '#ffffff',
+          value: 'hsl(0 0% 100%)',
         },
         {
           name: 'dark',
-          value: '#090d16',
+          value: 'hsl(80 21% 5%)',
         },
       ],
     },
   },
   decorators: [
     (story, context) => {
-      const isDark = context.globals.backgrounds?.value === '#090d16'
+      const isDark = context.globals.backgrounds?.value === 'hsl(80 21% 5%)'
       if (typeof document !== 'undefined') {
         if (isDark) {
           document.documentElement.setAttribute('data-theme', 'dark')

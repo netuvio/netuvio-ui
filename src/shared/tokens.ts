@@ -5,6 +5,28 @@ export const breakpoints = {
   desktop: '1800px',
 } as const
 
+export const radii = {
+  sm: 'var(--nv-radius-sm)',
+  md: 'var(--nv-radius-md)',
+  lg: 'var(--nv-radius-lg)',
+  xl: 'var(--nv-radius-xl)',
+  full: 'var(--nv-radius-full)',
+} as const
+
+export const transitions = {
+  fast: 'var(--nv-transition-fast)',
+  normal: 'var(--nv-transition-normal)',
+  smooth: 'var(--nv-transition-smooth)',
+} as const
+
+export const shadows = {
+  brutalSm: 'var(--nv-shadow-brutal-sm)',
+  brutalMd: 'var(--nv-shadow-brutal-md)',
+  brutalLg: 'var(--nv-shadow-brutal-lg)',
+  brutalCard: 'var(--nv-shadow-brutal-card)',
+  brutalCardSm: 'var(--nv-shadow-brutal-card-sm)',
+} as const
+
 export const colors = {
   lime: {
     50: 'hsl(0 0% 100%)',
@@ -31,20 +53,63 @@ export const colors = {
     900: 'hsl(77 19% 2%)',
   },
   semantics: {
-    primary: 'var(--color-primary)',
-    backgroundPrimary: 'var(--color-background-primary)',
-    backgroundPrimaryHover: 'var(--color-background-primary-hover)',
-    backgroundSecondary: 'var(--color-background-secondary)',
-    backgroundHeader: 'var(--color-background-header)',
-    textPrimary: 'var(--color-text-primary)',
-    textSecondary: 'var(--color-text-secondary)',
-    borderPrimary: 'var(--color-border-primary)',
-    danger: 'var(--color-danger)',
+    // Brand / Accent
+    accent: 'var(--nv-color-accent)',
+    accentHover: 'var(--nv-color-accent-hover)',
+    accentDark: 'var(--nv-color-accent-dark)',
+    accentText: 'var(--nv-color-accent-text)',
+    logo: 'var(--nv-color-logo)',
+
+    // Container / Card
+    container: 'var(--nv-color-container)',
+    containerBorder: 'var(--nv-color-container-border)',
+    containerShadow: 'var(--nv-color-container-shadow)',
+
+    // Backgrounds
+    bgPage: 'var(--nv-color-bg-page)',
+    bgPanel: 'var(--nv-color-bg-panel)',
+    bgSubtle: 'var(--nv-color-bg-subtle)',
+    bgAlt: 'var(--nv-color-bg-alt)',
+    bgMuted: 'var(--nv-color-bg-muted)',
+    bgInput: 'var(--nv-color-bg-input)',
+
+    // Typography
+    textPrimary: 'var(--nv-color-text-primary)',
+    textSecondary: 'var(--nv-color-text-secondary)',
+    textMuted: 'var(--nv-color-text-muted)',
+    textInverse: 'var(--nv-color-text-inverse)',
+
+    // Borders
+    borderStrong: 'var(--nv-color-border-strong)',
+    borderSubtle: 'var(--nv-color-border-subtle)',
+    borderInput: 'var(--nv-color-border-input)',
+    borderCard: 'var(--nv-color-border-card)',
+
+    // States & Alerts
+    errorBg: 'var(--nv-color-error-bg)',
+    errorBorder: 'var(--nv-color-error-border)',
+    errorText: 'var(--nv-color-error-text)',
+
+    successBg: 'var(--nv-color-success-bg)',
+    successBorder: 'var(--nv-color-success-border)',
+    successText: 'var(--nv-color-success-text)',
+
+    noticeBg: 'var(--nv-color-notice-bg)',
+    noticeBorder: 'var(--nv-color-notice-border)',
+    noticeAccent: 'var(--nv-color-notice-accent)',
+    noticeText: 'var(--nv-color-notice-text)',
+
+    // Backdrop
+    backdropText: 'var(--nv-color-backdrop-text)',
+    backdropStroke: 'var(--nv-color-backdrop-stroke)',
   },
 } as const
 
 export const tokens = {
   breakpoints,
+  radii,
+  transitions,
+  shadows,
   colors,
 } as const
 
