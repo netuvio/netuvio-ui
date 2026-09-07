@@ -28,9 +28,9 @@ export default defineConfig({
         const distTokensCss = resolve(distTokensDir, 'tokens.css')
         copyFileSync(srcTokensCss, distTokensCss)
 
-        // Find compiled component CSS (netuvio-ui.css or style.css)
+        // Find compiled component CSS (ui.css)
         const files = readdirSync(distDir)
-        const componentCssFile = files.find(f => f.endsWith('.css') && f !== 'styles.css' && f !== 'tokens.css')
+        const componentCssFile = files.find(f => f === 'ui.css') || files.find(f => f.endsWith('.css') && f !== 'styles.css' && f !== 'tokens.css' && f !== 'fonts.css')
         let componentCss = ''
         if (componentCssFile) {
           componentCss = readFileSync(resolve(distDir, componentCssFile), 'utf-8')

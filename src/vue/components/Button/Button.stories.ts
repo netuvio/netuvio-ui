@@ -18,8 +18,13 @@ const meta: Meta<typeof Button> = {
     },
     radius: {
       control: 'select',
-      options: ['sm', 'md', 'lg', 'full'],
-      description: 'Border radius corner style (md = 9px)',
+      options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
+      description: 'Border radius corner style (md = 9px, lg = 12px)',
+    },
+    justify: {
+      control: 'select',
+      options: ['center', 'between', 'start', 'end'],
+      description: 'Content alignment within button',
     },
     disabled: {
       control: 'boolean',
@@ -280,6 +285,31 @@ export const ForcedTheme: Story = {
           <Button variant="danger" theme="light">Danger Light</Button>
           <Button variant="danger" theme="dark">Danger Dark</Button>
         </div>
+      </div>
+    `,
+  }),
+}
+
+export const ActionButton: Story = {
+  name: 'Auth Web Action Button (Sign out / Arrow Right)',
+  args: {
+    variant: 'primary',
+    size: 'lg',
+    radius: 'md',
+    block: true,
+    justify: 'between',
+    fontSize: 14,
+    fontWeight: 800,
+    iconRight: '→',
+  },
+  render: (args) => ({
+    components: { Button },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="max-width: 440px; padding: 24px;">
+        <Button v-bind="args">Sign out</Button>
       </div>
     `,
   }),

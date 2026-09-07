@@ -1,0 +1,189 @@
+.container {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-family: var(--nv-font-sans, "Inter", sans-serif);
+  color: var(--nv-color-text-primary, #1c1e16);
+  position: relative;
+  line-height: 1.4;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkboxWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Hidden native input for accessibility */
+.nativeInput {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  cursor: inherit;
+  z-index: 1;
+}
+
+/* Brutalist visual box */
+.box {
+  display: grid;
+  place-content: center;
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border-radius: var(--nv-radius-sm, 4px);
+  background: var(--nv-color-container, #ffffff);
+  box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
+  transition: transform var(--nv-transition-fast, 0.15s ease),
+              background var(--nv-transition-fast, 0.15s ease),
+              box-shadow var(--nv-transition-fast, 0.15s ease),
+              border-color var(--nv-transition-fast, 0.15s ease);
+}
+
+/* Sizes */
+.size-sm {
+  width: 16px;
+  height: 16px;
+}
+
+.size-md {
+  width: 20px;
+  height: 20px;
+}
+
+.size-lg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hover effect */
+.container:hover:not(.disabled) .box {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+/* Active / Pressed effect */
+.container:active:not(.disabled) .box {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+/* Focus visible on native input */
+.nativeInput:focus-visible + .box {
+  outline: 2px solid var(--nv-color-border-strong, #1c1e16);
+  outline-offset: 2px;
+}
+
+/* Checked state */
+.checked .box {
+  background: var(--nv-color-accent, #ABED30);
+}
+
+/* Mark: Centered square (Auth.Web authentic style) */
+.squareMark {
+  background: var(--nv-color-border-strong, #1c1e16);
+  border-radius: 2px;
+  transform: scale(0);
+  transition: transform var(--nv-transition-fast, 0.15s cubic-bezier(0.2, 0, 0, 1));
+}
+
+.size-sm .squareMark {
+  width: 8px;
+  height: 8px;
+}
+
+.size-md .squareMark {
+  width: 10px;
+  height: 10px;
+}
+
+.size-lg .squareMark {
+  width: 12px;
+  height: 12px;
+}
+
+.checked .squareMark {
+  transform: scale(1);
+}
+
+/* Mark: Check icon */
+.checkMark {
+  display: grid;
+  place-items: center;
+  color: var(--nv-color-border-strong, #1c1e16);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: transform var(--nv-transition-fast, 0.15s cubic-bezier(0.2, 0, 0, 1)),
+              opacity var(--nv-transition-fast, 0.15s ease);
+}
+
+.checked .checkMark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Indeterminate state */
+.indeterminate .box {
+  background: var(--nv-color-accent, #ABED30);
+}
+
+.indeterminateDash {
+  background: var(--nv-color-border-strong, #1c1e16);
+  border-radius: 2px;
+  height: 2px;
+}
+
+.size-sm .indeterminateDash {
+  width: 8px;
+}
+
+.size-md .indeterminateDash {
+  width: 10px;
+}
+
+.size-lg .indeterminateDash {
+  width: 14px;
+}
+
+/* Error state */
+.hasError .box {
+  border-color: var(--nv-color-danger, #ef4444);
+  box-shadow: 2px 2px 0 var(--nv-color-danger, #ef4444);
+}
+
+/* Labels & texts */
+.labelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 750;
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.description {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--nv-color-text-secondary, #656958);
+}
+
+.errorMessage {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--nv-color-danger, #ef4444);
+  margin-top: 2px;
+}

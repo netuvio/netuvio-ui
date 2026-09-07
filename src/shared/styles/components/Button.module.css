@@ -118,7 +118,8 @@
   .topLayer {
     min-height: 32px;
     padding: 0 14px;
-    font-size: 13px;
+    font-size: var(--button-font-size, 13px);
+    font-weight: var(--button-font-weight, 600);
   }
 }
 
@@ -126,7 +127,8 @@
   .topLayer {
     min-height: 40px;
     padding: 0 18px;
-    font-size: 15px;
+    font-size: var(--button-font-size, 15px);
+    font-weight: var(--button-font-weight, 600);
   }
 }
 
@@ -134,8 +136,8 @@
   .topLayer {
     min-height: 48px;
     padding: 0 24px;
-    font-size: 18px;
-    font-weight: 700;
+    font-size: var(--button-font-size, 18px);
+    font-weight: var(--button-font-weight, 700);
   }
 }
 
@@ -143,12 +145,15 @@
   .topLayer {
     min-height: 48px;
     padding: 16px 32px;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: var(--button-font-size, 20px);
+    font-weight: var(--button-font-weight, 700);
   }
 }
 
-/* Radii Variations */
+.radius-none {
+  --button-radius: 0px;
+}
+
 .radius-full {
   --button-radius: var(--nv-radius-full, 9999px);
 }
@@ -163,6 +168,51 @@
 
 .radius-lg {
   --button-radius: var(--nv-radius-lg, 12px);
+}
+
+.radius-xl {
+  --button-radius: var(--nv-radius-xl, 22px);
+}
+
+/* Justify Variations */
+.justify-between {
+  .topLayer {
+    justify-content: space-between;
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
+
+.justify-start {
+  .topLayer {
+    justify-content: flex-start;
+  }
+}
+
+.justify-end {
+  .topLayer {
+    justify-content: flex-end;
+  }
+}
+
+.iconLeft,
+.iconRight {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.iconRight {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.iconRight svg,
+.iconLeft svg {
+  width: 18px;
+  height: 18px;
 }
 
 /* Variants */
@@ -230,8 +280,8 @@
 }
 
 .spinner {
-  width: 0.95em;
-  height: 0.95em;
+  width: 16px;
+  height: 16px;
   border-radius: 50%;
   border: 2px solid currentcolor;
   border-right-color: transparent;

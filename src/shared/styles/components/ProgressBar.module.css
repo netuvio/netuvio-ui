@@ -1,0 +1,128 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+  font-family: var(--nv-font-sans, "Inter", sans-serif);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.track {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  background: var(--nv-color-bg-muted, #f6f8ef);
+  box-sizing: border-box;
+}
+
+/* Shadows */
+.shadow-none {
+  box-shadow: none;
+}
+
+.shadow-sm {
+  box-shadow: var(--nv-shadow-brutal-sm, 2px 2px 0 var(--nv-color-border-strong, #1c1e16));
+}
+
+.shadow-md {
+  box-shadow: var(--nv-shadow-brutal-md, 3px 3px 0 var(--nv-color-border-strong, #1c1e16));
+}
+
+/* Sizes */
+.size-sm {
+  height: 6px;
+}
+
+.size-md {
+  height: 8px;
+}
+
+.size-lg {
+  height: 12px;
+}
+
+.size-xl {
+  height: 16px;
+}
+
+/* Radii */
+.radius-full {
+  border-radius: var(--nv-radius-full, 9999px);
+}
+
+.radius-md {
+  border-radius: var(--nv-radius-md, 6px);
+}
+
+.radius-none {
+  border-radius: 0;
+}
+
+/* Indicator */
+.indicator {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: inherit;
+  transition: width var(--nv-transition-normal, 0.25s ease);
+}
+
+/* Variants */
+.variant-default .indicator {
+  background: var(--nv-color-border-strong, #1c1e16);
+}
+
+.variant-accent .indicator {
+  background: var(--nv-color-accent, #ABED30);
+}
+
+.variant-success .indicator {
+  background: var(--nv-color-accent, #ABED30);
+}
+
+.variant-danger .indicator {
+  background: var(--nv-color-danger, #ef4444);
+}
+
+/* Indeterminate animation */
+.indeterminate .indicator {
+  animation: indeterminate 1.5s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+
+@keyframes indeterminate {
+  0% {
+    left: -40%;
+    width: 40%;
+  }
+  50% {
+    left: 25%;
+    width: 60%;
+  }
+  100% {
+    left: 100%;
+    width: 40%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indeterminate .indicator {
+    animation: none;
+    left: 0;
+    width: 100%;
+  }
+  .indicator {
+    transition: none;
+  }
+}

@@ -1,0 +1,39 @@
+.logo {
+  display: inline-block;
+  aspect-ratio: 3507 / 915;
+  background-color: var(--nv-color-logo, #1c1e16);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: background-color var(--nv-transition-fast, 0.15s ease);
+}
+
+.mark {
+  display: inline-block;
+  aspect-ratio: 1 / 1;
+  background-color: var(--nv-color-accent, #ABED30);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-mode: alpha;
+  mask-mode: alpha;
+  vertical-align: middle;
+  flex-shrink: 0;
+  transition: background-color var(--nv-transition-fast, 0.15s ease);
+}
+
+/* Dark mode theme token fallbacks */
+:global([data-theme="dark"]) .logo,
+:global([theme="dark"]) .logo {
+  background-color: var(--nv-color-logo, #ffffff);
+}

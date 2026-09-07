@@ -1,10 +1,12 @@
+import type { Component } from 'vue';
 import type { Theme } from '../../../shared/tokens';
 
 export type ButtonTheme = Theme;
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg' | 'xl';
-export type ButtonRadius = 'sm' | 'md' | 'lg' | 'full';
+export type ButtonRadius = 'none' | 'sm' | 'md' | 'lg' | 'xl' | 'full';
 export type ButtonType = 'button' | 'submit' | 'reset';
+export type ButtonJustify = 'center' | 'between' | 'start' | 'end';
 
 export interface ButtonProps {
   /** Force color theme for this button ('light' | 'dark') */
@@ -21,6 +23,15 @@ export interface ButtonProps {
 
   /** Native button type attribute */
   type?: ButtonType
+
+  /** Content justification / layout */
+  justify?: ButtonJustify
+
+  /** Optional icon to render on the right/end */
+  iconRight?: string | Component
+
+  /** Optional icon to render on the left/start */
+  iconLeft?: string | Component
 
   /** Disables interactions */
   disabled?: boolean
@@ -39,4 +50,10 @@ export interface ButtonProps {
 
   /** How many pixels the action/3D interaction moves the button (defaults to 4) */
   movePixels?: number | string
+
+  /** Custom font size in pixels or CSS value (e.g. 14, '14px') */
+  fontSize?: number | string
+
+  /** Custom font weight (e.g. 600, 700, 800) */
+  fontWeight?: number | string
 };

@@ -1,0 +1,151 @@
+.displayHeading {
+  margin: 0;
+  padding: 0;
+  font-family: var(--nv-font-sans, "Inter", sans-serif);
+  font-weight: 900;
+  line-height: 0.86;
+  text-rendering: optimizeLegibility;
+}
+
+/* Sizes */
+.size-sm {
+  font-size: clamp(28px, 3.5vw, 44px);
+  letter-spacing: -2px;
+  --title-stroke: clamp(5px, 0.6vw, 8px);
+}
+
+.size-md {
+  font-size: clamp(38px, 4.8vw, 62px);
+  letter-spacing: -3.5px;
+  --title-stroke: clamp(8px, 0.8vw, 11px);
+}
+
+.size-lg {
+  font-size: clamp(48px, 6vw, 80px);
+  letter-spacing: -5px;
+  --title-stroke: clamp(10px, 1vw, 14px);
+}
+
+.size-xl {
+  font-size: clamp(54px, 6.6vw, 98px);
+  letter-spacing: -6px;
+  --title-stroke: clamp(11px, 1.05vw, 16px);
+}
+
+/* Individual Headline Line */
+.headlineLine {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  transform: scaleX(0.94);
+  transform-origin: left;
+}
+
+.headlineLine:not(:last-child) {
+  margin-bottom: clamp(6px, 0.9vw, 14px);
+}
+
+/* Layered Stroke Pseudo-element */
+.headlineLine::before {
+  content: attr(data-text);
+  position: absolute;
+  z-index: -1;
+  inset: calc(var(--title-stroke, 12px) * -1);
+  padding: var(--title-stroke, 12px);
+  paint-order: stroke fill;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Variant: Dark (Černá s bílo-limetkovým gradientním obtažením) */
+.lineDark {
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.lineDark::before {
+  color: transparent;
+  background: linear-gradient(to bottom, #ffffff 0%, #e6ffb9 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke: var(--title-stroke, 12px) transparent;
+}
+
+/* Variant: Light (Bílá s černým obtažením) */
+.lineLight {
+  color: var(--nv-color-text-inverse, #ffffff);
+}
+
+.lineLight::before {
+  color: var(--nv-color-border-strong, #1c1e16);
+  -webkit-text-stroke: var(--title-stroke, 12px) var(--nv-color-border-strong, #1c1e16);
+}
+
+/* Variant: Accent (Barevná / Limetková s černým obtažením) */
+.lineAccent {
+  color: var(--nv-color-accent, #ABED30);
+}
+
+.lineAccent::before {
+  color: var(--nv-color-border-strong, #1c1e16);
+  -webkit-text-stroke: var(--title-stroke, 12px) var(--nv-color-border-strong, #1c1e16);
+}
+
+/* Variant: Solid (Bez stroke efektu) */
+.lineSolid {
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.lineSolid::before {
+  display: none !important;
+}
+
+/* Disable stroke when prop stroke is false */
+.noStroke .headlineLine::before {
+  display: none !important;
+}
+
+/* Dark theme overrides */
+:global([data-theme="dark"]) .lineDark,
+:global([theme="dark"]) .lineDark {
+  color: var(--nv-color-bg-page, #0f110b);
+}
+
+:global([data-theme="dark"]) .lineDark::before,
+:global([theme="dark"]) .lineDark::before {
+  color: transparent;
+  background: linear-gradient(to bottom, #ffffff 0%, #e6ffb9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-stroke: var(--title-stroke, 12px) transparent;
+}
+
+:global([data-theme="dark"]) .lineLight,
+:global([theme="dark"]) .lineLight {
+  color: var(--nv-color-accent, #ABED30);
+}
+
+:global([data-theme="dark"]) .lineLight::before,
+:global([theme="dark"]) .lineLight::before {
+  color: #000000;
+  -webkit-text-stroke: var(--title-stroke, 12px) #000000;
+}
+
+:global([data-theme="dark"]) .lineAccent::before,
+:global([theme="dark"]) .lineAccent::before {
+  color: #000000;
+  -webkit-text-stroke: var(--title-stroke, 12px) #000000;
+}
+
+@media (forced-colors: active) {
+  .headlineLine::before {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .headlineLine {
+    transform: none;
+  }
+}

@@ -1,0 +1,153 @@
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 13px 16px;
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border-radius: var(--nv-radius-md, 9px);
+  font-family: var(--nv-font-sans, "Inter", sans-serif);
+  position: relative;
+  box-sizing: border-box;
+  transition: transform var(--nv-transition-fast, 0.15s ease),
+              box-shadow var(--nv-transition-fast, 0.15s ease);
+}
+
+/* Shadows */
+.shadow-none {
+  box-shadow: none;
+}
+
+.shadow-sm {
+  box-shadow: var(--nv-shadow-brutal-sm, 2px 2px 0 var(--nv-color-border-strong, #1c1e16));
+}
+
+.shadow-md {
+  box-shadow: var(--nv-shadow-brutal-md, 4px 4px 0 var(--nv-color-border-strong, #1c1e16));
+}
+
+/* Radii */
+.radius-sm {
+  border-radius: var(--nv-radius-sm, 6px);
+}
+
+.radius-md {
+  border-radius: var(--nv-radius-md, 9px);
+}
+
+.radius-lg {
+  border-radius: var(--nv-radius-lg, 14px);
+}
+
+/* Variants */
+.variant-info {
+  background: var(--nv-color-bg-alt, #f2fadf);
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.variant-error {
+  background: var(--nv-color-error-bg, #fee2e2);
+  color: var(--nv-color-error-text, #991b1b);
+}
+
+.variant-success {
+  background: var(--nv-color-bg-alt, #f2fadf);
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+.variant-warning {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.variant-accent {
+  background: var(--nv-color-accent, #ABED30);
+  color: var(--nv-color-accent-text, #1c1e16);
+}
+
+.variant-default {
+  background: var(--nv-color-container, #ffffff);
+  color: var(--nv-color-text-primary, #1c1e16);
+}
+
+/* Icon Badge */
+.iconBadge {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 9999px;
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  background: var(--nv-color-accent, #ABED30);
+  color: var(--nv-color-accent-text, #1c1e16);
+  margin-top: -1px;
+}
+
+.variant-error .iconBadge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.variant-warning .iconBadge {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* Content */
+.content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 850;
+  line-height: 1.3;
+  margin: 0 0 2px 0;
+  color: inherit;
+}
+
+.description {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.55;
+  margin: 0;
+  color: inherit;
+}
+
+/* Actions / Close */
+.actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 8px;
+}
+
+.closeButton {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: var(--nv-radius-sm, 4px);
+  color: inherit;
+  cursor: pointer;
+  transition: background var(--nv-transition-fast, 0.15s ease),
+              border-color var(--nv-transition-fast, 0.15s ease),
+              transform var(--nv-transition-fast, 0.15s ease);
+
+  &:hover {
+    background: color-mix(in srgb, currentColor 10%, transparent);
+    border-color: currentColor;
+    transform: translate(-1px, -1px);
+  }
+
+  &:active {
+    transform: translate(1px, 1px);
+  }
+}

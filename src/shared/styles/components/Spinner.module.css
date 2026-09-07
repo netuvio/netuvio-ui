@@ -1,0 +1,118 @@
+.spinnerOrbit {
+  position: relative;
+  display: inline-grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+/* Sizes */
+.size-sm {
+  width: 44px;
+  height: 44px;
+}
+
+.size-md {
+  width: 68px;
+  height: 68px;
+}
+
+.size-lg {
+  width: 96px;
+  height: 96px;
+}
+
+.trackSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  color: var(--nv-color-border-subtle, #e0e3d3);
+}
+
+.spinnerSvg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+  color: var(--nv-color-border-strong, #1c1e16);
+  animation: rotateSpinner 1.3s linear infinite;
+}
+
+.badgeCenter {
+  position: relative;
+  z-index: 3;
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border-radius: var(--nv-radius-full, 9999px);
+  background: var(--nv-color-accent, #ABED30);
+  box-shadow: var(--nv-shadow-brutal-md, 3px 3px 0 var(--nv-color-border-strong, #1c1e16));
+  display: grid;
+  place-items: center;
+}
+
+.size-sm .badgeCenter {
+  width: 26px;
+  height: 26px;
+  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.size-md .badgeCenter {
+  width: 42px;
+  height: 42px;
+  box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.size-lg .badgeCenter {
+  width: 58px;
+  height: 58px;
+  box-shadow: 3px 3px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.badgeIcon {
+  font-size: 24px;
+  font-weight: 900;
+  color: var(--nv-color-accent-text, #1c1e16);
+  line-height: 1;
+  user-select: none;
+  animation: bounceArrow 1.3s ease-in-out infinite;
+}
+
+.size-sm .badgeIcon {
+  font-size: 13px;
+}
+
+.size-md .badgeIcon {
+  font-size: 18px;
+}
+
+.size-lg .badgeIcon {
+  font-size: 24px;
+}
+
+@keyframes rotateSpinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(2px, -2px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinnerSvg,
+  .badgeIcon {
+    animation: none;
+  }
+}

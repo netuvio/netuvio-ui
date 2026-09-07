@@ -1,8 +1,12 @@
 {
   "name": "@netuvio/ui",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "UI component library for Netuvio applications",
-  "author": "Netuvio",
+  "author": "Netuvio - Stanislav Škudrna, Jakub Sokol",
+  "contributors": [
+    "Stanislav Škudrna",
+    "Jakub Sokol"
+  ],
   "license": "Apache-2.0",
   "type": "module",
   "repository": {
@@ -16,10 +20,17 @@
   "publishConfig": {
     "access": "public"
   },
+  "main": "./dist/vue/index.mjs",
+  "module": "./dist/vue/index.mjs",
+  "types": "./dist/vue/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
+    ".": {
+      "types": "./dist/vue/index.d.ts",
+      "import": "./dist/vue/index.mjs"
+    },
     "./vue": {
       "types": "./dist/vue/index.d.ts",
       "import": "./dist/vue/index.mjs"
@@ -34,6 +45,7 @@
     },
     "./tokens.css": "./dist/tokens/tokens.css",
     "./styles.css": "./dist/styles.css",
+    "./ui.css": "./dist/ui.css",
     "./fonts.css": "./dist/fonts.css"
   },
   "scripts": {

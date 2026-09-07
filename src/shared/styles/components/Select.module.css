@@ -1,0 +1,250 @@
+.selectWrapper {
+  position: relative;
+  display: inline-flex;
+  vertical-align: middle;
+  font-family: var(--nv-font-sans, "Inter", sans-serif);
+}
+
+.block {
+  display: flex;
+  width: 100%;
+}
+
+.trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: var(--nv-color-container, #ffffff);
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border-radius: var(--select-radius, var(--nv-radius-full, 9999px));
+  box-shadow: var(--nv-shadow-brutal-md, 3px 3px 0 var(--nv-color-border-strong, #1c1e16));
+  font-family: inherit;
+  font-weight: 750;
+  color: var(--nv-color-text-primary, #1c1e16);
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  text-decoration: none;
+  outline: none;
+  transition: background var(--nv-transition-fast, 0.15s ease),
+              transform var(--nv-transition-fast, 0.15s ease),
+              box-shadow var(--nv-transition-fast, 0.15s ease);
+}
+
+.trigger:hover:not(:disabled),
+.trigger.isOpen {
+  background: var(--nv-color-bg-subtle, #fafbf7);
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.trigger:active:not(:disabled) {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--nv-color-border-strong, #1c1e16);
+  outline-offset: 2px;
+}
+
+.trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+/* Sizes */
+.size-sm .trigger {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 11px;
+}
+
+.size-md .trigger {
+  height: 34px;
+  padding: 0 12px 0 14px;
+  font-size: 12px;
+}
+
+.size-lg .trigger {
+  height: 42px;
+  padding: 0 16px;
+  font-size: 14px;
+}
+
+.block .trigger {
+  width: 100%;
+}
+
+/* Content inside trigger */
+.triggerContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.triggerIcon {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.triggerIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.triggerLabel {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  font-size: 8px;
+  flex-shrink: 0;
+  color: var(--nv-color-text-primary, #1c1e16);
+  transition: transform var(--nv-transition-fast, 0.15s ease);
+}
+
+.chevronUp {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.menu {
+  position: absolute;
+  z-index: 50;
+  min-width: 100%;
+  width: max-content;
+  max-width: 320px;
+  background: var(--nv-color-container, #ffffff);
+  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border-radius: var(--nv-radius-lg, 12px);
+  box-shadow: var(--nv-shadow-brutal-card-sm, 6px 6px 0 var(--nv-color-border-strong, #1c1e16));
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  box-sizing: border-box;
+}
+
+.placement-bottom {
+  top: calc(100% + 8px);
+}
+
+.placement-top {
+  bottom: calc(100% + 8px);
+}
+
+.align-left {
+  left: 0;
+}
+
+.align-right {
+  right: 0;
+}
+
+/* Menu items */
+.menuItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1.5px solid transparent;
+  border-radius: var(--nv-radius-md, 9px);
+  background: transparent;
+  color: var(--nv-color-text-primary, #1c1e16);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  outline: none;
+  box-sizing: border-box;
+  transition: background var(--nv-transition-fast, 0.15s ease),
+              border-color var(--nv-transition-fast, 0.15s ease),
+              color var(--nv-transition-fast, 0.15s ease);
+}
+
+.menuItem:hover:not(:disabled) {
+  background: var(--nv-color-bg-subtle, #fafbf7);
+  border-color: var(--nv-color-border-subtle, #e5e7de);
+}
+
+.menuItem:focus-visible {
+  outline: 2px solid var(--nv-color-border-strong, #1c1e16);
+  outline-offset: 1px;
+}
+
+.menuItem.isSelected {
+  background: var(--nv-color-accent, #ABED30);
+  color: var(--nv-color-accent-text, #1c1e16);
+  border-color: var(--nv-color-border-strong, #1c1e16);
+  font-weight: 850;
+}
+
+.menuItem:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.menuItemIcon {
+  display: grid;
+  place-items: center;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.menuItemIcon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.menuItemLabel {
+  flex: 1;
+  line-height: 1.2;
+}
+
+.menuItemCheck {
+  font-size: 12px;
+  font-weight: 850;
+  margin-left: auto;
+}
+
+/* Native Select Mode */
+.nativeSelect {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+  font-size: 16px;
+}
+
+.nativeSelect:disabled {
+  cursor: not-allowed;
+}
+
+/* Transitions */
+.menuEnterActive,
+.menuLeaveActive {
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.menuHidden {
+  opacity: 0;
+  transform: translateY(-6px);
+}
