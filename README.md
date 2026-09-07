@@ -33,6 +33,9 @@ import App from './App.vue'
 // Import all tokens & component styles
 import 'netuvio-ui/styles.css'
 
+// (Optional) If you want to use the bundled local Inter variable font:
+// import 'netuvio-ui/fonts.css'
+
 createApp(App).mount('#app')
 ```
 

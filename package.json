@@ -22,7 +22,8 @@
       "import": "./dist/shared/index.mjs"
     },
     "./tokens.css": "./dist/tokens/tokens.css",
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./fonts.css": "./dist/fonts.css"
   },
   "scripts": {
     "dev": "vite",

@@ -5,6 +5,10 @@ export const breakpoints = {
   desktop: '1800px',
 } as const
 
+export const typography = {
+  fontSans: 'var(--nv-font-sans)',
+} as const
+
 export const radii = {
   sm: 'var(--nv-radius-sm)',
   md: 'var(--nv-radius-md)',
@@ -20,6 +24,7 @@ export const transitions = {
 } as const
 
 export const shadows = {
+  color: 'var(--nv-shadow-color)',
   brutalSm: 'var(--nv-shadow-brutal-sm)',
   brutalMd: 'var(--nv-shadow-brutal-md)',
   brutalLg: 'var(--nv-shadow-brutal-lg)',
@@ -28,6 +33,7 @@ export const shadows = {
 } as const
 
 export const colors = {
+  white: 'hsl(0 0% 100%)',
   lime: {
     50: 'hsl(0 0% 100%)',
     100: 'hsl(82 85% 89%)',
@@ -70,6 +76,7 @@ export const colors = {
 
     // Backgrounds
     bgPage: 'var(--nv-color-bg-page)',
+    bgHero: 'var(--nv-color-bg-hero)',
     bgPanel: 'var(--nv-color-bg-panel)',
     bgSubtle: 'var(--nv-color-bg-subtle)',
     bgAlt: 'var(--nv-color-bg-alt)',
@@ -113,6 +120,7 @@ export const colors = {
 
 export const tokens = {
   breakpoints,
+  typography,
   radii,
   transitions,
   shadows,

@@ -195,7 +195,7 @@ export const ThemeComparison: Story = {
     components: { Button },
     template: `
       <div style="display: flex; flex-direction: column; gap: 24px; padding: 12px;">
-        <div data-theme="light" style="background-color: var(--nv-color-lime-50); color: var(--nv-color-text-primary); padding: 24px; border-radius: 12px; border: 2px solid var(--nv-color-border-strong);">
+        <div data-theme="light" style="background-color: var(--nv-color-bg-page); color: var(--nv-color-text-primary); padding: 24px; border-radius: 12px; border: 2px solid var(--nv-color-border-strong);">
           <h4 style="margin: 0 0 16px 0;">Light Theme</h4>
           <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
             <Button variant="primary">Primary</Button>

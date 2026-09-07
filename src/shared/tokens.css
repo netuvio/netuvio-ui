@@ -1,25 +1,9 @@
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('./fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype-variations'),
-       url('./fonts/Inter/Inter-VariableFont_opsz,wght.ttf') format('truetype');
-}
+:root,
+[data-theme="light"] {
+  color-scheme: light;
 
-@font-face {
-  font-family: 'Inter';
-  font-style: italic;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype-variations'),
-       url('./fonts/Inter/Inter-Italic-VariableFont_opsz,wght.ttf') format('truetype');
-}
-
-:root {
   /* Typography */
   --nv-font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  font-family: var(--nv-font-sans);
 
   /* Breakpoint References */
   --nv-breakpoint-mobile: 600px;
@@ -27,8 +11,11 @@
   --nv-breakpoint-laptop: 1264px;
   --nv-breakpoint-desktop: 1800px;
 
+  /* Primitive Palettes - Neutral / White */
+  --nv-color-white: hsl(0 0% 100%);
+
   /* Primitive Palettes - Lime */
-  --nv-color-lime-50: hsl(0 0% 100%);
+  --nv-color-lime-50: var(--nv-color-white);
   --nv-color-lime-100: hsl(82 85% 89%);
   --nv-color-lime-200: hsl(81 84% 78%);
   --nv-color-lime-300: hsl(81 84% 67%);
@@ -77,12 +64,13 @@
   --nv-color-ghost-hover-text: color-mix(in srgb, var(--nv-color-ghost-text) 85%, var(--nv-color-carbon-900));
 
   /* Container / Card */
-  --nv-color-container: var(--nv-color-lime-50);
+  --nv-color-container: var(--nv-color-white);
   --nv-color-container-border: var(--nv-color-carbon-900);
   --nv-color-container-shadow: var(--nv-color-carbon-900);
 
   /* Backgrounds */
-  --nv-color-bg-page: var(--nv-color-accent);
+  --nv-color-bg-page: var(--nv-color-white);
+  --nv-color-bg-hero: var(--nv-color-accent);
   --nv-color-bg-panel: var(--nv-color-container);
   --nv-color-bg-subtle: color-mix(in srgb, var(--nv-color-accent) 4%, var(--nv-color-container));
   --nv-color-bg-alt: color-mix(in srgb, var(--nv-color-accent) 15%, var(--nv-color-container));
@@ -92,8 +80,8 @@
   /* Typography */
   --nv-color-text-primary: var(--nv-color-carbon-900);
   --nv-color-text-secondary: color-mix(in srgb, var(--nv-color-text-primary) 70%, transparent);
-  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 45%, transparent);
-  --nv-color-text-inverse: var(--nv-color-lime-50);
+  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 58%, transparent);
+  --nv-color-text-inverse: var(--nv-color-white);
 
   /* Borders */
   --nv-color-border-strong: var(--nv-color-carbon-900);
@@ -123,21 +111,25 @@
   --nv-color-backdrop-stroke: var(--nv-color-container);
 
   /* Neo-brutalist shadows (Light) */
-  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-color-border-strong);
-  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-color-border-strong);
-  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-color-border-strong);
-  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-color-border-strong);
-  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-color-border-strong);
+  --nv-shadow-color: var(--nv-color-border-strong);
+  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-shadow-color);
 }
 
 /* Dark Theme Overrides */
-[data-theme="dark"] {
+[data-theme="dark"],
+.dark {
+  color-scheme: dark;
+
   /* Brand / Accent */
   --nv-color-accent: var(--nv-color-lime-400);
   --nv-color-accent-hover: var(--nv-color-lime-300);
   --nv-color-accent-dark: var(--nv-color-lime-500);
   --nv-color-accent-text: var(--nv-color-carbon-900);
-  --nv-color-logo: var(--nv-color-lime-50);
+  --nv-color-logo: var(--nv-color-white);
 
   /* Ghost Button */
   --nv-color-ghost-text: var(--nv-color-accent);
@@ -151,6 +143,7 @@
 
   /* Backgrounds */
   --nv-color-bg-page: var(--nv-color-carbon-800);
+  --nv-color-bg-hero: var(--nv-color-carbon-800);
   --nv-color-bg-panel: var(--nv-color-container);
   --nv-color-bg-subtle: color-mix(in srgb, var(--nv-color-accent) 3%, var(--nv-color-container));
   --nv-color-bg-alt: color-mix(in srgb, var(--nv-color-accent) 8%, var(--nv-color-container));
@@ -160,7 +153,7 @@
   /* Typography */
   --nv-color-text-primary: var(--nv-color-carbon-50);
   --nv-color-text-secondary: color-mix(in srgb, var(--nv-color-text-primary) 70%, transparent);
-  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 45%, transparent);
+  --nv-color-text-muted: color-mix(in srgb, var(--nv-color-text-primary) 58%, transparent);
   --nv-color-text-inverse: var(--nv-color-carbon-900);
 
   /* Borders */
@@ -171,9 +164,9 @@
 
   /* States & Alerts */
   --nv-color-danger: hsl(0 72% 51%);
-  --nv-color-danger-hover: color-mix(in srgb, var(--nv-color-danger) 85%, var(--nv-color-lime-50));
+  --nv-color-danger-hover: color-mix(in srgb, var(--nv-color-danger) 85%, var(--nv-color-white));
 
-  --nv-color-error-text: color-mix(in srgb, var(--nv-color-danger) 75%, var(--nv-color-lime-50));
+  --nv-color-error-text: color-mix(in srgb, var(--nv-color-danger) 75%, var(--nv-color-white));
   --nv-color-error-bg: color-mix(in srgb, var(--nv-color-danger) 18%, var(--nv-color-container));
   --nv-color-error-border: color-mix(in srgb, var(--nv-color-danger) 45%, var(--nv-color-container));
 
@@ -187,11 +180,12 @@
   --nv-color-notice-text: var(--nv-color-text-primary);
 
   /* Neo-brutalist shadows in dark mode */
-  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-color-carbon-900);
-  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-color-carbon-900);
-  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-color-carbon-900);
-  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-color-carbon-900);
-  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-color-carbon-900);
+  --nv-shadow-color: var(--nv-color-carbon-900);
+  --nv-shadow-brutal-sm: 2px 2px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-md: 3px 3px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-lg: 4px 4px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-card: 10px 10px 0 var(--nv-shadow-color);
+  --nv-shadow-brutal-card-sm: 6px 6px 0 var(--nv-shadow-color);
 
   /* Dedicated backdrop tokens */
   --nv-color-backdrop-text: color-mix(in srgb, var(--nv-color-carbon-900) 80%, var(--nv-color-accent));

@@ -1,4 +1,5 @@
 import type { Preview } from '@storybook/vue3'
+import '../src/shared/fonts.css'
 import '../src/shared/tokens.css'
 
 const preview: Preview = {
@@ -71,13 +72,10 @@ const preview: Preview = {
         document.documentElement.setAttribute('data-theme', resolvedTheme)
         document.body.setAttribute('data-theme', resolvedTheme)
 
-        // Ensure canvas body background & text match the theme tokens
-        document.body.style.backgroundColor = resolvedTheme === 'dark'
-          ? 'var(--nv-color-bg-page, hsl(75 18% 4%))'
-          : 'var(--nv-color-lime-50, hsl(0 0% 100%))'
-        document.body.style.color = resolvedTheme === 'dark'
-          ? 'var(--nv-color-text-primary, hsl(60 1% 86%))'
-          : 'var(--nv-color-text-primary, hsl(77 19% 2%))'
+        // Ensure canvas body font, background & text match the theme tokens
+        document.body.style.fontFamily = 'var(--nv-font-sans)'
+        document.body.style.backgroundColor = 'var(--nv-color-bg-page)'
+        document.body.style.color = 'var(--nv-color-text-primary)'
         document.body.style.minHeight = '100vh'
         document.body.style.margin = '0'
         document.body.style.padding = '16px'

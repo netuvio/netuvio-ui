@@ -45,6 +45,12 @@ export default defineConfig({
           cpSync(srcFontsDir, distTokensFontsDir, { recursive: true, force: true })
         }
 
+        // Copy optional fonts.css to dist/fonts.css if it exists
+        const srcFontsCss = resolve(rootDir, 'src/shared/fonts.css')
+        if (existsSync(srcFontsCss)) {
+          copyFileSync(srcFontsCss, resolve(distDir, 'fonts.css'))
+        }
+
         const tokensContent = readFileSync(srcTokensCss, 'utf-8')
         const combinedStyles = `/* Netuvio UI - Combined Tokens & Component Styles */\n${tokensContent}\n\n/* Component Styles */\n${componentCss}`
         writeFileSync(resolve(distDir, 'styles.css'), combinedStyles, 'utf-8')
