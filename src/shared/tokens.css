@@ -106,8 +106,8 @@
   --nv-color-notice-text: var(--nv-color-text-primary);
 
   /* Dedicated backdrop tokens */
-  --nv-color-backdrop-text: light-dark(var(--nv-color-container), color-mix(in srgb, var(--nv-color-carbon-900) 80%, var(--nv-color-accent)));
-  --nv-color-backdrop-stroke: light-dark(var(--nv-color-container), color-mix(in srgb, var(--nv-color-carbon-700) 70%, var(--nv-color-accent)));
+  --nv-color-backdrop-text: light-dark(var(--nv-color-container), #161811);
+  --nv-color-backdrop-stroke: light-dark(var(--nv-color-container), #252b1b);
 
   /* Neo-brutalist shadows */
   --nv-shadow-color: light-dark(var(--nv-color-border-strong), var(--nv-color-carbon-900));

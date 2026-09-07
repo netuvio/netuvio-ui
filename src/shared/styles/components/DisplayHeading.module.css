@@ -108,12 +108,14 @@
 
 /* Dark theme overrides */
 :global([data-theme="dark"]) .lineDark,
-:global([theme="dark"]) .lineDark {
+:global([theme="dark"]) .lineDark,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .lineDark {
   color: var(--nv-color-bg-page, #0f110b);
 }
 
 :global([data-theme="dark"]) .lineDark::before,
-:global([theme="dark"]) .lineDark::before {
+:global([theme="dark"]) .lineDark::before,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .lineDark::before {
   color: transparent;
   background: linear-gradient(to bottom, #ffffff 0%, #e6ffb9 100%);
   -webkit-background-clip: text;
@@ -122,20 +124,61 @@
 }
 
 :global([data-theme="dark"]) .lineLight,
-:global([theme="dark"]) .lineLight {
+:global([theme="dark"]) .lineLight,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .lineLight {
   color: var(--nv-color-accent, #ABED30);
 }
 
 :global([data-theme="dark"]) .lineLight::before,
-:global([theme="dark"]) .lineLight::before {
+:global([theme="dark"]) .lineLight::before,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .lineLight::before {
   color: #000000;
   -webkit-text-stroke: var(--title-stroke, 12px) #000000;
 }
 
 :global([data-theme="dark"]) .lineAccent::before,
-:global([theme="dark"]) .lineAccent::before {
+:global([theme="dark"]) .lineAccent::before,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .lineAccent::before {
   color: #000000;
   -webkit-text-stroke: var(--title-stroke, 12px) #000000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .lineDark,
+  :global([data-theme="system"]) .lineDark,
+  :global([theme="system"]) .lineDark {
+    color: var(--nv-color-bg-page, #0f110b);
+  }
+
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .lineDark::before,
+  :global([data-theme="system"]) .lineDark::before,
+  :global([theme="system"]) .lineDark::before {
+    color: transparent;
+    background: linear-gradient(to bottom, #ffffff 0%, #e6ffb9 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-stroke: var(--title-stroke, 12px) transparent;
+  }
+
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .lineLight,
+  :global([data-theme="system"]) .lineLight,
+  :global([theme="system"]) .lineLight {
+    color: var(--nv-color-accent, #ABED30);
+  }
+
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .lineLight::before,
+  :global([data-theme="system"]) .lineLight::before,
+  :global([theme="system"]) .lineLight::before {
+    color: #000000;
+    -webkit-text-stroke: var(--title-stroke, 12px) #000000;
+  }
+
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .lineAccent::before,
+  :global([data-theme="system"]) .lineAccent::before,
+  :global([theme="system"]) .lineAccent::before {
+    color: #000000;
+    -webkit-text-stroke: var(--title-stroke, 12px) #000000;
+  }
 }
 
 @media (forced-colors: active) {

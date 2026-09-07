@@ -34,6 +34,15 @@
 
 /* Dark mode theme token fallbacks */
 :global([data-theme="dark"]) .logo,
-:global([theme="dark"]) .logo {
+:global([theme="dark"]) .logo,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .logo {
   background-color: var(--nv-color-logo, #ffffff);
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .logo,
+  :global([data-theme="system"]) .logo,
+  :global([theme="system"]) .logo {
+    background-color: var(--nv-color-logo, #ffffff);
+  }
 }

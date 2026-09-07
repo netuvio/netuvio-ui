@@ -65,15 +65,35 @@
 
 /* Dark mode theme token fallbacks */
 :global([data-theme="dark"]) .backdropWord,
-:global([theme="dark"]) .backdropWord {
+:global([theme="dark"]) .backdropWord,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .backdropWord {
   color: var(--nv-color-backdrop-text, #161811);
 }
 
 :global([data-theme="dark"]) .backdropWord::before,
 :global([data-theme="dark"]) .backdropWord::after,
 :global([theme="dark"]) .backdropWord::before,
-:global([theme="dark"]) .backdropWord::after {
+:global([theme="dark"]) .backdropWord::after,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .backdropWord::before,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .backdropWord::after {
   -webkit-text-stroke-color: var(--nv-color-backdrop-stroke, #252b1b);
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .backdropWord,
+  :global([data-theme="system"]) .backdropWord,
+  :global([theme="system"]) .backdropWord {
+    color: var(--nv-color-backdrop-text, #161811);
+  }
+
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .backdropWord::before,
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .backdropWord::after,
+  :global([data-theme="system"]) .backdropWord::before,
+  :global([data-theme="system"]) .backdropWord::after,
+  :global([theme="system"]) .backdropWord::before,
+  :global([theme="system"]) .backdropWord::after {
+    -webkit-text-stroke-color: var(--nv-color-backdrop-stroke, #252b1b);
+  }
 }
 
 @media (max-width: 800px) {
