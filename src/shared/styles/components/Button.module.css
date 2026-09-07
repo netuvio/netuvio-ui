@@ -143,13 +143,13 @@
 }
 
 .variant-secondary .topLayer {
-  background-color: var(--nv-color-lime-50);
-  color: var(--nv-color-carbon-900);
-  border-color: var(--nv-color-carbon-900);
+  background-color: var(--nv-color-container);
+  color: var(--nv-color-text-primary);
+  border-color: var(--nv-color-container-border);
 }
 
 .variant-secondary .bottomLayer {
-  background-color: var(--nv-color-carbon-900);
+  border-color: var(--nv-color-container-border);
 }
 
 .variant-tertiary .topLayer {
