@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<ErrorPageProps>(), {
   theme: 'auto',
   homepageUrl: '/',
   backdropFontSize: 'clamp(280px, 54vw, 820px)',
+  backdropTop: '42%',
 });
 
 // ── Supported error codes ──────────────────────────────────────────────────
@@ -332,6 +333,7 @@ const dataTheme = computed<string | undefined>(() => {
             :fixed="false"
             :scale-x="0.82"
             :font-size="props.backdropFontSize"
+            :top="props.backdropTop"
             mobile-font-size="120vw"
             :z-index="0"
           />

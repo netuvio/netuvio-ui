@@ -52,6 +52,9 @@ export interface ErrorPageProps {
   /** Custom backdrop text font size. Defaults to 'clamp(280px, 54vw, 820px)'. */
   backdropFontSize?: string;
 
+  /** Custom backdrop text vertical position. Defaults to '42%'. */
+  backdropTop?: string;
+
   /**
    * Dictionary of custom error messages that override defaults.
    * You only need to define the codes and languages you want to override —

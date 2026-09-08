@@ -57,6 +57,9 @@ const wordStyle = computed(() => {
   if (props.mobileFontSize) {
     styleObj['--nv-backdrop-font-size-mobile'] = props.mobileFontSize;
   }
+  if (props.top) {
+    styleObj['--nv-backdrop-top'] = props.top;
+  }
   return styleObj;
 });
 </script>

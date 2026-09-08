@@ -23,6 +23,9 @@ export interface BackdropTextProps {
   /** Stacking order z-index (defaults to -1) */
   zIndex?: number;
 
+  /** Custom CSS vertical position (defaults to 50%) */
+  top?: string;
+
   /** Wrapper HTML element tag */
   as?: string;
 }
