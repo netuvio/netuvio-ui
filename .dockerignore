@@ -1,0 +1,10 @@
+node_modules
+dist
+storybook-static
+.git
+.gitignore
+.idea
+.vscode
+*.log
+.pnpm-store
+.env*
