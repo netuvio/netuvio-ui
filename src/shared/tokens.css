@@ -87,6 +87,7 @@
   --nv-color-border-subtle: light-dark(color-mix(in srgb, var(--nv-color-border-strong) 15%, transparent), color-mix(in srgb, var(--nv-color-border-strong) 40%, transparent));
   --nv-color-border-input: light-dark(color-mix(in srgb, var(--nv-color-border-strong) 30%, transparent), color-mix(in srgb, var(--nv-color-border-strong) 60%, transparent));
   --nv-color-border-card: light-dark(color-mix(in srgb, var(--nv-color-accent) 35%, var(--nv-color-container)), color-mix(in srgb, var(--nv-color-accent) 25%, var(--nv-color-container)));
+  --nv-color-border-dashed: light-dark(var(--nv-color-border-strong), var(--nv-color-carbon-200));
 
   /* States & Alerts */
   --nv-color-danger: hsl(0 72% 51%);

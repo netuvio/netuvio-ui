@@ -94,6 +94,7 @@ export const colors = {
     borderSubtle: 'var(--nv-color-border-subtle)',
     borderInput: 'var(--nv-color-border-input)',
     borderCard: 'var(--nv-color-border-card)',
+    borderDashed: 'var(--nv-color-border-dashed)',
 
     // States & Alerts
     errorBg: 'var(--nv-color-error-bg)',

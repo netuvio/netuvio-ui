@@ -268,7 +268,7 @@
     .topLayer {
       background-color: var(--nv-color-bg-muted);
       color: var(--nv-color-text-primary);
-      border-color: light-dark(var(--nv-color-border-strong), var(--nv-color-carbon-200));
+      border-color: var(--nv-color-border-dashed);
       transform: none !important;
     }
 

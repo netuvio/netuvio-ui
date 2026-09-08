@@ -114,7 +114,7 @@
 
   .topLayer {
     border-style: dashed;
-    border-color: light-dark(var(--nv-color-border-strong), var(--nv-color-carbon-200));
+    border-color: var(--nv-color-border-dashed);
     background-color: var(--nv-color-bg-subtle);
     transform: none !important;
   }
