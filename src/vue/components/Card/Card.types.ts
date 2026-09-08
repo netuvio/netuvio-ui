@@ -8,6 +8,8 @@ export interface CardProps {
   variant?: CardVariant;
   /** Enables brutalist 3D box-shadow (default: true) */
   threeD?: boolean;
+  /** Offset of the 3D effect at rest in pixels (defaults to 10 for default/dark, 6 for accent, 0 for subtle/muted) */
+  base3dOffset?: number | string;
   /** How many pixels the interactive hover/click moves the card (defaults to 2) */
   movePixels?: number | string;
   radius?: CardRadius;

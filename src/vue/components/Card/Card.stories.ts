@@ -15,6 +15,10 @@ const meta = {
     threeD: {
       control: 'boolean',
     },
+    base3dOffset: {
+      control: 'number',
+      description: 'Offset of the 3D effect at rest in pixels',
+    },
     radius: {
       control: 'select',
       options: ['none', 'sm', 'md', 'lg', 'xl', 'full'],
@@ -169,6 +173,28 @@ export const Variants: Story = {
         </Card>
         <Card variant="dark" tag="Dark">
           <p style="margin: 0; font-weight: 600;">Dark neo-brutalist container with high contrast.</p>
+        </Card>
+      </div>
+    `,
+  }),
+};
+
+export const Base3dOffset: Story = {
+  render: () => ({
+    components: { Card },
+    template: `
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; padding: 24px;">
+        <Card :base-3d-offset="0" tag="Offset 0px (Flat)">
+          <p style="margin: 0; font-weight: 600;">Flat at rest (:base-3d-offset="0").</p>
+        </Card>
+        <Card :base-3d-offset="4" tag="Offset 4px">
+          <p style="margin: 0; font-weight: 600;">Subtle 4px brutalist shadow at rest.</p>
+        </Card>
+        <Card :base-3d-offset="14" tag="Offset 14px (Deep)">
+          <p style="margin: 0; font-weight: 600;">Deep 14px brutalist shadow at rest.</p>
+        </Card>
+        <Card interactive :base-3d-offset="4" :move-pixels="3" tag="Interactive (4px + 3px)">
+          <p style="margin: 0; font-weight: 600;">Interactive card: rests at 4px, lifts to 7px on hover.</p>
         </Card>
       </div>
     `,

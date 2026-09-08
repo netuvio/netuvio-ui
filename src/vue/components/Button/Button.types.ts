@@ -45,8 +45,8 @@ export interface ButtonProps {
   /** Enables 3D layered hover effect (defaults to true for non-ghost variants) */
   threeD?: boolean
 
-  /** Sets if the button is neutrally 3D at rest (defaults to false) */
-  neutral3d?: boolean
+  /** Offset of the 3D effect at rest in pixels (defaults to 0) */
+  base3dOffset?: number | string
 
   /** How many pixels the action/3D interaction moves the button (defaults to 4) */
   movePixels?: number | string

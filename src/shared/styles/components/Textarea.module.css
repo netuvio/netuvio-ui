@@ -65,8 +65,12 @@
 
 .is3d {
   .bottomLayer {
-    opacity: 0;
+    opacity: var(--textarea-base-bottom-opacity, 0);
     transition: opacity 0.15s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .topLayer {
+    transform: translate(calc(-1 * var(--textarea-base-3d-offset, 0px)), calc(-1 * var(--textarea-base-3d-offset, 0px)));
   }
 
   &:hover:not(.disabled):not(.readonly),
@@ -76,18 +80,11 @@
     }
 
     .topLayer {
-      transform: translate(-4px, -4px);
+      transform: translate(
+        calc(-1 * (var(--textarea-base-3d-offset, 0px) + var(--textarea-action-move, 4px))),
+        calc(-1 * (var(--textarea-base-3d-offset, 0px) + var(--textarea-action-move, 4px)))
+      );
     }
-  }
-}
-
-.neutral3d:not(.readonly) {
-  .bottomLayer {
-    opacity: 1;
-  }
-
-  .topLayer {
-    transform: translate(-2px, -2px);
   }
 }
 

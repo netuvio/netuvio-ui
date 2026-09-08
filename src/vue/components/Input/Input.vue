@@ -17,7 +17,7 @@ const props = withDefaults(defineProps<InputProps>(), {
   readonly: false,
   block: false,
   threeD: true,
-  neutral3d: false,
+  base3dOffset: 0,
   movePixels: 4,
   showPasswordToggle: true,
 });
@@ -48,11 +48,19 @@ const describedBy = computed(() => {
   return undefined;
 });
 
-const isNeutral3D = computed<boolean>(() => props.threeD && (props.neutral3d ?? false));
-
 const resolvedMove = computed(() => {
   const move = props.movePixels;
   return typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`);
+});
+
+const resolvedOffset = computed(() => {
+  const offset = props.base3dOffset;
+  return typeof offset === 'number' ? `${offset}px` : (typeof offset === 'string' && offset.endsWith('px') ? offset : `${offset}px`);
+});
+
+const hasBaseOffset = computed(() => {
+  const offset = props.base3dOffset;
+  return typeof offset === 'number' ? offset > 0 : (typeof offset === 'string' ? parseFloat(offset) > 0 : false);
 });
 
 const wrapperClasses = computed(() => [
@@ -64,11 +72,12 @@ const wrapperClasses = computed(() => [
   props.readonly ? styles.readonly : null,
   hasError.value ? styles.hasError : null,
   props.threeD ? styles.is3d : null,
-  isNeutral3D.value ? styles.neutral3d : null,
 ]);
 
 const wrapperStyle = computed(() => ({
   '--input-action-move': resolvedMove.value,
+  '--input-base-3d-offset': resolvedOffset.value,
+  '--input-base-bottom-opacity': hasBaseOffset.value ? '1' : '0',
 }));
 
 function handleInput(event: Event) {

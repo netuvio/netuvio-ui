@@ -19,7 +19,8 @@ const props = withDefaults(defineProps<TextareaProps>(), {
   readonly: false,
   block: false,
   threeD: true,
-  neutral3d: false,
+  base3dOffset: 0,
+  movePixels: 4,
 });
 
 const emit = defineEmits<TextareaEmits>();
@@ -41,8 +42,22 @@ const describedBy = computed(() => {
   return undefined;
 });
 
-const isNeutral3D = computed<boolean>(() => props.threeD && (props.neutral3d ?? false));
 const isResizableH = computed<boolean>(() => props.resize === 'horizontal' || props.resize === 'both');
+
+const resolvedMove = computed(() => {
+  const move = props.movePixels;
+  return typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`);
+});
+
+const resolvedOffset = computed(() => {
+  const offset = props.base3dOffset;
+  return typeof offset === 'number' ? `${offset}px` : (typeof offset === 'string' && offset.endsWith('px') ? offset : `${offset}px`);
+});
+
+const hasBaseOffset = computed(() => {
+  const offset = props.base3dOffset;
+  return typeof offset === 'number' ? offset > 0 : (typeof offset === 'string' ? parseFloat(offset) > 0 : false);
+});
 
 const wrapperClasses = computed(() => [
   styles.textareaWrapper,
@@ -54,8 +69,13 @@ const wrapperClasses = computed(() => [
   props.readonly ? styles.readonly : null,
   hasError.value ? styles.hasError : null,
   props.threeD ? styles.is3d : null,
-  isNeutral3D.value ? styles.neutral3d : null,
 ]);
+
+const wrapperStyle = computed(() => ({
+  '--textarea-action-move': resolvedMove.value,
+  '--textarea-base-3d-offset': resolvedOffset.value,
+  '--textarea-base-bottom-opacity': hasBaseOffset.value ? '1' : '0',
+}));
 
 const charLength = computed(() => (props.modelValue ? String(props.modelValue).length : 0));
 const isOverLimit = computed(() => Boolean(props.maxlength && charLength.value > props.maxlength));
@@ -217,6 +237,7 @@ defineExpose({
 <template>
   <div
     :class="wrapperClasses"
+    :style="wrapperStyle"
     :theme="props.theme"
     :data-theme="props.theme"
   >

@@ -36,8 +36,11 @@ export interface TextareaProps {
   /** Enables 3D layered focus effect (defaults to true) */
   threeD?: boolean
 
-  /** Sets if the textarea is neutrally 3D at rest (defaults to false) */
-  neutral3d?: boolean
+  /** Offset of the 3D effect at rest in pixels (defaults to 0) */
+  base3dOffset?: number | string
+
+  /** How many pixels the 3D interaction moves the textarea (defaults to 4) */
+  movePixels?: number | string
 
   /** Error message string or boolean flag indicating error state */
   error?: string | boolean

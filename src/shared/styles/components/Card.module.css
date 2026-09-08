@@ -3,6 +3,7 @@
   border: 2px solid var(--nv-color-border-strong, #1c1e16);
   font-family: var(--nv-font-sans, "Inter", sans-serif);
   box-sizing: border-box;
+  box-shadow: var(--card-base-3d-offset, 10px) var(--card-base-3d-offset, 10px) 0 var(--nv-color-border-strong, #1c1e16);
   transition: transform var(--nv-transition-fast, 0.15s ease),
               box-shadow var(--nv-transition-fast, 0.15s ease);
 }
@@ -14,12 +15,26 @@
 
 .interactive:hover {
   transform: translate(calc(-1 * var(--card-action-move, 2px)), calc(-1 * var(--card-action-move, 2px)));
-  box-shadow: calc(var(--current-shadow-x, 10px) + var(--card-action-move, 2px)) calc(var(--current-shadow-y, 10px) + var(--card-action-move, 2px)) 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(var(--card-base-3d-offset, 10px) + var(--card-action-move, 2px)) calc(var(--card-base-3d-offset, 10px) + var(--card-action-move, 2px)) 0 var(--nv-color-border-strong, #1c1e16);
 }
 
 .interactive:active {
   transform: translate(calc(0.5 * var(--card-action-move, 2px)), calc(0.5 * var(--card-action-move, 2px)));
-  box-shadow: calc(var(--current-shadow-x, 10px) - calc(0.5 * var(--card-action-move, 2px))) calc(var(--current-shadow-y, 10px) - calc(0.5 * var(--card-action-move, 2px))) 0 var(--nv-color-border-strong, #1c1e16);
+  box-shadow: calc(var(--card-base-3d-offset, 10px) - calc(0.5 * var(--card-action-move, 2px))) calc(var(--card-base-3d-offset, 10px) - calc(0.5 * var(--card-action-move, 2px))) 0 var(--nv-color-border-strong, #1c1e16);
+}
+
+.noThreeD {
+  box-shadow: none !important;
+}
+
+.interactive.noThreeD:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.interactive.noThreeD:active {
+  transform: none !important;
+  box-shadow: none !important;
 }
 
 /* Variants */

@@ -19,11 +19,24 @@ const props = withDefaults(defineProps<CardProps>(), {
   interactive: false,
 });
 
-const resolvedShadow = computed(() => {
-  if (!props.threeD) return 'none';
-  if (props.variant === 'default' || props.variant === 'dark') return 'card';
-  if (props.variant === 'accent') return 'card-sm';
-  return 'none';
+const defaultBaseOffset = computed(() => {
+  if (!props.threeD) return 0;
+  if (props.variant === 'accent') return 6;
+  if (props.variant === 'default' || props.variant === 'dark') return 10;
+  return 0;
+});
+
+const resolvedBaseOffset = computed(() => {
+  if (props.base3dOffset !== undefined && props.base3dOffset !== null) {
+    const offset = props.base3dOffset;
+    return typeof offset === 'number' ? `${offset}px` : (typeof offset === 'string' && offset.endsWith('px') ? offset : `${offset}px`);
+  }
+  return `${defaultBaseOffset.value}px`;
+});
+
+const is3D = computed(() => {
+  if (!props.threeD) return false;
+  return parseFloat(resolvedBaseOffset.value) > 0;
 });
 
 const cardClasses = computed(() => [
@@ -31,7 +44,7 @@ const cardClasses = computed(() => [
   styles[`variant-${props.variant}`],
   styles[`radius-${props.radius}`],
   styles[`padding-${props.padding}`],
-  styles[`shadow-${resolvedShadow.value}`],
+  !is3D.value ? styles.noThreeD : null,
   props.interactive ? styles.interactive : null,
 ]);
 
@@ -39,6 +52,7 @@ const cardStyle = computed(() => {
   const move = props.movePixels;
   return {
     '--card-action-move': typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`),
+    '--card-base-3d-offset': resolvedBaseOffset.value,
   };
 });
 

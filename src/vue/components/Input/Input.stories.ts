@@ -46,12 +46,12 @@ const meta: Meta<typeof Input> = {
       control: 'boolean',
       description: 'Enables 3D layered focus effect',
     },
-    neutral3d: {
-      control: 'boolean',
-      description: 'Sets if the input is neutrally 3D at rest',
+    base3dOffset: {
+      control: 'number',
+      description: 'Offset of the 3D effect at rest in pixels',
       table: {
-        defaultValue: { summary: 'false' },
-        type: { summary: 'boolean' },
+        defaultValue: { summary: '0' },
+        type: { summary: 'number | string' },
       },
     },
     movePixels: {
@@ -81,7 +81,7 @@ const meta: Meta<typeof Input> = {
     readonly: false,
     block: false,
     threeD: true,
-    neutral3d: false,
+    base3dOffset: 0,
     movePixels: 4,
     showPasswordToggle: true,
   },
@@ -147,7 +147,7 @@ export const States: Story = {
     template: `
       <div style="display: flex; flex-direction: column; gap: 24px; max-width: 400px; padding: 16px;">
         <Input label="Default (Lifts on focus/hover only)" placeholder="Flat at rest" />
-        <Input label="Neutrally 3D (:neutral3d='true')" :neutral3d="true" placeholder="3D at rest, lifts more on focus/hover" />
+        <Input label="Neutrally 3D (:base-3d-offset='2')" :base-3d-offset="2" placeholder="3D at rest, lifts more on focus/hover" />
         <Input label="With Hint" placeholder="user@example.com" hint="We will never share your email." />
         <Input label="Error State" model-value="invalid-email" error="Please enter a valid email address." />
         <Input label="Disabled" disabled model-value="Disabled value" />

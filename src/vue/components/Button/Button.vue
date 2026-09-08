@@ -18,7 +18,7 @@ const props = withDefaults(defineProps<ButtonProps>(), {
   loading: false,
   block: false,
   threeD: true,
-  neutral3d: false,
+  base3dOffset: 0,
   movePixels: 4,
   uppercase: false,
 })
@@ -31,7 +31,6 @@ const isDisabled = computed<boolean>(() => props.disabled || props.loading);
 
 // 3D layered hover effect (defaults to true for non-ghost variants)
 const is3D = computed<boolean>(() => props.threeD ?? (props.variant !== 'ghost'));
-const isNeutral3D = computed<boolean>(() => is3D.value && (props.neutral3d ?? false));
 
 // Resolved CSS module class list for the button element.
 const classes = computed(() => [
@@ -42,7 +41,6 @@ const classes = computed(() => [
   styles[`justify-${props.justify}`],
   props.block ? styles.block : null,
   is3D.value ? styles.is3d : null,
-  isNeutral3D.value ? styles.neutral3d : null,
   props.loading ? styles.loading : null,
   props.uppercase ? styles.uppercase : null,
 ]);
@@ -50,8 +48,14 @@ const classes = computed(() => [
 const buttonStyle = computed(() => {
   const move = props.movePixels;
   const pixels = typeof move === 'number' ? `${move}px` : (typeof move === 'string' && move.endsWith('px') ? move : `${move}px`);
+  const offset = props.base3dOffset;
+  const offsetPixels = typeof offset === 'number' ? `${offset}px` : (typeof offset === 'string' && offset.endsWith('px') ? offset : `${offset}px`);
+  const hasBaseOffset = typeof offset === 'number' ? offset > 0 : (typeof offset === 'string' ? parseFloat(offset) > 0 : false);
+
   const styleObj: Record<string, string> = {
     '--button-action-move': pixels,
+    '--button-base-3d-offset': offsetPixels,
+    '--button-base-bottom-opacity': hasBaseOffset ? '1' : '0',
   };
 
   if (props.fontSize !== undefined && props.fontSize !== null) {

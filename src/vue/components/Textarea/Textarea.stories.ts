@@ -62,9 +62,21 @@ const meta: Meta<typeof Textarea> = {
       control: 'boolean',
       description: 'Enables 3D layered focus effect',
     },
-    neutral3d: {
-      control: 'boolean',
-      description: 'Sets if the textarea is neutrally 3D at rest',
+    base3dOffset: {
+      control: 'number',
+      description: 'Offset of the 3D effect at rest in pixels',
+      table: {
+        defaultValue: { summary: '0' },
+        type: { summary: 'number | string' },
+      },
+    },
+    movePixels: {
+      control: 'number',
+      description: 'How many pixels the 3D interaction moves the textarea',
+      table: {
+        defaultValue: { summary: '4' },
+        type: { summary: 'number | string' },
+      },
     },
     error: {
       control: 'text',
@@ -88,7 +100,8 @@ const meta: Meta<typeof Textarea> = {
     readonly: false,
     block: false,
     threeD: true,
-    neutral3d: false,
+    base3dOffset: 0,
+    movePixels: 4,
   },
   render: (args: Record<string, any>) => ({
     components: { Textarea },
@@ -229,10 +242,10 @@ export const ThreeDEffects: Story = {
           block
         />
         <Textarea
-          label="Neutral 3D (Shifted at rest)"
+          label="Base 3D Offset (:base-3d-offset='2')"
           :three-d="true"
-          neutral3d
-          placeholder="Always slightly shifted"
+          :base-3d-offset="2"
+          placeholder="Always slightly shifted at rest, lifts more on focus/hover"
           block
         />
         <Textarea

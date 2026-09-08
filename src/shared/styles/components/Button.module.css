@@ -64,8 +64,12 @@
 
 .is3d {
   .bottomLayer {
-    opacity: 0;
+    opacity: var(--button-base-bottom-opacity, 0);
     transition: opacity 0.15s cubic-bezier(0.2, 0, 0, 1);
+  }
+
+  .topLayer {
+    transform: translate(calc(-1 * var(--button-base-3d-offset, 0px)), calc(-1 * var(--button-base-3d-offset, 0px)));
   }
 
   &:hover:not(:disabled) {
@@ -74,7 +78,10 @@
     }
 
     .topLayer {
-      transform: translate(calc(-1 * var(--button-action-move, 4px)), calc(-1 * var(--button-action-move, 4px)));
+      transform: translate(
+        calc(-1 * (var(--button-base-3d-offset, 0px) + var(--button-action-move, 4px))),
+        calc(-1 * (var(--button-base-3d-offset, 0px) + var(--button-action-move, 4px)))
+      );
     }
   }
 
@@ -83,16 +90,6 @@
       transform: translate(0, 0);
       transition-duration: 0.06s;
     }
-  }
-}
-
-.neutral3d {
-  .bottomLayer {
-    opacity: 1;
-  }
-
-  .topLayer {
-    transform: translate(calc(-0.5 * var(--button-action-move, 4px)), calc(-0.5 * var(--button-action-move, 4px)));
   }
 }
 

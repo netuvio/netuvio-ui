@@ -42,12 +42,12 @@ const meta: Meta<typeof Button> = {
       control: 'boolean',
       description: 'Enables 3D layered hover effect',
     },
-    neutral3d: {
-      control: 'boolean',
-      description: 'Sets if the button is neutrally 3D at rest',
+    base3dOffset: {
+      control: 'number',
+      description: 'Offset of the 3D effect at rest in pixels',
       table: {
-        defaultValue: { summary: 'false' },
-        type: { summary: 'boolean' },
+        defaultValue: { summary: '0' },
+        type: { summary: 'number | string' },
       },
     },
     movePixels: {
@@ -66,7 +66,7 @@ const meta: Meta<typeof Button> = {
     disabled: false,
     loading: false,
     block: false,
-    neutral3d: false,
+    base3dOffset: 0,
     movePixels: 4,
   },
   render: (args: Record<string, any>) => ({
@@ -168,7 +168,7 @@ export const States: Story = {
     template: `
       <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap; padding: 12px;">
         <Button variant="primary">Default (Lifts on hover only)</Button>
-        <Button variant="primary" :neutral3d="true">Neutrally 3D (:neutral3d="true")</Button>
+        <Button variant="primary" :base-3d-offset="2">Neutrally 3D (:base-3d-offset="2")</Button>
         <Button variant="primary" loading>Loading...</Button>
         <Button variant="primary" disabled>Disabled</Button>
         <Button variant="primary" :three-d="false">Flat (No 3D)</Button>
@@ -258,11 +258,11 @@ export const MovePixels: Story = {
           <Button variant="primary" :move-pixels="6">:move-pixels="6"</Button>
           <Button variant="primary" :move-pixels="8">:move-pixels="8"</Button>
         </div>
-        <h4 style="margin: 16px 0 0 0;">Neutrally 3D with Move Pixels</h4>
+        <h4 style="margin: 16px 0 0 0;">Base 3D Offset with Move Pixels</h4>
         <div style="display: flex; gap: 16px; align-items: center; flex-wrap: wrap;">
-          <Button variant="secondary" :neutral3d="true" :move-pixels="2">:neutral3d="true" :move-pixels="2"</Button>
-          <Button variant="secondary" :neutral3d="true" :move-pixels="4">:neutral3d="true" :move-pixels="4"</Button>
-          <Button variant="secondary" :neutral3d="true" :move-pixels="6">:neutral3d="true" :move-pixels="6"</Button>
+          <Button variant="secondary" :base-3d-offset="2" :move-pixels="2">:base-3d-offset="2" :move-pixels="2"</Button>
+          <Button variant="secondary" :base-3d-offset="2" :move-pixels="4">:base-3d-offset="2" :move-pixels="4"</Button>
+          <Button variant="secondary" :base-3d-offset="4" :move-pixels="4">:base-3d-offset="4" :move-pixels="4"</Button>
         </div>
       </div>
     `,
