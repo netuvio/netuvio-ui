@@ -1,6 +1,6 @@
 {
   "name": "@netuvio/ui",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "UI component library for Netuvio applications",
   "author": "Netuvio",
   "contributors": [
@@ -46,7 +46,8 @@
     "./tokens.css": "./dist/tokens/tokens.css",
     "./styles.css": "./dist/styles.css",
     "./ui.css": "./dist/ui.css",
-    "./fonts.css": "./dist/fonts.css"
+    "./fonts.css": "./dist/fonts.css",
+    "./reset.css": "./dist/reset.css"
   },
   "scripts": {
     "dev": "vite",
