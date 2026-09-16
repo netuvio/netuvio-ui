@@ -89,20 +89,36 @@
   width: 24px;
   height: 24px;
   border-radius: 9999px;
-  border: 2px solid var(--nv-color-border-strong, #1c1e16);
+  border: 2px solid currentColor;
   background: var(--nv-color-accent, #ABED30);
   color: var(--nv-color-accent-text, #1c1e16);
   margin-top: -1px;
 }
 
 .variant-danger .iconBadge {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--nv-color-error-bg, #fee2e2);
+  color: var(--nv-color-error-text, #991b1b);
+  border-color: currentColor;
 }
 
 .variant-warning .iconBadge {
   background: #fef3c7;
   color: #92400e;
+  border-color: currentColor;
+}
+
+:global([data-theme="dark"]) .variant-danger .iconBadge,
+:global([theme="dark"]) .variant-danger .iconBadge,
+:global(.dark:not([theme="light"]):not([data-theme="light"])) .variant-danger .iconBadge {
+  background: var(--nv-color-error-bg, transparent);
+}
+
+@media (prefers-color-scheme: dark) {
+  :global(:root:not([data-theme="light"]):not([theme="light"])) .variant-danger .iconBadge,
+  :global([data-theme="system"]) .variant-danger .iconBadge,
+  :global([theme="system"]) .variant-danger .iconBadge {
+    background: var(--nv-color-error-bg, transparent);
+  }
 }
 
 /* Content */
