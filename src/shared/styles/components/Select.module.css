@@ -198,7 +198,7 @@
               color var(--nv-transition-fast, 0.15s ease);
 }
 
-.menuItem:hover:not(:disabled) {
+.menuItem:not(.isSelected):hover:not(:disabled) {
   background: var(--nv-color-bg-subtle, #fafbf7);
   border-color: var(--nv-color-border-subtle, #e5e7de);
 }
@@ -213,6 +213,7 @@
   color: var(--nv-color-accent-text, #1c1e16);
   border-color: var(--nv-color-border-strong, #1c1e16);
   font-weight: 850;
+  cursor: default;
 }
 
 .menuItem:disabled {
