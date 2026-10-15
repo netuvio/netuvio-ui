@@ -14,3 +14,4 @@ export * from './components/Alert';
 export * from './components/ProgressBar';
 export * from './components/Spinner';
 export * from './components/Textarea';
+export * from './components/Table';
