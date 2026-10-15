@@ -151,6 +151,40 @@ pnpm build
 
 ---
 
+## Modal
+
+`NvModal` uses a native dialog with focus containment, Escape and backdrop dismissal, scroll locking, and focus restoration. It supports `sm`, `md`, and `lg` sizes, a `theme` override, and a `footer` slot. Provide a localized `close-label` in applications.
+
+```vue
+<script setup lang="ts">
+import { ref } from 'vue'
+import { NvButton, NvModal } from '@netuvio/ui'
+const open = ref(false)
+</script>
+
+<template>
+  <NvButton @click="open = true">Open details</NvButton>
+  <NvModal v-model="open" title="Details" close-label="Close" size="lg">
+    <p>Modal content</p>
+    <template #footer>
+      <NvButton @click="open = false">Done</NvButton>
+    </template>
+  </NvModal>
+</template>
+```
+
+## Radius tokens
+
+Container components use the same default radius: `NvCard`, `NvTable`, and `NvModal` use `--nv-radius-xl` (22px). Explicit radius options remain available on cards and tables. The shared scale is `sm` 6px, `md` 9px, `lg` 12px, `xl` 22px, and `full` 9999px; CSS fallbacks match these tokens.
+
+## Slider
+
+`NvSlider` provides a labeled native range input with keyboard controls, a value badge, bounds, an optional hint, and Netuvio theme tokens. It emits numeric values, respects `min` / `max` / `step`, and disables itself when no range remains.
+
+```vue
+<NvSlider v-model="cpu" label="CPU" :min="250" :max="4000" :step="250" unit="m" />
+```
+
 ## License
 
 This project is licensed under the [Apache-2.0 License](LICENSE) - see the [LICENSE](LICENSE) file for details.

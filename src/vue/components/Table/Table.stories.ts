@@ -35,7 +35,7 @@ const meta = {
     columns,
     rows,
     size: 'md',
-    radius: 'lg',
+    radius: 'xl',
     variant: 'default',
     threeD: true,
     base3dOffset: 4,

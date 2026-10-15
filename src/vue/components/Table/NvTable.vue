@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<TableProps>(), {
   rows: () => [],
   rowKey: 'id',
   size: 'md',
-  radius: 'lg',
+  radius: 'xl',
   variant: 'default',
   threeD: true,
   base3dOffset: 4,

@@ -24,6 +24,7 @@ export interface TableProps {
   /** Row property or resolver used as Vue's row key. */
   rowKey?: string | ((row: TableRow, index: number) => string | number);
   size?: TableSize;
+  /** Kdyz radius neposles, vezme se xl jako u karet. */
   radius?: TableRadius;
   variant?: TableVariant;
   /** Enables the Netuvio brutalist box-shadow (default: true). */

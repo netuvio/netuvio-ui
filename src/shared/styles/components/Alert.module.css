@@ -35,7 +35,7 @@
 }
 
 .radius-lg {
-  border-radius: var(--nv-radius-lg, 14px);
+  border-radius: var(--nv-radius-lg, 12px);
 }
 
 .radius-none {
@@ -162,7 +162,7 @@
   padding: 0;
   background: transparent;
   border: 2px solid transparent;
-  border-radius: var(--nv-radius-sm, 4px);
+  border-radius: var(--nv-radius-sm, 6px);
   color: inherit;
   cursor: pointer;
   transition: background var(--nv-transition-fast, 0.15s ease),

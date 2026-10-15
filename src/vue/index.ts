@@ -15,3 +15,5 @@ export * from './components/ProgressBar';
 export * from './components/Spinner';
 export * from './components/Textarea';
 export * from './components/Table';
+export * from './components/Modal';
+export * from './components/Slider';

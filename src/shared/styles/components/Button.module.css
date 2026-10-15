@@ -34,7 +34,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background-color: var(--nv-color-border-strong);
+  background-color: var(--nv-button-shadow-color, var(--nv-color-border-strong));
   pointer-events: none;
   z-index: 0;
 }
@@ -221,7 +221,7 @@
   }
 
   .bottomLayer {
-    background-color: var(--nv-color-carbon-900);
+    background-color: var(--nv-button-shadow-color, var(--nv-color-carbon-900));
   }
 }
 
@@ -233,7 +233,7 @@
   }
 
   .bottomLayer {
-    background-color: var(--nv-color-container-border);
+    background-color: var(--nv-button-shadow-color, var(--nv-color-container-border));
   }
 }
 
@@ -245,7 +245,7 @@
   }
 
   .bottomLayer {
-    background-color: var(--nv-color-lime-50);
+    background-color: var(--nv-button-shadow-color, var(--nv-color-lime-50));
   }
 }
 
@@ -296,7 +296,7 @@
   }
 
   .bottomLayer {
-    background-color: var(--nv-color-carbon-900);
+    background-color: var(--nv-button-shadow-color, var(--nv-color-carbon-900));
   }
 }
 

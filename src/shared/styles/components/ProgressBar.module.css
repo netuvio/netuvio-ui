@@ -62,7 +62,7 @@
 }
 
 .radius-md {
-  border-radius: var(--nv-radius-md, 6px);
+  border-radius: var(--nv-radius-md, 9px);
 }
 
 .radius-none {
@@ -74,7 +74,7 @@
 }
 
 .radius-lg {
-  border-radius: var(--nv-radius-lg, 14px);
+  border-radius: var(--nv-radius-lg, 12px);
 }
 
 .radius-xl {

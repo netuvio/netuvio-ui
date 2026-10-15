@@ -1,0 +1,23 @@
+.slider {
+  min-width: 0;
+  color: var(--nv-color-text-primary);
+  font-family: var(--nv-font-sans, Inter, sans-serif);
+  &.disabled { opacity: .55; }
+  .heading {
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    label { font-size: 12px; font-weight: 800; text-transform: uppercase; }
+    output { padding: 5px 9px; border: 2px solid var(--nv-color-border-strong); border-radius: var(--nv-radius-sm, 6px); font-size: 14px; font-weight: 750; background: var(--nv-color-bg-subtle); span { margin-left: 3px; color: var(--nv-color-text-secondary); font-size: 11px; } }
+  }
+  .input {
+    appearance: none; display: block; box-sizing: border-box; width: 100%; min-width: 0; height: 36px; margin: 10px 0 0; padding: 0; background: transparent; cursor: pointer;
+    &::-webkit-slider-runnable-track { height: 8px; border: 2px solid var(--nv-color-border-strong); border-radius: 999px; background: linear-gradient(to right, var(--nv-color-accent) 0 var(--slider-progress), var(--nv-color-bg-subtle) var(--slider-progress) 100%); }
+    &::-webkit-slider-thumb { appearance: none; width: 22px; height: 22px; margin-top: -9px; border: 2px solid var(--nv-color-border-strong); border-radius: 50%; background: var(--nv-color-accent); box-shadow: 2px 2px 0 var(--nv-shadow-color); }
+    &::-moz-range-track { height: 5px; border: 2px solid var(--nv-color-border-strong); border-radius: 999px; background: var(--nv-color-bg-subtle); }
+    &::-moz-range-progress { height: 5px; border-radius: 999px; background: var(--nv-color-accent); }
+    &::-moz-range-thumb { width: 18px; height: 18px; border: 2px solid var(--nv-color-border-strong); border-radius: 50%; background: var(--nv-color-accent); box-shadow: 2px 2px 0 var(--nv-shadow-color); }
+    &:focus-visible { outline: 2px solid var(--nv-color-accent); outline-offset: 3px; border-radius: 6px; }
+    &:disabled { cursor: not-allowed; }
+  }
+  .bounds { display: flex; justify-content: space-between; gap: 8px; color: var(--nv-color-text-secondary); font-size: 10px; }
+  .hint { margin: 8px 0 0; color: var(--nv-color-text-secondary); font-size: 12px; line-height: 1.5; }
+}

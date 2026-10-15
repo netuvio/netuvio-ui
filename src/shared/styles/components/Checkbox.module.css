@@ -42,7 +42,7 @@
   display: grid;
   place-content: center;
   border: 2px solid var(--nv-color-border-strong, #1c1e16);
-  border-radius: var(--nv-radius-sm, 4px);
+  border-radius: var(--nv-radius-sm, 6px);
   background: var(--nv-color-container, #ffffff);
   box-shadow: 2px 2px 0 var(--nv-color-border-strong, #1c1e16);
   transition: transform var(--nv-transition-fast, 0.15s ease),
