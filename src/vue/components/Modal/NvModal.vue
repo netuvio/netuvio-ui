@@ -80,7 +80,11 @@ onBeforeUnmount(() => { disposed = true; lifecycle++; dialog.value?.close(); res
         <h2 :id="`${id}-title`">{{ title }}</h2>
         <p v-if="description" :id="`${id}-description`">{{ description }}</p>
       </div>
-      <NvButton type="button" variant="ghost" :three-d="false" :aria-label="closeLabel" @click="close">×</NvButton>
+      <NvButton :class="styles.closeButton" type="button" variant="ghost" :three-d="false" :aria-label="closeLabel" @click="close">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </svg>
+      </NvButton>
     </header>
     <div :class="styles.body"><slot /></div>
     <footer v-if="$slots.footer" :class="styles.footer"><slot name="footer" :close="close" /></footer>
